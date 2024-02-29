@@ -1,0 +1,28 @@
+{% block header %}
+	<a href="index.php?route=profil">Mon profil</a>
+	<a href="">Exercices</a>
+	<a href="">Révisions</a>
+	<a href="">Log out</a>
+{% endblock %}
+
+{% block main %}
+	<h1>Cours</h1>
+
+	{% for course in courses %}
+		<h1>
+			{{ course.title }}
+		</h1>
+		<p>
+			{{ course.description }}
+		</p>
+		{% if course.examples is not empty %}
+			<h4>Exemple(s)</h4>
+			{% for example in course.examples %}
+				<p>
+					-
+					{{ example.description }}
+				</p>
+			{% endfor %}
+		{% endif %}
+	{% endfor %}
+{% endblock %}

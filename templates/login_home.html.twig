@@ -1,0 +1,11 @@
+{% extends "layout.html.twig" %}
+
+
+{% block main %}
+	<h1>A vous de choisir</h1>
+	{% for category in categories %}
+		<a href="index.php?route=choice&cat_id={{ category.id }}">
+			<h1>{{ category.name }}</h1>
+		</a>
+	{% endfor %}
+{% endblock %}

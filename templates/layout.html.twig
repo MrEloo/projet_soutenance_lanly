@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+		<link rel="stylesheet" href="assets/index.css">
+	</head>
+
+	<body>
+		{% if session.connexion != 'autorise'  %}
+			{% block header %}
+				<a href="index.php?route=register">Register</a>
+				<a href="index.php?route=login">login</a>
+				<a href="index.php?route=logout">Logout</a>
+			{% endblock %}
+		{% else %}
+			{% block headerWhenConnected %}
+				<a href="index.php?route=profil">Mon profil</a>
+				<a href="index.php?route=login_home">Home</a>
+				<a href="index.php?route=exercices">Exercices</a>
+				<a href="index.php?route=revision">Révisions</a>
+				<a href="index.php?route=logout">Log out</a>
+			{% endblock %}
+		{% endif %}
+
+		{% block main %}{% endblock %}
+
+		{% block footer %}{% endblock %}
+	</body>
+</html></body></html>

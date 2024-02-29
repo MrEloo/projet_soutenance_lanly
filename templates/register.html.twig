@@ -1,0 +1,66 @@
+{% extends "layout.html.twig" %}
+
+{% block main %}
+	<form class="col mt-5" action="index.php?route=check-register" method="POST">
+		<input type="hidden" name="csrf-token" id="csrf-token" value=" {{ session.csrf_Token }} "/>
+		<fieldset>
+			<label for="username" class="form-label">Nom d'utilisateur</label>
+			<input type="text" id="username" name="username" class="form-control"/>
+		</fieldset>
+		<fieldset>
+			<label for="email" class="form-label">Email</label>
+			<input type="email" id="email" name="email" class="form-control"/>
+		</fieldset>
+		<fieldset>
+			<label for="password" class="form-label">Mot de passe</label>
+			<input type="password" id="password" name="password" class="form-control"/>
+		</fieldset>
+		<fieldset>
+			<label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
+			<input type="password" id="confirmPassword" name="confirmPassword" class="form-control"/>
+		</fieldset>
+		<fieldset>
+			<label for="country" class="form-label">Choisir le pays</label>
+			<select id="country" name="country" class="form-control">
+				<option value="choice">...</option>
+				<option value="france">France</option>
+				<option value="allemagne">Allemagne</option>
+			</select>
+		</fieldset>
+		<fieldset>
+			<label for="language" class="form-label">Choisir la langue</label>
+			<select id="language" name="language" class="form-control">
+				<option value="choice">...</option>
+				<option value="français">Français</option>
+				<option value="allemand">Allemand</option>
+			</select>
+		</fieldset>
+		<fieldset>
+			<label class="form-label">Choisir les raisons d'apprentissage</label>
+			<div>
+				<input type="checkbox" id="reason_voyage" name="reasons[]" value="voyage">
+				<label for="reason_voyage">Voyage</label>
+			</div>
+			<div>
+				<input type="checkbox" id="reason_travail" name="reasons[]" value="travail">
+				<label for="reason_travail">Travail</label>
+			</div>
+			<div>
+				<input type="checkbox" id="reason_culture" name="reasons[]" value="culture">
+				<label for="reason_culture">Culture</label>
+			</div>
+			<!-- Ajoutez d'autres cases à cocher en fonction de vos besoins -->
+		</fieldset>
+		<button type="submit" class="mt-3 btn btn-primary">Inscription</button>
+	</form>
+
+	{% if session.erreur_mdp is not empty %}
+		{{ session.erreur_mdp }}<br>
+	{% endif %}
+
+	{% if session.erreur_remplissage is not empty %}
+		{{ session.erreur_remplissage }}<br>
+	{% endif %}
+
+
+{% endblock %}
