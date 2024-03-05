@@ -14,7 +14,6 @@ class PageController extends AbstractController
         if ($this->isUserOrAdmin()) {
             $gcm = new GlobalCategoryManager();
             $global_categories = $gcm->getAllGlobalCategory();
-            dump($global_categories);
             $this->render("login_home.html.twig", ['categories' => $global_categories]);
         } else {
             $this->render("home.html.twig", []);

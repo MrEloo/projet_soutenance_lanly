@@ -14,6 +14,7 @@ if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = $newTokenManger->generateCSRFToken();
 }
 
+
 $router = new Router();
 
 $router->handleRequest($_GET);

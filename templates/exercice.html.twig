@@ -1,0 +1,26 @@
+{% extends "layout.html.twig" %}
+
+
+{% block main %}
+	<h1>{{ exercice.length  }}</h1>
+	{% for e in exercice %}
+
+		<div class="question">
+			<h3>question
+				{{ loop.index}}</h3>
+			<p>
+				{{ e.question }}
+			</p>
+		</div>
+	{% endfor %}
+	<form>
+		<input type="hidden" name="csrf-token" id="csrf-token" value=" {{ session.csrf_Token }} "/>
+		<input type="hidden" name="course_id" value="{{ exercice[0].course_id }}">
+		<input type="text" name="response" id="response" placeholder="enter your reponse here">
+		{% if exercice|length == 1 %}
+			<button class='lastButton' id="sendButton">next question</button>
+		{% else %}
+			<button id="sendButton">next question</button>
+		{% endif %}
+	</form>
+{% endblock %}

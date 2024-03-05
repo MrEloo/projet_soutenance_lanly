@@ -17,7 +17,6 @@ class CountryManager extends AbstractManager
 
         $country = new Country($country_data['name'], $country_data['nb_people'], $language);
         $country->setId($country_data['id']);
-        dump($country);
         return $country;
     }
     public function getOneCountryById(?int $id): ?Country

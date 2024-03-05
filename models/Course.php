@@ -6,11 +6,16 @@ class Course
 
     private ?int $id = null;
     private array $examples = [];
+    private array $exercices = [];
+    private int $locked;
+    private bool $finished;
 
-    public function __construct(private string $title, private string $description)
+
+    public function __construct(private string $title, private string $description, private GlobalCategory $globalCategory)
     {
         $this->title = $title;
         $this->description = $description;
+        $this->globalCategory = $globalCategory;
     }
 
     /**
@@ -89,6 +94,86 @@ class Course
     public function setExamples($examples)
     {
         $this->examples = $examples;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of exercices
+     */
+    public function getExercices()
+    {
+        return $this->exercices;
+    }
+
+    /**
+     * Set the value of exercices
+     *
+     * @return  self
+     */
+    public function setExercices($exercices)
+    {
+        $this->exercices = $exercices;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of globalCategory
+     */
+    public function getGlobalCategory()
+    {
+        return $this->globalCategory;
+    }
+
+    /**
+     * Set the value of globalCategory
+     *
+     * @return  self
+     */
+    public function setGlobalCategory($globalCategory)
+    {
+        $this->globalCategory = $globalCategory;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of locked
+     */
+    public function getLocked()
+    {
+        return $this->locked;
+    }
+
+    /**
+     * Set the value of locked
+     *
+     * @return  self
+     */
+    public function setLocked($locked)
+    {
+        $this->locked = $locked;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of finished
+     */
+    public function getFinished()
+    {
+        return $this->finished;
+    }
+
+    /**
+     * Set the value of finished
+     *
+     * @return  self
+     */
+    public function setFinished($finished)
+    {
+        $this->finished = $finished;
 
         return $this;
     }

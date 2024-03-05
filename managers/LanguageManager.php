@@ -28,7 +28,6 @@ class LanguageManager extends AbstractManager
         ];
         $selectLanguageByNameQuery->execute($parameters);
         $language_data =  $selectLanguageByNameQuery->fetch(PDO::FETCH_ASSOC);
-        var_dump($language_data);
 
         $language = new Language($language_data['name'], $language_data['drapeau']);
         $language->setId($language_data['id']);

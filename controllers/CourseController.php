@@ -2,6 +2,7 @@
 
 class CourseController extends AbstractController
 {
+    //affiche la liste des catégories d'exercices disponible
     public function showChoice(): void
     {
         if ($this->isUserOrAdmin()) {
@@ -13,6 +14,7 @@ class CourseController extends AbstractController
         }
     }
 
+    //Affiche la liste des cours associés à sa catégorie
     public function showCourse(): void
     {
         if ($this->isUserOrAdmin()) {
@@ -24,8 +26,52 @@ class CourseController extends AbstractController
                 $examples_array = $em->getExamplesFromCourse($course->getId());
                 $course->setExamples($examples_array);
             }
-            dump($courses);
             $this->render("course.html.twig", ['courses' => $courses]);
+        }
+    }
+
+    //Affiche tous les exercices d'une catégorie selon l'utilisateur afin d'afficher les progressions de chacuns
+    public function showExercices(): void
+    {
+        if ($this->isUserOrAdmin()) {
+            $em = new ExerciceManager();
+            $cm = new CourseManager();
+
+
+            $courses = $cm->getAllCourse();
+            foreach ($courses as $course) {
+
+                $userFinishedCourses = $cm->getCourseByUser($_SESSION['user_id'], $course->getId());
+                if (!$userFinishedCourses) {
+                    $cm->addCourseInUsersCourses($_SESSION['user_id'], $course->getId());
+                }
+            }
+
+
+            $userCourses = $cm->getAllCourseFromUser($_SESSION['user_id']);
+
+            foreach ($userCourses as $key => $userCourse) {
+                $exercices = $em->getAllExercicesByCourse($userCourse->getId());
+                $userCourse->setExercices($exercices);
+            }
+            dump($userCourses);
+
+
+            $this->render("exercices.html.twig", ['courses' => $userCourses]);
+        } else {
+            $this->render("home.html.twig", []);
+        }
+    }
+
+    //Affiche la liste de tous les exercices d'un cours
+    public function showExercice(): void
+    {
+        if ($this->isUserOrAdmin()) {
+            $em = new ExerciceManager();
+            $exercice = $em->getAllExercicesByCourse($_GET['course_id']);
+            $this->render("exercice.html.twig", ['exercice' => $exercice]);
+        } else {
+            $this->render("home.html.twig", []);
         }
     }
 }

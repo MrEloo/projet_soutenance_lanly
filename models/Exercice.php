@@ -5,14 +5,18 @@ class Exercice
 {
 
     private ?int $id = null;
+    private Response $response;
+    private ?int $result;
 
-    public function __construct(private string $difficulty, private string $question, private string $correction, private GlobalCategory $globalCategory, private ReasonCategory $reasonCategory)
+    public function __construct(private string $title, private string $difficulty, private string $question, private string $correction_Text, private string $correction, private GlobalCategory $globalCategory, private int $course_id)
     {
+        $this->title = $title;
         $this->difficulty = $difficulty;
         $this->question = $question;
+        $this->correction_Text = $correction_Text;
         $this->correction = $correction;
         $this->globalCategory = $globalCategory;
-        $this->reasonCategory = $reasonCategory;
+        $this->course_id = $course_id;
     }
 
     /**
@@ -115,22 +119,105 @@ class Exercice
         return $this;
     }
 
+
     /**
-     * Get the value of reasonCategory
+     * Get the value of title
      */
-    public function getReasonCategory()
+    public function getTitle()
     {
-        return $this->reasonCategory;
+        return $this->title;
     }
 
     /**
-     * Set the value of reasonCategory
+     * Set the value of title
      *
      * @return  self
      */
-    public function setReasonCategory($reasonCategory)
+    public function setTitle($title)
     {
-        $this->reasonCategory = $reasonCategory;
+        $this->title = $title;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of correction_Text
+     */
+    public function getCorrection_Text()
+    {
+        return $this->correction_Text;
+    }
+
+    /**
+     * Set the value of correction_Text
+     *
+     * @return  self
+     */
+    public function setCorrection_Text($correction_Text)
+    {
+        $this->correction_Text = $correction_Text;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of course_id
+     */
+    public function getCourse_id()
+    {
+        return $this->course_id;
+    }
+
+    /**
+     * Set the value of course_id
+     *
+     * @return  self
+     */
+    public function setCourse_id($course_id)
+    {
+        $this->course_id = $course_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of responses
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * Set the value of responses
+     *
+     * @return  self
+     */
+    public function setResponse($response)
+    {
+        $this->response = $response;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of result
+     */
+    public function getResult()
+    {
+        return $this->result;
+    }
+
+    /**
+     * Set the value of result
+     *
+     * @return  self
+     */
+    public function setResult($result)
+    {
+        $this->result = $result;
 
         return $this;
     }
