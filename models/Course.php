@@ -9,6 +9,7 @@ class Course
     private array $exercices = [];
     private int $locked;
     private bool $finished;
+    private int $language_id;
 
 
     public function __construct(private string $title, private string $description, private GlobalCategory $globalCategory)
@@ -174,6 +175,26 @@ class Course
     public function setFinished($finished)
     {
         $this->finished = $finished;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of language_id
+     */
+    public function getLanguage_id()
+    {
+        return $this->language_id;
+    }
+
+    /**
+     * Set the value of language_id
+     *
+     * @return  self
+     */
+    public function setLanguage_id($language_id)
+    {
+        $this->language_id = $language_id;
 
         return $this;
     }

@@ -38,6 +38,7 @@ class UserManager extends AbstractManager
             $user = new User($user_data['username'], $user_data['email'], $user_data['password'], $country, $language, date('Y-m-d'));
             $user->setPicture($user_data['picture']);
             $user->setId($user_data['id']);
+            $user->setRole($user_data['role']);
 
             $_SESSION['connexion'] = 'autorise';
 
@@ -67,10 +68,61 @@ class UserManager extends AbstractManager
             $user = new User($user_data['username'], $user_data['email'], $user_data['password'], $country, $language, date('Y-m-d'));
             $user->setPicture($user_data['picture']);
             $user->setId($user_data['id']);
+            $user->setRole($user_data['role']);
 
             return $user;
         } else {
             return null;
         }
+    }
+
+    public function getAllUsers(): array
+    {
+        $selectAllUsersQuery = $this->db->prepare('SELECT * FROM users');
+        $selectAllUsersQuery->execute();
+        $users_data = $selectAllUsersQuery->fetchAll(PDO::FETCH_ASSOC);
+
+        $users_array = [];
+
+        $countryManager = new CountryManager();
+        $languageManager = new LanguageManager();
+
+        foreach ($users_data as $user_data) {
+            $country = $countryManager->getOneCountryById($user_data['country_id']);
+            $language = $languageManager->getOneLanguageById($user_data['language_id']);
+            $user = new User($user_data['username'], $user_data['email'], $user_data['password'], $country, $language, date('Y-m-d'));
+            $user->setPicture($user_data['picture']);
+            $user->setId($user_data['id']);
+            $user->setRole($user_data['role']);
+            $users_array[] = $user;
+        }
+
+        return $users_array;
+    }
+
+    public function deleteUser(int $id): void
+    {
+        $deleteUserQuery = $this->db->prepare('DELETE FROM users WHERE id = :id ');
+        $parameters = ['id' => $id];
+        $deleteUserQuery->execute($parameters);
+    }
+
+    public function updateUserRole(string $role, int $id): void
+    {
+        $updateRoleQuery = $this->db->prepare('UPDATE users SET role = :nouveau_role WHERE id = :id');
+        $parameters = ['nouveau_role' => $role, 'id' => $id];
+        $updateRoleQuery->execute($parameters);
+    }
+
+    public function updateUserImage(int $user_id, string $imgSrc): void
+    {
+        $updateImageQuery = $this->db->prepare('UPDATE users SET picture = :picture WHERE id = :user_id');
+
+        $parameters = [
+            'user_id' => $user_id,
+            'picture' => $imgSrc,
+        ];
+
+        $updateImageQuery->execute($parameters);
     }
 }

@@ -2,76 +2,101 @@
 
 class CourseController extends AbstractController
 {
-    //affiche la liste des catégories d'exercices disponible
-    public function showChoice(): void
-    {
-        if ($this->isUserOrAdmin()) {
-            $gcm = new GlobalCategoryManager();
-            $category = $gcm->getOneCatById($_GET['cat_id']);
-            $this->render("choice.html.twig", ['category' => $category]);
-        } else {
-            $this->render("home.html.twig", []);
-        }
-    }
 
     //Affiche la liste des cours associés à sa catégorie
     public function showCourse(): void
     {
         if ($this->isUserOrAdmin()) {
+
+            //initialisation des managers
             $cm = new CourseManager();
-            $courses = $cm->getCoursesByTheirCat($_GET['cat_id']);
             $em = new ExampleManager();
+
+            //recuperation de tous les cours d'une catégorie
+            $courses = $cm->getCoursesByTheirCat($_GET['cat_id'], $_SESSION['user_language']);
+
+
             $examples_array = [];
+
+            //Pour chacun de ses cours, récupération de ses exemples + ajout à l'attribut 
             foreach ($courses as $course) {
-                $examples_array = $em->getExamplesFromCourse($course->getId());
+                $examples_array = $em->getExamplesFromCourse($course->getId(), $_SESSION['user_language']);
                 $course->setExamples($examples_array);
             }
-            $this->render("course.html.twig", ['courses' => $courses]);
+
+            $this->render("courses/course.html.twig", ['courses' => $courses]);
+        } else {
+            $this->render('page/home.html.twig', []);
         }
     }
 
-    //Affiche tous les exercices d'une catégorie selon l'utilisateur afin d'afficher les progressions de chacuns
-    public function showExercices(): void
+    //suppression d'un cours en base de données
+    public function deleteCourse(): void
     {
         if ($this->isUserOrAdmin()) {
-            $em = new ExerciceManager();
-            $cm = new CourseManager();
+            //initialisation des managers
+            $em = new CourseManager();
 
 
-            $courses = $cm->getAllCourse();
-            foreach ($courses as $course) {
+            $em->deleteCourse($_GET['course_id']);
 
-                $userFinishedCourses = $cm->getCourseByUser($_SESSION['user_id'], $course->getId());
-                if (!$userFinishedCourses) {
-                    $cm->addCourseInUsersCourses($_SESSION['user_id'], $course->getId());
-                }
-            }
-
-
-            $userCourses = $cm->getAllCourseFromUser($_SESSION['user_id']);
-
-            foreach ($userCourses as $key => $userCourse) {
-                $exercices = $em->getAllExercicesByCourse($userCourse->getId());
-                $userCourse->setExercices($exercices);
-            }
-            dump($userCourses);
-
-
-            $this->render("exercices.html.twig", ['courses' => $userCourses]);
+            $this->redirect("index.php?route=allCourses");
         } else {
-            $this->render("home.html.twig", []);
+            $this->render("page/home.html.twig", []);
         }
     }
 
-    //Affiche la liste de tous les exercices d'un cours
-    public function showExercice(): void
+    //redirection vers le formulaire d'édition d'un cours
+    public function courseForm(): void
     {
         if ($this->isUserOrAdmin()) {
-            $em = new ExerciceManager();
-            $exercice = $em->getAllExercicesByCourse($_GET['course_id']);
-            $this->render("exercice.html.twig", ['exercice' => $exercice]);
+            $this->render("admin/update/update-course.html.twig", ['course_id' => $_GET['course_id']]);
         } else {
-            $this->render("home.html.twig", []);
+            $this->render("page/home.html.twig", []);
+        }
+    }
+
+    //redirection vers le formulaire d'ajout d'un cours
+    public function courseFormAdd(): void
+    {
+        if ($this->isUserOrAdmin()) {
+            $this->render("admin/add/add-course.html.twig", []);
+        } else {
+            $this->render("page/home.html.twig", []);
+        }
+    }
+
+
+    public function updateCourse(): void
+    {
+        if ($this->isUserOrAdmin()) {
+            if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['category'])) {
+
+                //initalisation des managers
+                $cm = new CourseManager();
+
+                //sécurisation des donnés + update de la base de donnée
+                $cm->updateCourse(htmlspecialchars($_POST['course_id']), htmlspecialchars($_POST['title']), htmlspecialchars($_POST['description']), htmlspecialchars($_POST['category']), $_POST['language']);
+                $this->redirect("index.php?route=allCourses");
+            }
+        } else {
+            $this->render("page/home.html.twig", []);
+        }
+    }
+
+    public function addCourse(): void
+    {
+        if ($this->isUserOrAdmin()) {
+            if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['category'])) {
+                //initalisation des managers
+                $cm = new CourseManager();
+
+                //sécurisation des donnés + update de la base de donnée
+                $cm->addCourse(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['description']), htmlspecialchars($_POST['category']), $_POST['language']);
+                $this->redirect("index.php?route=allCourses");
+            }
+        } else {
+            $this->render("page/home.html.twig", []);
         }
     }
 }

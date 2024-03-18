@@ -19,6 +19,7 @@ class CountryManager extends AbstractManager
         $country->setId($country_data['id']);
         return $country;
     }
+    
     public function getOneCountryById(?int $id): ?Country
     {
         $selectCountryByIdQuery = $this->db->prepare('SELECT * from contries WHERE id = :id');

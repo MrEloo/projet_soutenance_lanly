@@ -5,10 +5,9 @@ class Reason
 {
     private ?int $id = null;
 
-    public function __construct(private string $name, private ReasonCategory $reasonCategory)
+    public function __construct(private string $name)
     {
         $this->name = $name;
-        $this->$reasonCategory = $reasonCategory;
     }
 
     /**
@@ -47,26 +46,6 @@ class Reason
     public function setName($name)
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of reasonCategory
-     */
-    public function getReasonCategory()
-    {
-        return $this->reasonCategory;
-    }
-
-    /**
-     * Set the value of reasonCategory
-     *
-     * @return  self
-     */
-    public function setReasonCategory($reasonCategory)
-    {
-        $this->reasonCategory = $reasonCategory;
 
         return $this;
     }

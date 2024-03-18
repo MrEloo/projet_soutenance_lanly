@@ -1,0 +1,31 @@
+{% extends "layout.html.twig" %}
+
+{% block mypage %}
+	<main>
+		<div class="container p-4">
+			<h1>Courses</h1>
+			<a href="index.php?route=administration">
+				<button class='admin_retour_button'>RETOUR</button>
+			</a>
+
+			<!-- Bouton Ajouter un cours -->
+			<a href="index.php?route=create_language" class="btn btn-success mb-3">Ajouter une langue</a>
+
+			{% for language in languages %}
+				<div class="card mb-4">
+					<div class="card-body">
+						<h2 class="card-title">
+							<strong>Name :</strong>
+							{{ language.name }}</h2>
+						<img
+						src="{{ language.drapeau }}" alt="">
+
+
+						<!-- Bouton Supprimer -->
+						<a href="index.php?route=delete_language&lan_id={{language.id}}" class="btn btn-danger btn-sm">Supprimer</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</main>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "layout.html.twig" %}
+
+{% block main %}
+	<main>
+		<form class='form_admin' action="index.php?route=add_exercice" method="post">
+			<input type="hidden" class="form-control" id="exercice_id" name="exercice_id" value="">
+
+			<div class="form-group">
+				<label for="title">Titre :</label>
+				<input type="text" class="form-control" id="title" name="title" value="">
+			</div>
+
+			<div class="form-group">
+				<label for="difficulty">Difficulté :</label>
+				<input type="text" class="form-control" id="difficulty" name="difficulty" value="">
+			</div>
+
+			<div class="form-group">
+				<label for="question">Question :</label>
+				<textarea class="form-control" id="question" name="question"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="correction_text">Correction Texte :</label>
+				<textarea class="form-control" id="correction_text" name="correction_text"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="correction_word">Correction Mot :</label>
+				<input type="text" class="form-control" id="correction_word" name="correction_word" value="">
+			</div>
+
+			<div class="form-group">
+				<label for="global_category_id">Catégorie Globale :</label>
+				<select class="form-control" id="global_category_id" name="global_category_id">
+					<option value="1">Grammaire</option>
+					<option value="2">Vocabulaire</option>
+					<option value="3">Orthographe</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="course_id">Course :</label>
+				<select class="form-control" id="course_id" name="course_id">
+					<option value="1">Les articles définis et indéfinis
+					</option>
+					<option value="2">L'accord des adjectifs
+					</option>
+					<option value="3">Les prépositions de lieu</option>
+					<option value="4">Les animaux
+					</option>
+					<option value="5">La nature et l'environnement
+					</option>
+					<option value="6">Les règles d'accord du participe passé</option>
+					<option value="7">Les homophones</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="language">Language</label>
+				<select class="form-control" id="language" name="language">
+					<option value="1">français</option>
+					<option value="2">allemand</option>
+					<option value="3">italien</option>
+					<option value="4">espagnol</option>
+					<option value="5">anglais</option>
+				</select>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Ajouter</button>
+		</form>
+	</main>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layout.html.twig" %}
+
+
+{# {% block main %}
+	<section class="title_login_home_mobile">
+		<h2>A vous de choisir</h2>
+	</section>
+	<section class="login_home_mobile">
+		{% for category in categories %}
+			<a href="index.php?route=choice&cat_id={{ category.id }}">
+				<button>{{ category.name }}</button>
+			</a>
+		{% endfor %}
+	</section>
+{% endblock %}
+
+{% extends "layout.html.twig" %} #}
+
+{% block main %}
+	<main>
+		<section class="title_login_home_mobile">
+			<h2>A vous de choisir</h2>
+		</section>
+		<section class="login_home_mobile">
+			{% for category in categories %}
+				<a href="index.php?route=choice&cat_id={{ category.id }}" style="text-decoration: none; color: inherit;">
+
+					<div class="progress_container reveal-1">
+						<div class="progress_bar {% if (category.progression < 50) %}less{% endif %}" style="--i:{{category.progression}};--clr:#FA8F21;">
+							<h4>{{category.name}}
+							</h4>
+
+						</div>
+					</div>
+
+				</a>
+			{% endfor %}
+		</section>
+	</main>
+{% endblock %}

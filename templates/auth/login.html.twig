@@ -1,0 +1,43 @@
+{% extends "layout.html.twig" %}
+
+{% block main %}
+	<main class='main_login_mobile'>
+		<section class="login_title_mobile">
+			<h2>Connectez-vous pour prendre part à l'aventure !</h2>
+		</section>
+		<section class="login_mobile">
+			<form action="index.php?route=check-login" method="post">
+				<input type="hidden" name="csrf-token" id="csrf-token" value=" {{ session.csrf_Token }} "/>
+				<fieldset>
+					<label for="email" class="form-label">Nom d'utilisateur</label>
+					<input type="text" id="email" name="email" class="form-control"/>
+				</fieldset>
+				<fieldset>
+					<label for="password" class="form-label">Mot de passe</label>
+					<input type="password" id="password" name="password" class="form-control"/>
+				</fieldset>
+				<button type="submit" class="">Login</button>
+			</form>
+			<a href="index.php?route=register">Vous n'avez pas de compte ? Inscrivez-vous ici !</a>
+			{% if session.erreur_hash is not empty %}
+				<p>
+					<i class="fa-solid fa-triangle-exclamation"></i>
+					{{ session.erreur_hash }}</p><br>
+			{% endif %}
+
+			{% if session.erreur_mail is not empty %}
+				<p>
+					<i class="fa-solid fa-triangle-exclamation"></i>
+					{{ session.erreur_mail }}</p><br>
+			{% endif %}
+
+			{% if session.erreur_remplissage is not empty %}
+				<p>
+					<i class="fa-solid fa-triangle-exclamation"></i>
+					{{session.erreur_remplissage}}</p><br>
+			{% endif %}
+		</section>
+	</main>
+
+
+{% endblock %}

@@ -1,7 +1,2951 @@
-.active {
-    display: block;
+@media only screen and (min-width: 390px) and (max-width: 1280px) {
+    .active {
+        display: block;
+    }
+
+    .not_active {
+        display: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    h2 {
+        font-weight: bold !important;
+    }
+
+    h3 {
+        font-weight: bold !important;
+    }
+
+    h4 {
+        font-weight: bold !important;
+    }
+
+    a:hover {
+        text-decoration: none !important;
+        color: inherit !important;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-size: 62.5%;
+
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        max-width: 100vw;
+        position: relative;
+        min-height: 100vh;
+        min-width: 321px;
+        font-family: "Nunito Sans", sans-serif !important;
+    }
+
+
+
+    /*****************************
+    //HEADER LAYOUT NON CONNECTE
+    ******************************/
+    .header_mobile {
+        background-color: #131F31;
+        color: #D9D9D9;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 3em;
+
+    }
+
+    .logo_header_mobile {
+        max-width: 30% !important;
+    }
+
+    .header_mobile h1 {
+        font-size: 9rem;
+    }
+
+    .header_mobile a {
+        max-width: 40%;
+    }
+
+    .header_mobile a img {
+        max-width: 100%;
+        padding: 2em;
+        border-radius: 5em;
+    }
+
+    .menu_burger {
+        display: flex;
+        flex-direction: column;
+        width: 10rem;
+        cursor: pointer;
+    }
+
+    .menu_list {
+        list-style: none;
+        padding: 1em;
+        margin: 2rem;
+        font-size: 3rem;
+
+    }
+
+    .menu_list li {
+        padding: 1em;
+        text-align: center;
+    }
+
+    .menu_burger div {
+        background-color: white;
+        width: 7rem;
+        margin: 0.4rem;
+        height: 1.4rem;
+    }
+
+    .flag_language {
+        display: block;
+        margin: 0 auto;
+        padding: 1em;
+        max-width: 60%;
+        border-radius: 1.5em;
+    }
+
+    .dropdown_items {
+        display: none;
+    }
+
+    /*****************************
+    //MAIN HOME NON CONNECTE
+    ******************************/
+
+    button a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .first_text_main_mobile {
+        background-color: #080E16;
+        padding: 4em 4em 4em 0;
+    }
+
+    .first_text_main_mobile h2 {
+        font-size: 3.8rem;
+        margin: 0 auto;
+        color: #D9D9D9;
+    }
+
+    .text_container {
+        display: flex;
+        flex-direction: column;
+        max-width: 80%;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0 auto;
+        padding: 2em;
+    }
+
+    .first_text_main_mobile button {
+        padding: 1em 3em 1em 3em;
+        margin: 5rem 0 5rem 0;
+        border: none;
+        border-radius: 3em;
+        background-color: #FA8F21;
+        color: #080E16;
+        font-size: 3rem;
+        transform: scale(1.00);
+        transition: all 0.6s ease;
+        box-shadow: 1px 5px 10px rgba(250, 143, 33, 0.7);
+    }
+
+    .first_text_main_mobile button:hover {
+        transform: scale(1.05);
+        background-color: #131F31;
+        color: #D9D9D9;
+        transition: all 0.71s ease;
+    }
+
+    .first_text_main_mobile p {
+        padding-top: 2em;
+        color: #D9D9D9;
+        font-size: 3rem;
+        margin: 0 auto;
+    }
+
+    .swiper_desktop {
+        display: none;
+    }
+
+    .swiper {
+        margin-top: 10rem;
+        width: 80%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 70%;
+        height: 70%;
+        /* Vous pouvez ajuster la valeur selon vos besoins */
+        object-fit: cover;
+        margin: auto;
+        border-radius: 1em;
+    }
+
+    .slider-wrapper {
+        width: 100%;
+    }
+
+    .slider_contry_mobile button {
+        border-radius: 4em;
+        background-color: #080E16;
+        display: block;
+        border: none;
+        box-shadow: 1px 5px 10px #080E16;
+        margin: 5rem auto;
+        padding: 1em;
+        color: white;
+        font-size: 3rem;
+    }
+
+    .slider_contry_mobile button:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+    }
+
+    .slider_contry_mobile {
+        background-image: url('../images/terre.png');
+        background-position: center center;
+        background-size: cover;
+        margin: 0;
+        padding: 4em;
+    }
+
+    .swiper-button-prev {
+        left: 0 !important;
+    }
+
+    .swiper-button-next {
+        right: 0 !important;
+    }
+
+    .editor_section_mobile {
+        padding: 1em;
+        background-color: #080E16;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .editor_section_mobile img {
+        max-width: 45%;
+    }
+
+    .text_container_last_paragraphe {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        max-width: 80%;
+        margin: 0 auto;
+        padding: 2em;
+    }
+
+    .last_text_main_mobile {
+        background-color: #131F31;
+        padding: 4em;
+    }
+
+    .last_text_main_mobile h2 {
+        font-size: 3.8rem;
+        margin: 0 auto;
+        color: #D9D9D9;
+    }
+
+    .last_text_main_mobile p {
+        padding-top: 2em;
+        color: #D9D9D9;
+        font-size: 3rem;
+        margin: 0 auto;
+    }
+
+    /*****************************
+    //FOOTER
+    ******************************/
+    .footer {
+        background-color: #080E16;
+        color: white;
+        font-size: 3rem;
+        padding: 2em;
+    }
+
+    .footer a {
+        color: white;
+        text-decoration: none;
+        margin: 1rem;
+        text-align: center;
+    }
+
+    .footer i {
+        margin: 2rem;
+    }
+
+    .icons_footer_mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text_footer_mobile {
+        font-size: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    /*****************************
+    //REGISTER MOBILE
+    ******************************/
+
+    .register_title_mobile {
+        background-color: #080E16;
+        color: #D9D9D9;
+
+        text-align: center;
+    }
+
+    .register_title_mobile h2 {
+        margin: 0;
+        padding: 1em;
+        font-size: 3rem;
+        color: #FA8F21;
+    }
+
+    .register_mobile {
+        background-color: #131F31;
+        font-size: 4em;
+    }
+
+    .register_mobile form {
+        color: #D9D9D9;
+        padding: 2em;
+    }
+
+    .register_mobile form p {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .register_mobile form a {
+        display: block;
+        text-decoration: none;
+        text-decoration: underline;
+        color: inherit;
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .register_mobile form fieldset {
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+        border-bottom: 1px solid #FA8F21;
+    }
+
+    .register_mobile form fieldset input {
+        font-size: 2.5rem;
+        padding: 1.5em;
+        border: none;
+        border-radius: 0.4em;
+        background-color: #696E76;
+        width: 90%;
+        margin: 1rem;
+    }
+
+    .register_mobile form fieldset label {
+        text-align: center;
+        font-size: 0.6em;
+    }
+
+    .register_mobile form fieldset select {
+        width: 90%;
+        padding: 1em;
+        margin: 1rem;
+        text-align: left;
+        font-size: 3rem;
+        border-radius: 0.4em;
+    }
+
+    .register_mobile button {
+        padding: 1em;
+        background-color: #FA8F21;
+        color: #080E16;
+        border-radius: 0.4em;
+        display: block;
+        margin: 4rem auto;
+        font-size: 3rem;
+    }
+
+    .register_mobile button:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+    }
+
+    .form-label {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-label fieldset {
+        border: none !important;
+        width: 45%;
+
+    }
+
+    .flex_form_label {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    input[type="checkbox"] {
+        appearance: none;
+        cursor: pointer;
+        padding: 0.3em;
+        width: 10% !important;
+        /* Inclure le padding et la bordure dans la largeur */
+    }
+
+    input[type="checkbox"]:checked {
+        background-color: #FA8F21 !important;
+        /* Ajoutez les styles spécifiques pour la checkbox cochée ici */
+    }
+
+    /*****************************
+    //LOGIN MOBILE
+    ******************************/
+
+
+    .login_mobile {
+        background-color: #131F31;
+        font-size: 4em;
+    }
+
+    .login_title_mobile {
+        background-color: #080E16;
+        color: #D9D9D9;
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .login_title_mobile h2 {
+        margin: 0;
+        padding: 2em;
+        font-size: 3rem;
+        color: #FA8F21;
+    }
+
+    .login_mobile form {
+        color: #D9D9D9;
+        padding: 2em;
+    }
+
+    .login_mobile form fieldset {
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2em;
+        border-bottom: 1px solid #FA8F21;
+    }
+
+    .login_mobile button {
+        padding: 1em 3em 1em 3em;
+        background-color: #696E76;
+        color: #D9D9D9;
+        border-radius: 0.4em;
+        display: block;
+        margin: 4rem auto;
+        font-size: 2rem;
+    }
+
+    .login_mobile button {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+    }
+
+    .login_mobile form fieldset input {
+        font-size: 3rem;
+        padding: 1em;
+        border: none;
+        border-radius: 0.4em;
+        background-color: #696E76;
+        width: 90%;
+        margin: 1rem;
+    }
+
+    .login_mobile a {
+        display: block;
+        text-decoration: none;
+        text-decoration: underline;
+        color: #D9D9D9;
+        text-align: center;
+        font-size: 3rem;
+        padding: 3em;
+    }
+
+    .login_mobile p {
+        color: #D9D9D9;
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    /*****************************
+    //LOGIN HOME MOBILE
+    ******************************/
+
+    .title_login_home_mobile {
+        background-color: #080E16;
+    }
+
+    .title_login_home_mobile h2 {
+        margin: 0;
+        padding: 2em;
+        font-size: 2rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+    .login_home_mobile {
+        background-color: #131F31;
+        padding: 6em;
+    }
+
+    .login_home_mobile a button {
+        display: flex;
+        display: block;
+        margin: 3rem auto;
+        padding: 1em;
+        width: 70%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 5rem;
+        background-color: black;
+        border-radius: 3em;
+        color: #D9D9D9;
+        border: none;
+    }
+
+    .login_home_mobile a button:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+    }
+
+    .login_home_mobile a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .progress_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+    }
+
+    .progress_bar {
+        position: relative;
+        width: 25rem;
+        height: 25rem;
+        border-radius: 50%;
+        color: white;
+        background: black linear-gradient(to right, transparent 50%, var(--clr) 0);
+        transition: all 0.5s ease;
+    }
+
+    .progress_bar:hover {
+        transform: scale(1.05);
+        transition: all 0.5s ease;
+        color: #FA8F21;
+    }
+
+    .progress_bar h4 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        text-align: center;
+        z-index: 1;
+        font-weight: bold;
+
+    }
+
+    .progress_bar::before {
+        content: '';
+        display: block;
+        height: 100%;
+        margin-left: 50%;
+        transform-origin: left;
+        border-radius: 0 100% 100% 0/50%;
+    }
+
+    .progress_bar::after {
+        content: '';
+        position: absolute;
+        inset: 10px;
+        border-radius: 100%;
+        background: #131F31;
+    }
+
+    .progress_bar::before {
+        background: var(--clr);
+        transform: rotate(calc(((var(--i) - 50) * 0.01turn)));
+    }
+
+    .progress_bar.less::before {
+        background: #080E16;
+        transform: rotate(calc(((var(--i) - 0) * 0.01turn)));
+    }
+
+    /*****************************
+    //CHOICE MOBILE
+    ******************************/
+
+    .title_choice_mobile {
+        background-color: #080E16;
+    }
+
+    .title_choice_mobile h1 {
+        margin: 0;
+        padding: 3em;
+        font-size: 5rem;
+        text-align: center;
+        color: #D9D9D9;
+    }
+
+    .choice_mobile {
+        background-color: #131F31;
+        padding: 6em;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .progress_choice_mobile {
+        display: block;
+        margin: 6rem auto;
+        width: 70%;
+        padding: 1em;
+        font-size: 3rem;
+        accent-color: #FA8F21;
+    }
+
+    .choice_mobile a button {
+        display: flex;
+        display: block;
+        margin: 3rem auto;
+        padding: 1em;
+        width: 50%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 5rem;
+        background-color: black;
+        border-radius: 3em;
+        color: #D9D9D9;
+        border: none;
+    }
+
+    .choice_mobile button:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+    }
+
+    .choice_mobile a i {
+        color: #FA8F21;
+        font-size: 7rem;
+    }
+
+    .choice_mobile a {
+        color: inherit;
+        text-decoration: none;
+        padding: 1em;
+    }
+
+    /*****************************
+    //COURSE MOBILE
+    ******************************/
+
+    .title_course_mobile {
+        background-color: #080E16;
+    }
+
+    .title_course_mobile h1 {
+        margin: 0;
+        padding: 2em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+    .course_mobile {
+        background-color: #131F31;
+        padding: 5em;
+    }
+
+    .course_mobile h2 {
+        text-align: center;
+        color: #FA8F21;
+        font-size: 4rem;
+        padding: 1em;
+        margin: 0;
+    }
+
+    .course_mobile p {
+        font-size: 3em;
+        color: #D9D9D9;
+    }
+
+    .course_mobile h3 {
+        font-size: 4em;
+        color: #1f9c5a;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    .course_mobile a i {
+        color: #FA8F21;
+        font-size: 7rem;
+    }
+
+    .course_mobile a {
+        color: inherit;
+        text-decoration: none;
+        margin: 0;
+    }
+
+    .course_mobile a button {
+        display: block;
+        padding: 1em;
+        font-size: 3rem;
+        background-color: black;
+        border-radius: 3em;
+        color: #D9D9D9;
+        border: none;
+        margin: 5rem auto;
+    }
+
+    .course_mobile a button:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+    }
+
+
+
+    /*****************************
+    //EXERCICE MOBILE
+    ******************************/
+
+
+
+    .title_exercice_mobile {
+        background-color: #080E16;
+    }
+
+    .title_exercice_mobile h1 {
+        margin: 0;
+        padding: 2em 2em 0 2em;
+        font-size: 3rem;
+        text-align: center;
+        color: #D9D9D9;
+    }
+
+    .title_exercice_mobile h2 {
+        margin: 0;
+        color: #FA8F21;
+        text-align: center;
+        font-size: 3rem;
+        padding: 0em 3em 3em 3em;
+    }
+
+    .exercice_mobile {
+        background-color: #131F31;
+        padding: 5em;
+    }
+
+    .exercice_mobile h3 {
+        text-align: center;
+        color: #D9D9D9;
+        font-size: 4rem;
+    }
+
+    .lock {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .exercice_mobile a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        padding: 1em;
+        font-size: 3em;
+    }
+
+    .exercice_mobile a i {
+        display: flex;
+        justify-content: flex-start;
+        text-align: left;
+        color: #FA8F21;
+        font-size: 7rem;
+    }
+
+    .exercice_mobile button {
+        display: block;
+        margin: 3rem auto;
+        padding: 1em;
+        width: 70%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 3.5rem;
+        background-color: black;
+        border-radius: 3em;
+        color: #D9D9D9;
+        border: none;
+    }
+
+    .form_exercice {
+        font-size: 3rem;
+    }
+
+    /*****************************
+    //RESULTAT MOBILE
+    ******************************/
+
+    .title_resultat_mobile {
+        background-color: #131F31;
+        padding: 5em;
+    }
+
+    .title_resultat_mobile h1 {
+        margin: 0;
+        padding: 2em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+    .resultat_mobile {
+        background-color: #131F31;
+    }
+
+    .resultat_mobile h2 {
+        margin-left: 10rem;
+        text-align: left;
+        color: #D9D9D9;
+        font-size: 3.5rem;
+        margin: 0;
+        padding: 2em;
+    }
+
+    .resultat_mobile h3 {
+        margin-left: 10rem;
+        text-align: left;
+        color: #1f9c5a;
+        font-size: 4rem;
+    }
+
+    .resultat_mobile p {
+        margin-left: 10rem;
+        text-align: left;
+        color: #D9D9D9;
+        font-size: 3.5rem;
+    }
+
+    .reponse {
+        color: #c3093b !important;
+    }
+
+    .response_word {
+        color: #FA8F21 !important;
+    }
+
+    .resultat_mobile a button {
+        margin: 5rem;
+        display: block;
+        padding: 1em;
+        font-size: 4rem;
+        background-color: black;
+        border-radius: 3em;
+        color: #D9D9D9;
+        border: none;
+    }
+
+    .button_resultat_mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .button_resultat_mobile a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /*****************************
+    //QUESTION EXO MOBILE
+    ******************************/
+
+
+
+    .title_question_exercice_mobile {
+        background-color: #080E16;
+        padding: 2em;
+    }
+
+    .title_question_exercice_mobile h1 {
+        margin: 0;
+        padding: 1em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+    .question_exercice_mobile {
+        background-color: #131F31;
+    }
+
+    .question_exercice_mobile h2 {
+        text-align: center;
+        color: #FA8F21;
+        font-size: 3.5rem;
+        margin: 0;
+        padding: 1em;
+    }
+
+    .question_exercice_mobile p {
+        text-align: center;
+        color: #D9D9D9;
+        font-size: 3rem;
+        margin: 0;
+        padding: 1em;
+    }
+
+    .question_exercice_mobile img {
+        display: block;
+        margin: 0 auto;
+        padding: 3rem 4em 3em 4em;
+    }
+
+    .form_question_exercice_mobile {
+        background-color: #131F31;
+    }
+
+    .form_question_exercice_mobile form input {
+        padding: 0.5em;
+        margin: 1rem;
+        border-radius: 3em;
+    }
+
+    .form_question_exercice_mobile form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+    }
+
+    #sendButton {
+        border: none;
+        padding: 1em;
+        margin: 1rem;
+        border-radius: 2em;
+        background-color: #080E16;
+        color: #D9D9D9;
+    }
+
+
+
+    /*****************************
+    /// MODALE MOBILE
+    ******************************/
+
+    #close-modale {
+        position: absolute;
+        top: 5rem;
+        right: 5rem;
+        font-size: 3rem !important;
+        cursor: pointer;
+        transition: all 0.71s ease;
+    }
+
+    #close-modale:hover {
+        transform: scale(1.05);
+        color: #FA8F21;
+        transition: all 0.71s ease;
+    }
+
+    .modale_burger_mobile {
+        background-color: #080E16;
+        position: absolute;
+        top: 20rem;
+        width: 80%;
+        border-radius: 3em;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 2s ease;
+        opacity: 0;
+    }
+
+    .modale_burger_mobile_visible {
+        background-color: #080E16;
+        position: absolute;
+        top: 20rem;
+        width: 80%;
+        border-radius: 3em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 2s;
+        z-index: 2;
+        opacity: 1;
+    }
+
+    .modale_burger_mobile a {
+        width: 100%;
+        text-decoration: none;
+        color: #D9D9D9;
+    }
+
+    .modale_burger_mobile_visible a {
+        width: 100%;
+        text-decoration: none;
+        color: #D9D9D9;
+        font-weight: bold;
+    }
+
+    .modale_burger_mobile a p {
+        padding: 1em;
+        margin: 3rem;
+        font-size: 2rem;
+        text-align: center;
+        border-radius: 1em;
+        text-decoration: none;
+    }
+
+
+    .modale_burger_mobile_visible a p {
+        padding: 1em;
+        margin: 3rem;
+        font-size: 3.75rem;
+        text-align: center;
+        border-radius: 1em;
+
+    }
+
+    .modale_burger_mobile_visible a p:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+        border-radius: 1em;
+        text-decoration: none;
+
+    }
+
+    .modale_burger_mobile a:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+        border-radius: 1em;
+    }
+
+    .overlay {
+        position: absolute;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 2;
+        display: none;
+        transition: all 0.71s;
+        opacity: 0;
+
+    }
+
+    .overlay_visible {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 2;
+        display: visible;
+        transition: all 0.71s;
+        opacity: 1;
+    }
+
+    /*****************************
+    /// ADMINISTRATION MOBILE
+    ******************************/
+
+    .container {
+        font-size: 3rem;
+        margin: 5rem;
+    }
+
+    .container a {
+        font-size: 2rem;
+    }
+
+
+    .container h1 {
+        font-size: 5rem;
+        padding: 2em;
+    }
+
+    .container a {
+        padding: 1em;
+    }
+
+
+    /*****************************
+    /// PROFIL MOBILE
+    ******************************/
+
+
+
+    .title_profil_mobile {
+        background-color: #080E16;
+
+    }
+
+    .title_profil_mobile h1 {
+        margin: 0;
+        padding: 2em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+    .profil_mobile {
+        background-color: #131F31;
+        color: #D9D9D9;
+    }
+
+
+    .profil_global {
+        color: #D9D9D9;
+        font-weight: bold;
+        font-size: 3.5rem;
+        padding: 1em;
+        margin: 0;
+        border-top: solid 1px #FA8F21;
+    }
+
+    .profil_user {
+        color: #D9D9D9;
+        font-size: 3rem;
+        padding: 1em;
+        margin: 0;
+        margin-left: 4rem;
+
+    }
+
+    .profil_mobile img {
+        max-width: 40%;
+        display: block;
+        margin: 0 auto;
+        border-radius: 4em;
+        padding: 2em;
+    }
+
+    .image_profil {
+        max-width: 20% !important;
+    }
+
+
+    .image_uploader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2em;
+    }
+
+    .native {
+        text-align: center;
+        padding: 0;
+        margin: 0rem auto;
+    }
+
+    .desired {
+        text-align: center;
+        padding: 0;
+        margin: 0rem auto;
+    }
+
+    .image_uploader label {
+        padding: 2em;
+        background-color: #FA8F21;
+        border-radius: 1em;
+        color: #080E16;
+        font-weight: bolder;
+        transition: all 0.5s ease;
+    }
+
+    .image_uploader label:hover {
+        transform: scale(1.05);
+        transition: all 0.5s ease;
+        color: #131F31;
+    }
+
+    .image_uploader input {
+        display: none;
+    }
+
+    .image_uploader form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button_send_image {
+        border: none;
+        padding: 1em;
+        border-radius: 1em;
+        background-color: #080E16;
+        color: #D9D9D9;
+        display: none;
+    }
+
+    .button_send_image_visible {
+        border: none;
+        padding: 1em;
+        border-radius: 1em;
+        background-color: #080E16;
+        color: #D9D9D9;
+    }
+
+    /*****************************
+    /// ADMIN FORM MOBILE
+    ******************************/
+
+    .form_admin {
+        font-size: 4rem;
+        background-color: #D9D9D9;
+    }
+
+    .form_admin textarea {
+        font-size: 3rem;
+        padding: 3em;
+    }
+
+    .form_admin select {
+        font-size: 3rem;
+        padding: 3em;
+    }
+
+    .form_admin button {
+        display: block;
+        margin: 0rem auto;
+        padding: 3em;
+        font-size: 2rem;
+        border-radius: 1em;
+    }
+
+    .admin_menu a {
+        font-size: 7rem
+    }
+
+    /*****************************
+    /// CHOSEN LANGUAGE MOBILE
+    ******************************/
+
+    .main_chosen_language_mobile {
+        background-color: #080E16;
+
+    }
+
+    .main_chosen_language_mobile h1 {
+        padding: 3em;
+        font-size: 5rem;
+        text-align: center;
+        color: #D9D9D9;
+        background-color: #131F31;
+    }
+
+    .flag_chosen_language_espagnol {
+        max-width: 45%;
+        display: block;
+        margin: 0 auto;
+        padding: 10rem;
+    }
+
+
+
+    .monument_chosen_language {
+        max-width: 60%;
+        display: block;
+        padding: 3em;
+        margin: 0 auto;
+    }
+
+    .flag_chosen_language {
+        max-width: 70%;
+        display: block;
+        margin: 0 auto;
+        padding: 10em;
+    }
+
+    .flex_monument_chosen_language_mobile {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .button_flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .button_flex a {
+        margin: 1.3rem;
+    }
+
+    .button_chosen_language_mobile a button {
+        display: block;
+        padding: 1em;
+        font-size: 4rem;
+        background-color: black;
+        border-radius: 3em;
+        color: #D9D9D9;
+        border: none;
+        margin: 2rem auto;
+        box-shadow: 1px 5px 10px 0px #080E16;
+
+
+    }
+
+    .button_color_change {
+        background-color: #fa8d219f !important;
+    }
+
+    .button_chosen_language_mobile a button:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+        border-radius: 1em;
+        text-decoration: none;
+
+    }
+
+
+    .button_chosen_language_mobile {
+        background-color: #131F31;
+        padding: 3em;
+    }
+
+
+
+    /*****************************
+    /// ABOUT PAGE MOBILE
+    ******************************/
+
+    .about_section_mobile {
+        padding: 2em;
+        background-color: #131F31;
+    }
+
+    .about_section_mobile p {
+        text-align: center;
+        color: #D9D9D9;
+        font-size: 2.5rem;
+        margin: 0;
+        padding: 1em;
+    }
+
+    .title_about_section_mobile {
+        background-color: #080E16;
+    }
+
+    .title_about_section_mobile h2 {
+        padding: 2em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+        margin: 0;
+    }
+
+    .about_section_mobile img {
+        display: block;
+        margin: 0 auto;
+        max-width: 30%;
+        padding: 2em;
+    }
+
+    /*****************************
+    /// OTHER 
+    ******************************/
+
+    .title_header_desktop {
+        display: none;
+    }
+
+    .editor_play_desktop {
+        display: none;
+    }
+
+    .full_earth_dektop {
+        display: none;
+    }
+
+    .button_last_paragraphe_dektop {
+        display: none;
+    }
+
+    .slider_desktop {
+        display: none;
+    }
 }
 
-.not_active {
-    display: none;
+@media only screen and (min-width: 1280px) {
+
+
+    .active {
+        display: block;
+    }
+
+    .not_active {
+        display: none;
+    }
+
+    s a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    a:visited {
+        color: inherit;
+    }
+
+    a:hover {
+        text-decoration: none !important;
+        color: inherit !important;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-size: 62.5%;
+
+    }
+
+    h2 {
+        font-weight: bold !important;
+    }
+
+    h3 {
+        font-weight: bold !important;
+    }
+
+    h4 {
+        font-weight: bold !important;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        position: relative;
+        min-height: 100vh;
+        min-width: 321px;
+        font-family: "Nunito Sans", sans-serif !important;
+    }
+
+
+
+    /*****************************
+    //HEADER LAYOUT NON CONNECTE DESKTOP
+    ******************************/
+
+
+    #close-modale {
+        display: none;
+    }
+
+    .title_header_desktop {
+        color: #D9D9D9;
+    }
+
+    .header_mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #080E16;
+    }
+
+    .first_text_main_mobile button:hover,
+    .last_text_main_mobile button:hover {
+        transform: scale(1.05);
+        background-color: #131F31;
+        color: #D9D9D9;
+        transition: all 0.71s ease;
+    }
+
+    .flag_language {
+        max-width: 100%;
+        max-height: 10rem;
+        padding: 1em;
+        border-radius: 2em;
+        transition: all 0.6s ease;
+    }
+
+    .flag_language:hover {
+        transform: scale(1.06);
+        transition: all 0.6S ease;
+    }
+
+
+    .menu_list {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .header_mobile h1 {
+        font-size: 5rem;
+        font-family: "Whisper", cursive;
+    }
+
+    .header_mobile>a {
+        width: 10%;
+        padding: 2em;
+    }
+
+    #header_mobile_logo {
+        width: 100%;
+        border-radius: 1.3em;
+    }
+
+    .modale_burger_mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .modale_burger_mobile a {
+        width: 100%;
+        padding: 1em;
+        font-size: 2em;
+        color: #D9D9D9;
+        transition: all 0.71s ease !important;
+    }
+
+
+    .modale_burger_mobile a:hover {
+        color: #FA8F21 !important;
+        background-color: #080E16;
+        transform: scale(1.05);
+        transition: all 0.71s ease !important;
+    }
+
+
+
+
+
+
+
+
+    .dropdown_container {
+        position: relative;
+        transition: all 0.3s ease;
+        /* Ajout de la transition ici */
+    }
+
+    .dropdown_items {
+        text-align: left;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #080E16;
+        z-index: 200;
+        border-radius: 1em;
+        opacity: 0;
+        pointer-events: none;
+        /* display: none; */
+        transition: opacity 0.3s ease;
+        /* Ajout de la transition pour l'opacité ici */
+    }
+
+    .dropdown_items a {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .dropdown_container:hover .dropdown_items {
+        display: block;
+        pointer-events: auto;
+        opacity: 1;
+    }
+
+
+    /*****************************
+    //FOOTER DESKTOP
+    ******************************/
+    .footer {
+        background-color: #080E16;
+        color: white;
+        font-size: 3rem;
+        padding: 2em;
+    }
+
+    .footer a {
+        font-size: 2rem;
+        color: white;
+        text-decoration: none;
+        margin: 1rem;
+        text-align: center;
+        width: 40rem;
+    }
+
+    .footer i {
+        margin: 2rem;
+    }
+
+    .footer_link_list {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-self: center;
+    }
+
+    .footer_link_list li {
+        padding: 1em 3em 1em 3em;
+    }
+
+    .icons_footer_mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text_footer_mobile {
+        font-size: 3rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .footer_home_non_connected {
+        background-color: #131F31;
+        color: white;
+        font-size: 3rem;
+        padding: 2em;
+    }
+
+    .footer_home_non_connected a {
+        font-size: 2rem;
+        color: white;
+        text-decoration: none;
+        margin: 1rem;
+        text-align: center;
+        width: 40rem;
+    }
+
+    .footer_home_non_connected i {
+        margin: 2rem;
+    }
+
+    .icons_footer_home_non_connected_mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text_footer_home_non_connected_mobile {
+        font-size: 3rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    /*****************************
+    //SWIPER DESKTOP
+    ******************************/
+
+    .swiper_desktop {
+        background-color: #080E16;
+    }
+
+    .swiper {
+        width: 80%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        margin: 8em 0 8em 0;
+
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 70%;
+        height: 70%;
+        /* Vous pouvez ajuster la valeur selon vos besoins */
+        object-fit: cover;
+        margin: auto;
+        border-radius: 1em;
+        transition: all 0.7s ease;
+    }
+
+    .swiper-slide img:hover {
+        transform: scale(1.05);
+        transition: all 0.7s ease;
+    }
+
+    .slider-wrapper {
+        width: 100%;
+    }
+
+    .slider_contry_mobile button {
+        border-radius: 4em;
+        background-color: #080E16;
+        display: block;
+        border: none;
+        box-shadow: 1px 5px 10px #080E16;
+        margin: 5rem auto;
+        padding: 1em;
+        color: white;
+        font-size: 3rem;
+        display: none;
+    }
+
+    .slider_contry_mobile button:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+    }
+
+    .slider_contry_mobile {
+        display: none;
+    }
+
+
+
+    .swiper-button-prev {
+        left: 0 !important;
+    }
+
+    .swiper-button-next {
+        right: 0 !important;
+    }
+
+    /*****************************
+    //MAIN DESKTOP
+    ******************************/
+
+
+    .text_container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 1em;
+        margin: 1rem;
+        font-size: 2rem;
+    }
+
+    .text_container h2 {
+        font-size: 3rem;
+        margin-bottom: 1em;
+    }
+
+    .text_container button {
+        padding: 1em 3em 1em 3em;
+        margin: 5rem 0 5rem 0;
+        border: none;
+        border-radius: 3em;
+        background-color: #FA8F21;
+        color: #080E16;
+        font-size: 2rem;
+        transform: scale(1.00);
+        transition: all 0.6s ease;
+        box-shadow: 1px 5px 10px rgba(250, 143, 33, 0.7);
+    }
+
+    .flex_desktop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #131F31;
+        color: #D9D9D9;
+    }
+
+    .editor_play_desktop {
+        width: 50%;
+    }
+
+    .text_container_last_paragraphe {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        text-align: right;
+        padding: 1em;
+        font-size: 2rem;
+    }
+
+    .text_container_last_paragraphe h2 {
+        font-size: 3rem;
+    }
+
+    .text_container_last_paragraphe button {
+        padding: 1em 3em 1em 3em;
+        margin: 5rem 0 5rem 0;
+        border: none;
+        border-radius: 3em;
+        background-color: #FA8F21;
+        color: #080E16;
+        font-size: 2rem;
+        transform: scale(1.00);
+        transition: all 0.6s ease;
+        box-shadow: 1px 5px 10px rgba(250, 143, 33, 0.7);
+    }
+
+
+    /*****************************
+    //REGISTER DESKTOP
+    ******************************/
+
+    .register_title_mobile {
+        background-color: #FA8F21;
+        color: #080E16;
+
+        text-align: center;
+    }
+
+    .register_title_mobile h2 {
+        margin: 0;
+        padding: 1em;
+        font-size: 3rem;
+    }
+
+    .register_mobile {
+        background-color: #131F31;
+        font-size: 4em;
+    }
+
+    .register_mobile form {
+        color: #D9D9D9;
+        padding: 2em;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .register_mobile form p {
+        text-align: center;
+        font-size: 2rem;
+        padding: 1em;
+    }
+
+    .register_mobile form a {
+        display: block;
+        text-decoration: none;
+        text-decoration: underline;
+        color: inherit;
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .register_mobile form fieldset {
+        border: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5em;
+        border-bottom: 1px solid #FA8F21;
+    }
+
+    .register_mobile form fieldset input {
+        font-size: 2rem;
+        padding: 1em;
+        border: none;
+        border-radius: 0.4em;
+        background-color: #696E76;
+        width: 100%;
+        margin: 1rem;
+    }
+
+    .register_mobile form fieldset label {
+        font-size: 2rem;
+    }
+
+    .register_mobile form fieldset select {
+        width: 80%;
+        padding: 1em;
+        margin: 1rem;
+        text-align: left;
+        font-size: 2rem;
+        border-radius: 0.4em;
+        color: #080E16 !important;
+    }
+
+    .register_mobile form fieldset select option {
+        color: #FA8F21;
+        background-color: #080E16;
+    }
+
+    .register_mobile form fieldset select option:checked {
+        appearance: none;
+
+    }
+
+
+
+    .register_mobile button {
+        padding: 1em;
+        background-color: #696E76;
+        color: #D9D9D9;
+        border-radius: 0.4em;
+        display: block;
+        margin: 4rem auto;
+        font-size: 2rem;
+        border: none;
+    }
+
+    .register_mobile button:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+    }
+
+
+
+    .form-label {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .form-label label {
+        width: 100%;
+    }
+
+    .form-label fieldset {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column !important;
+        text-align: center;
+        width: 40%;
+        border-bottom: none !important;
+    }
+
+
+
+    input[type="checkbox"] {
+        appearance: none;
+        cursor: pointer;
+        padding: 0.3em;
+        width: 10% !important;
+        /* Inclure le padding et la bordure dans la largeur */
+    }
+
+    input[type="checkbox"]:checked {
+        background-color: #FA8F21 !important;
+        /* Ajoutez les styles spécifiques pour la checkbox cochée ici */
+    }
+
+    /*****************************
+    //LOGIN DESKTOP
+    ******************************/
+
+
+
+    .login_mobile {
+        background-color: #131F31;
+        font-size: 4em;
+    }
+
+    .login_title_mobile {
+        background-color: #FA8F21;
+        color: #080E16;
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .login_title_mobile h2 {
+        margin: 0;
+        padding: 1em;
+        font-size: 2rem;
+    }
+
+    .login_mobile form {
+        color: #D9D9D9;
+        padding: 2em;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .login_mobile form fieldset {
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+        border-bottom: 1px solid #FA8F21;
+    }
+
+    .login_mobile form label {
+        font-size: 3rem;
+    }
+
+    .login_mobile button {
+        padding: 1em;
+        background-color: #696E76;
+        color: #D9D9D9;
+        border-radius: 0.4em;
+        display: block;
+        margin: 4rem auto;
+        font-size: 2rem;
+        border: none;
+    }
+
+    .login_mobile button:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+    }
+
+    .login_mobile form fieldset input {
+        font-size: 2rem;
+        padding: 0.5em;
+        border: none;
+        border-radius: 0.4em;
+        background-color: #696E76;
+        width: 80%;
+        margin: 1rem;
+    }
+
+    .login_mobile a {
+        display: block;
+        color: #D9D9D9 !important;
+        text-decoration: none;
+        text-decoration: underline;
+        color: inherit;
+        text-align: center;
+        font-size: 2.5rem;
+        padding: 1em;
+    }
+
+
+    .login_mobile p {
+        color: #D9D9D9;
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+
+    /*****************************
+    //LOGIN HOME DESKTOP
+    ******************************/
+
+    .title_login_home_mobile {
+        background-color: #080E16;
+    }
+
+    .title_login_home_mobile h2 {
+        margin: 0;
+        padding: 0.5em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+    .login_home_mobile {
+        background-color: #131F31;
+        padding: 6em;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login_home_mobile a {
+        width: 30%;
+        padding: 1em;
+        border-radius: 2em;
+        margin: 2rem;
+    }
+
+
+    .progress_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .progress_bar {
+        position: relative;
+        width: 25rem;
+        height: 25rem;
+        border-radius: 50%;
+        color: white;
+        background: black linear-gradient(to right, transparent 50%, var(--clr) 0);
+        transition: all 0.5s ease;
+    }
+
+    .test {
+        height: 50rem;
+        width: 100%;
+        background-color: red;
+        position: absolute;
+    }
+
+    .progress_bar:hover {
+        transform: scale(1.05);
+        transition: all 0.5s ease;
+        color: #FA8F21;
+    }
+
+    .progress_bar h4 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        text-align: center;
+        z-index: 1;
+        font-weight: bold;
+
+    }
+
+
+    .progress_bar::before {
+        content: '';
+        display: block;
+        height: 100%;
+        margin-left: 50%;
+        transform-origin: left;
+        border-radius: 0 100% 100% 0/50%;
+    }
+
+    .progress_bar::after {
+        content: '';
+        position: absolute;
+        inset: 10px;
+        border-radius: 100%;
+        background: #131F31;
+    }
+
+    .progress_bar::before {
+        background: var(--clr);
+        transform: rotate(calc(((var(--i) - 50) * 0.01turn)));
+    }
+
+    .progress_bar.less::before {
+        background: #080E16;
+        transform: rotate(calc(((var(--i) - 0) * 0.01turn)));
+    }
+
+
+    /*****************************
+    //CHOICE DESKTOP
+    ******************************/
+
+    .title_choice_mobile {
+        background-color: #080E16;
+    }
+
+    .title_choice_mobile h1 {
+        margin: 0;
+        padding: 1em;
+        font-size: 2rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+
+
+    .choice_mobile {
+        background-color: #131F31;
+        padding: 6em;
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .choice_mobile p {
+        color: #D9D9D9;
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    .choice_flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .link_back_choice {
+        width: 15% !important;
+        margin: 0 auto !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .link_back_choice i {
+        transition: all ease 0.7s;
+    }
+
+    .link_back_choice i:hover {
+        transform: scale(1.05);
+        color: #080E16 !important;
+        transition: all ease 0.7s;
+    }
+
+
+    .choice_mobile a button {
+        width: 100%;
+        padding: 1em;
+        background-color: #FA8F21;
+        color: #080E16;
+        border-radius: 0.4em;
+        margin: 4rem auto;
+        font-size: 3rem;
+        transition: all 0.71s ease;
+    }
+
+    .choice_mobile button:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+    }
+
+    .choice_mobile a i {
+        color: #FA8F21;
+        font-size: 7rem;
+    }
+
+    .choice_mobile a {
+        width: 45%;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .progress_choice_mobile {
+        display: block;
+        margin: 6rem auto;
+        width: 70%;
+        padding: 1em;
+        font-size: 3rem;
+        accent-color: #FA8F21;
+        color: #080E16;
+    }
+
+    /*****************************
+    //EXERCICE DESKTOP
+    ******************************/
+
+
+
+    .title_exercice_mobile {
+        background-color: #080E16;
+    }
+
+    .title_exercice_mobile h1 {
+        margin: 0;
+        padding-top: 1em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+    .title_exercice_mobile h2 {
+        margin: 0;
+        color: #D9D9D9;
+        text-align: center;
+        font-size: 3.5rem;
+        padding: 0em 3em 1em 3em;
+    }
+
+    .exercice_mobile {
+        background-color: #131F31;
+        padding: 5em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .exercice_mobile h3 {
+        text-align: center;
+        color: #D9D9D9;
+        font-size: 4rem;
+    }
+
+    .lock {
+        display: block;
+        text-align: center;
+        transition: all 0.5s ease;
+    }
+
+    .lock:hover {
+        transform: scale(1.05);
+        transition: all 0.5s ease;
+    }
+
+    .exercice_mobile a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        padding: 1em;
+        font-size: 3em;
+    }
+
+    .fa-solid {
+
+        display: flex;
+        justify-content: flex-start;
+        text-align: left;
+        color: #FA8F21;
+        font-size: 7rem;
+    }
+
+    .exercice_mobile button {
+        width: 100%;
+        padding: 1em;
+        background-color: #FA8F21;
+        color: #080E16;
+        border-radius: 0.4em;
+        margin: 4rem auto;
+        font-size: 3rem;
+        transition: all 0.71s ease;
+    }
+
+    .exercice_mobile button:hover {
+        transform: scale(1.05);
+        background-color: #131F31;
+        color: #FA8F21;
+        transition: all 0.71s ease;
+    }
+
+    .form_exercice {
+        font-size: 2rem;
+    }
+
+
+    /*****************************
+    //RESULTAT DESKTOP
+    ******************************/
+
+    .title_resultat_mobile {
+        background-color: #131F31;
+        padding: 5em;
+    }
+
+    .title_resultat_mobile h1 {
+        margin: 0;
+        padding: 1em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+    .resultat_mobile {
+        background-color: #131F31;
+    }
+
+    .resultat_mobile h2 {
+        font-weight: bolder;
+        text-align: center;
+        color: #D9D9D9;
+        font-size: 2.5rem;
+        margin: 0;
+        padding: 2em;
+    }
+
+    .resultat_mobile h3 {
+        text-align: center;
+        color: #1f9c5a;
+        font-size: 3rem;
+        padding: 1em;
+
+    }
+
+    .resultat_mobile p {
+        text-align: center;
+        color: #D9D9D9;
+        font-size: 2rem;
+        padding: 1em;
+    }
+
+    .reponse {
+        color: #c3093b !important;
+    }
+
+    .response_word {
+        color: #FA8F21 !important;
+    }
+
+    .resultat_mobile a button {
+        margin: 5rem;
+        display: block;
+        padding: 1em;
+        font-size: 4rem;
+        background-color: black;
+        border-radius: 3em;
+        color: #FA8F21;
+        border: none;
+    }
+
+    .button_resultat_mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .button_resultat_mobile a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /*****************************
+    //QUESTION EXO DESKTOP
+    ******************************/
+
+
+
+    .title_question_exercice_mobile {
+        background-color: #080E16;
+    }
+
+    .title_question_exercice_mobile h1 {
+        margin: 0;
+        padding: 1em;
+        font-size: 2rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+    .question_exercice_mobile {
+        background-color: #131F31;
+    }
+
+    .question_exercice_mobile h2 {
+        text-align: center;
+        color: #FA8F21;
+        font-size: 4rem;
+        margin: 0;
+        padding: 1em;
+    }
+
+    .question_exercice_mobile p {
+        text-align: center;
+        color: #D9D9D9;
+        font-size: 4rem;
+        margin: 0;
+        padding: 1em;
+    }
+
+    .question_exercice_mobile img {
+        display: block;
+        margin: 0 auto;
+        padding: 7rem 3em 7em 3em;
+    }
+
+    .form_question_exercice_mobile {
+        background-color: #131F31;
+    }
+
+    .form_question_exercice_mobile form input {
+        padding: 1em;
+        margin: 1rem;
+        border-radius: 3em;
+    }
+
+    .form_question_exercice_mobile form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+    }
+
+    #sendButton {
+        border: none;
+        padding: 1em;
+        margin: 1rem;
+        border-radius: 2em;
+        background-color: #080E16;
+        color: #D9D9D9;
+    }
+
+    /*****************************
+    /// PROFIL DESKTOP
+    ******************************/
+
+
+    .title_profil_mobile {
+        background-color: #080E16;
+
+    }
+
+    .title_profil_mobile h1 {
+        margin: 0;
+        padding: 1em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+    .profil_mobile {
+        padding: 2em;
+        background-color: #131F31;
+        color: #D9D9D9;
+    }
+
+
+    .profil_mobile img {
+        max-width: 10%;
+        display: block;
+        margin: 0 auto;
+        border-radius: 4em;
+        padding: 2em;
+    }
+
+    .profil_global {
+        color: #D9D9D9;
+        font-weight: bold;
+        font-size: 3rem;
+        padding: 1em;
+        margin: 0;
+        border-top: solid 1px #FA8F21;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .profil_user {
+        color: #D9D9D9;
+        font-size: 2rem;
+        padding: 1em;
+        padding-left: 4em;
+        margin: 0 auto;
+        width: 70%;
+        text-align: left;
+
+    }
+
+    .image_uploader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2em;
+    }
+
+    .native {
+        text-align: center;
+        padding: 0;
+        margin: 1rem auto;
+    }
+
+    .desired {
+        text-align: center;
+        padding: 0;
+        margin: 1rem auto;
+    }
+
+
+    .image_uploader label {
+        padding: 2em;
+        background-color: #FA8F21;
+        border-radius: 1em;
+        color: #080E16;
+        font-weight: bolder;
+        transition: all 0.5s ease;
+    }
+
+    .image_uploader label:hover {
+        transform: scale(1.05);
+        transition: all 0.5s ease;
+        color: #131F31;
+    }
+
+    .image_uploader input {
+        display: none;
+    }
+
+    .image_uploader form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button_send_image {
+        border: none;
+        padding: 1em;
+        border-radius: 1em;
+        background-color: #080E16;
+        color: #D9D9D9;
+        display: none;
+    }
+
+    .button_send_image_visible {
+        border: none;
+        padding: 1em;
+        border-radius: 1em;
+        background-color: #080E16;
+        color: #D9D9D9;
+    }
+
+
+    /*****************************
+    /// CHOSEN LANGUAGE DESKTOP
+    ******************************/
+
+    .main_chosen_language_mobile {
+        background-color: #080E16;
+
+    }
+
+    .flex_chosen_language {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main_chosen_language_mobile h1 {
+        padding: 1em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+        background-color: #080E16;
+    }
+
+    .flag_chosen_language_espagnol {
+        max-width: 45%;
+        display: block;
+        margin: 0 auto;
+        padding: 10rem;
+    }
+
+
+
+    .monument_chosen_language {
+        max-width: 60%;
+        display: block;
+        padding: 3em;
+        margin: 0 auto;
+    }
+
+    .flag_chosen_language {
+        max-width: 20%;
+        display: block;
+        margin: 0 auto;
+        padding: 10em;
+    }
+
+    .flex_monument_chosen_language_mobile {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .button_flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .button_flex a {
+        margin: 1.3rem;
+    }
+
+    .button_chosen_language_mobile a button {
+        display: block;
+        padding: 1em;
+        font-size: 4rem;
+        background-color: black;
+        border-radius: 3em;
+        color: #D9D9D9;
+        border: none;
+        margin: 2rem auto;
+        box-shadow: 1px 5px 10px 0px #080E16;
+
+
+    }
+
+    .button_color_change {
+        background-color: #fa8d219f !important;
+    }
+
+    .button_chosen_language_mobile a button:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+        border-radius: 1em;
+        text-decoration: none;
+
+    }
+
+
+    .button_chosen_language_mobile {
+        background-color: #131F31;
+        padding: 3em;
+    }
+
+    /*****************************
+    //COURSE DESKTOP
+    ******************************/
+
+    .title_course_mobile {
+        background-color: #080E16;
+    }
+
+    .title_course_mobile h1 {
+        margin: 0;
+        padding: 1em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+    .course_mobile {
+        background-color: #131F31;
+        padding: 5em;
+    }
+
+    .course_mobile h2 {
+        text-align: center;
+        color: #FA8F21;
+        font-size: 3rem;
+        padding: 1em;
+        margin: 0;
+    }
+
+    .course_mobile p {
+        font-size: 2em;
+        color: #D9D9D9;
+    }
+
+    .course_mobile h3 {
+        font-size: 2.5em;
+        color: #1f9c5a;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    .course_mobile a i {
+        color: #FA8F21;
+        font-size: 7rem;
+    }
+
+    .course_mobile a {
+        color: inherit;
+        text-decoration: none;
+        margin: 0;
+    }
+
+    .course_mobile a button {
+        display: block;
+        padding: 1em;
+        font-size: 2rem;
+        background-color: black;
+        border-radius: 3em;
+        color: #D9D9D9;
+        border: none;
+        margin: 5rem auto;
+        transition: all 0.71s ease;
+    }
+
+    .course_mobile a button:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+    }
+
+
+
+    /*****************************
+    /// ABOUT PAGE DESKTOP
+    ******************************/
+
+    .about_section_mobile {
+        background-color: #131F31;
+        padding: 4em;
+    }
+
+    .about_section_mobile p {
+        text-align: center;
+        color: #D9D9D9;
+        font-size: 2rem;
+        margin: 0;
+        padding: 1em;
+        width: 60%;
+        margin: 0 auto;
+
+    }
+
+    .about_section_mobile h3 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #D9D9D9;
+        padding: 2em;
+    }
+
+    .about_section_mobile img {
+        max-width: 30%;
+        display: block;
+        margin: 0 auto;
+        padding: 2em;
+        border-radius: 3em;
+        border: 1px solid #FA8F21;
+    }
+
+    .title_about_section_mobile {
+        background-color: #080E16;
+    }
+
+    .title_about_section_mobile h2 {
+        padding: 1em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+        margin: 0 auto;
+    }
+
+    /*****************************
+    /// ANIMATION ON SCROLL
+    ******************************/
+
+    [class*="reveal-"] {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    .reveal_visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 1s cubic-bezier(.5, 0, 0, 1);
+    }
+
+    .reveal-1 {
+        transition-delay: 0.2s;
+    }
+
+    .reveal-2 {
+        transition-delay: 0.3s;
+    }
+
+    .reveal-3 {
+        transition-delay: 0.4s;
+    }
+
+    /*****************************
+    /// ESPACE ADMIN
+    ******************************/
+
+
+    .list-group-item {
+        padding: 2em !important;
+        font-size: 2rem;
+    }
+
+    .btn-group-sm>.btn,
+    .btn-sm {
+        padding: 2em !important;
+        font-size: 2rem;
+    }
+
+    .card-title {
+        font-size: 2rem;
+    }
+
+    .card-text {
+        font-size: 2rem !important;
+    }
 }

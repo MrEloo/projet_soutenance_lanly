@@ -12,7 +12,7 @@ class LanguageManager extends AbstractManager
         $languages_array = [];
 
         foreach ($languages_datas as $language_data) {
-            $language = new Language($language_data['name'], $language_data['drapeau']);
+            $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
             $language->setId($language_data['id']);
             $languages_array[] = $language;
         }
@@ -29,7 +29,7 @@ class LanguageManager extends AbstractManager
         $selectLanguageByNameQuery->execute($parameters);
         $language_data =  $selectLanguageByNameQuery->fetch(PDO::FETCH_ASSOC);
 
-        $language = new Language($language_data['name'], $language_data['drapeau']);
+        $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
         $language->setId($language_data['id']);
         return $language;
     }
@@ -44,11 +44,34 @@ class LanguageManager extends AbstractManager
         $language_data =  $selectLanguageByNameQuery->fetch(PDO::FETCH_ASSOC);
 
         if ($language_data) {
-            $language = new Language($language_data['name'], $language_data['drapeau']);
+            $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
             $language->setId($language_data['id']);
             return $language;
         } else {
             return null;
         }
+    }
+
+    public function addLanguage(string $name, string $drapeau): void
+    {
+        $insertLanguageQuery = $this->db->prepare('INSERT INTO languages (name, drapeau) VALUES (:name, :drapeau)');
+
+        $parameters = [
+            'name' => $name,
+            'drapeau' => $drapeau,
+        ];
+
+        $insertLanguageQuery->execute($parameters);
+    }
+
+    public function deleteLanguage(int $language_id): void
+    {
+        $deleteExampleQuery = $this->db->prepare('DELETE FROM languages WHERE id = :language_id');
+
+        $parameters = [
+            'language_id' => $language_id
+        ];
+
+        $deleteExampleQuery->execute($parameters);
     }
 }

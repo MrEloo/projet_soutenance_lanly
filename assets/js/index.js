@@ -1,13 +1,6 @@
 import { createResponse } from "./create-response.js";
 
-function getPage(url) {
-    if (url.indexOf("?") !== -1) {
-        return url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"));
-    }
-    else {
-        return url.substring(url.lastIndexOf("/") + 1);
-    }
-}
+
 document.addEventListener('DOMContentLoaded', function () {
 
     const questions = [];
@@ -90,6 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         .then(data => {
                             console.log(data);
                             window.location.href = `index.php?route=ex_res&course_id=${courseId}&cat_id=${catId}`
+
+
                         })
 
 

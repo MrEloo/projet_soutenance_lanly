@@ -1,0 +1,36 @@
+{% extends "layout.html.twig" %}
+
+{% block mypage %}
+	<main>
+		<div class="container p-4">
+			<h1>Courses</h1>
+			<a href="index.php?route=administration">
+				<button class='admin_retour_button'>RETOUR</button>
+			</a>
+
+			<!-- Bouton Ajouter un cours -->
+			<a href="index.php?route=create_course" class="btn btn-success mb-3">Ajouter un cours</a>
+
+			{% for course in courses %}
+				<div class="card mb-4">
+					<div class="card-body">
+						<P class="card-title">
+							<strong>Title :</strong>
+							{{ course.title }}</P>
+						<p class="card-text">Description :
+							{{ course.description }}</p>
+						<p class="card-text">
+							<strong>Category name :</strong>
+							{{ course.globalCategory.name }}</p>
+
+						<!-- Bouton Modifier -->
+						<a href="index.php?route=update_course&course_id={{course.id}}" class="btn btn-primary btn-sm mr-2">Modifier</a>
+
+						<!-- Bouton Supprimer -->
+						<a href="index.php?route=delete_course&course_id={{course.id}}" class="btn btn-danger btn-sm">Supprimer</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</main>
+{% endblock %}

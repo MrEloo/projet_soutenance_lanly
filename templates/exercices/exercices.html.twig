@@ -1,0 +1,37 @@
+{% extends "layout.html.twig" %}
+
+{% block mypage %}
+	<main>
+		<section class="title_exercice_mobile">
+			<h1>Exercices</h1>
+			<h2>
+				{{ courses[0].globalCategory.name }}
+			</h2>
+		</section>
+
+	{% endblock %}
+
+	{% block main %}
+		{% for course in courses %}
+			<section class="exercice_mobile">
+
+				<a href="index.php?route=choice&cat_id={{ course.globalCategory.id }}">
+					<i class="fa-solid fa-arrow-left"></i>
+				</a>
+				<h3>{{ course.title }}</h3>
+
+				{% if course.finished == true %}
+					<a href="index.php?route=ex_res&course_id={{course.id}}&cat_id={{course.globalCategory.id}}">
+						<button>Voir mes résultat</button>
+					</a>
+				{% elseif course.id == 1 %}
+					<a href="index.php?route=exercice&course_id={{course.id}}&cat_id={{course.globalCategory.id}}"><img class="lock" src="assets/images/playtry.png" alt="lock_exercice"></a>
+				{% elseif course.locked == false %}
+					<a href="index.php?route=exercice&course_id={{course.id}}&cat_id={{course.globalCategory.id}}"><img class="lock" src="assets/images/playtry.png" alt="lock_exercice"></a>
+				{% else %}
+					<img class="lock" src="assets/images/lock.png" alt="lock_exercice">
+				{% endif %}
+			</section>
+		{% endfor %}
+	</main>
+{% endblock %}

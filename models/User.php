@@ -7,6 +7,7 @@ class User
     private ?int $id = null;
     private string $role = 'USER';
     private string $picture;
+    private array $reasons = [];
 
     public function __construct(private string $username, private string $email, private string $password, private Country $country, private Language $language, private string $date)
     {
@@ -198,5 +199,30 @@ class User
         $this->picture = $picture;
 
         return $this;
+    }
+
+    /**
+     * Get the value of reasons
+     */
+    public function getReasons()
+    {
+        return $this->reasons;
+    }
+
+    /**
+     * Set the value of reasons
+     *
+     * @return  self
+     */
+    public function setReasons($reasons)
+    {
+        $this->reasons = $reasons;
+
+        return $this;
+    }
+
+    public function addReason(string $reason): void
+    {
+        $this->reasons[] = $reason;
     }
 }

@@ -1,0 +1,54 @@
+{% extends "layout.html.twig" %}
+
+{% block mypage %}
+	<main>
+		<div class="container p-4">
+			<h1 class="fs-2">Users</h1>
+			<a href="index.php?route=administration">
+				<button class='admin_retour_button'>RETOUR</button>
+			</a>
+
+			<div class="row">
+				{% for user in users %}
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<div class="card-body">
+								<p class="card-title fs-4">
+									<strong>NAME:</strong>
+									{{ user.username }}
+								</p>
+								<p class="card-text fs-4">
+									<strong>EMAIL:</strong>
+									{{ user.email }}
+								</p>
+								<p class="card-text fs-4">
+									<strong>FROM:</strong>
+									{{ user.country.name }}
+								</p>
+								<p class="card-text fs-4">
+									<strong>Wants to learn:</strong>
+									{{ user.language.name }}
+								</p>
+								<p class="card-text fs-4">
+									<strong>Role:</strong>
+									{{ user.role }}
+								</p>
+								<p class="card-text fs-4">
+									<strong>Created in:</strong>
+									{{ user.date }}
+								</p>
+
+								<!-- Bouton Modifier -->
+								<a href="index.php?route=update_user&user_id={{ user.id }}&role=ADMIN" class="btn btn-primary btn-sm mr-2 fs-4">Role vers ADMIN</a>
+								<a href="index.php?route=update_user&user_id={{ user.id }}&role=USER" class="btn btn-primary btn-sm mr-2 fs-4">Role vers USER</a>
+
+								<!-- Bouton Supprimer -->
+								<a href="index.php?route=delete_user&user_id={{ user.id }}" class="btn btn-danger btn-sm fs-4">DELETE</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</main>
+{% endblock %}

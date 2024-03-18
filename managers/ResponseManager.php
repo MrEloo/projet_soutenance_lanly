@@ -22,7 +22,7 @@ class ResponseManager extends AbstractManager
 
         if ($reponse_data) {
             $user = $um->getUserById($reponse_data['user_id']);
-            $course = $cm->getCoursesById($reponse_data['course_id']);
+            $course = $cm->getCoursesById($reponse_data['course_id'], $_SESSION['user_language']);
             $response = new Response($reponse_data['content'], $user, $course);
             $response->setId($reponse_data['id']);
             return $response;

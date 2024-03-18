@@ -4,6 +4,7 @@
 class GlobalCategory
 {
     private ?int $id = null;
+    private int $progression;
 
     public function __construct(private string $name)
     {
@@ -46,6 +47,26 @@ class GlobalCategory
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of progression
+     */ 
+    public function getProgression()
+    {
+        return $this->progression;
+    }
+
+    /**
+     * Set the value of progression
+     *
+     * @return  self
+     */ 
+    public function setProgression($progression)
+    {
+        $this->progression = $progression;
 
         return $this;
     }

@@ -1,0 +1,31 @@
+{% extends "layout.html.twig" %}
+
+{% block mypage %}
+	<main>
+		<div class="container p-4">
+			<h1>Users</h1>
+			<a href="index.php?route=administration">
+				<button class='admin_retour_button'>RETOUR</button>
+			</a>
+
+			<a href="index.php?route=create_example" class="btn btn-success mb-3">Ajouter un exemple</a>
+			{% for example in examples %}
+				<section class="mb-4">
+					<p>
+						<strong>Example :</strong>
+						{{ example.description }}</p>
+					<p>
+						<strong>Course ID :</strong>
+						{{ example.course_id }}</p>
+
+
+					<!-- Bouton Modifier -->
+					<a href="index.php?route=update_example&example_id={{ example.id }}" class="btn btn-primary btn-sm mr-2">UPDATE</a>
+
+					<!-- Bouton Supprimer -->
+					<a href="index.php?route=delete_example&example_id={{ example.id }}" class="btn btn-danger btn-sm">DELETE</a>
+				</section>
+			{% endfor %}
+		</div>
+	</main>
+{% endblock %}

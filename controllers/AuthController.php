@@ -4,21 +4,41 @@ class AuthController extends AbstractController
 {
     public function login(): void
     {
-        $this->render("login.html.twig", []);
+
+        //Réinitialisation des sessions de messages d'erreur lors de l'inscription ou la connexion
+        $_SESSION['erreur_hash'] = '';
+        $_SESSION['erreur_mail'] = '';
+        $_SESSION['erreur_remplissage'] = '';
+
+        $this->render("auth/login.html.twig", []);
     }
 
     public function register(): void
     {
-        $this->render("register.html.twig", []);
+
+        //Récupération de tous les langages pour les affichés dans le formulaire d'inscription
+        $lm = new LanguageManager();
+        $languages = $lm->getAllLanguages();
+
+
+        //Réinitialisation des sessions de messages d'erreur lors de l'inscription ou la connexion
+        $_SESSION['erreur_hash'] = '';
+        $_SESSION['erreur_mail'] = '';
+        $_SESSION['erreur_remplissage'] = '';
+
+
+        $this->render("auth/register.html.twig", ['languages' => $languages]);
     }
 
 
     public function checkLogin(): void
     {
+
         $userManager = new UserManager();
         $tokenManager = new CSRFTokenManager();
 
-        //Vaalidation du token avant toute chose pour empêcher les faille CSRF
+
+        //Validation du token avant toute chose pour empêcher les faille CSRF
         if ($tokenManager->validateCSRFToken($_SESSION['csrf_token'])) {
 
             //Sécurisation des données reçu par le biais du formulaire d'authentification
@@ -26,7 +46,9 @@ class AuthController extends AbstractController
                 $email = htmlspecialchars($_POST['email']);
                 $password = htmlspecialchars($_POST['password']);
 
+                //Récuperation de l'utilisateur par son EMAIL
                 $user = $userManager->getUserByEmail($email);
+
 
 
                 //Si l'utilisateur est présent et que son mot de passe est le bon, il se verra connecté
@@ -36,25 +58,55 @@ class AuthController extends AbstractController
                         $_SESSION['role'] = $user->getRole();
                         $_SESSION['user_email'] = $user->getEmail();
                         $_SESSION['user_id'] = $user->getId();
+                        $_SESSION['user_language'] = $user->getLanguage()->getId();
+
+                        $rm = new ReasonManager();
+
+                        //Ajout à la table de liaison des utilisateur et leur raisons d'apprentissage si la raison n'existe pas déjà
+                        foreach ($_SESSION['reasons'] as $reason_data) {
+                            $reason = $rm->getReasonByName($reason_data);
+                            $existingReasons = $rm->getUserReasons($user->getId(), $reason->getId());
+                            if (!$existingReasons) {
+                                $rm->addUserReason($user->getId(), $reason->getId());
+                            }
+                        }
+
+                        //Ajout de l'url du drapeau dans la session afin de l'afficher dans le header pour savoir quelle langue l'utilisateur est en train d'apprendre
+                        $lm = new LanguageManager();
+                        $language = $lm->getOneLanguageById($_SESSION['user_language']);
+                        $_SESSION['selected_language'] = $language->getDrapeau();
+
+
+                        //Création d'un objet composé du nom de la langue et de son id qui permettrons, dans un menu dropdown, de changer de langue d'apprentissage
+                        $languages = $lm->getAllLanguages();
+                        $language_array = [];
+
+                        //creation d'un objet STDclass qui permettra d'afficher les langues avec leurs ID associé dans un dropdown du header
+                        foreach ($languages as $language) {
+                            $language_object = new stdClass();
+                            $language_object->language_name = $language->getName();
+                            $language_object->language_id = $language->getId();
+                            $language_array[] = $language_object;
+                        }
+
+                        //Initialisation de la session avec l'objet précédemment créé
+                        $_SESSION['languages'] = $language_array;
+
                         $this->redirect("index.php?route=login_home");
                     } else {
                         $_SESSION['erreur_hash'] = 'Le mot de passe est incorrect';
                         $this->redirect("index.php?route=login");
-                        echo $_SESSION['erreur_hash'];
                     }
                 } else {
-                    $_SESSION['erreur_mail'] = 'votre adresse mail est incorrect';
+                    $_SESSION['erreur_mail'] = 'Cette adresse mail n\'a pas été trouvé';
                     $this->redirect("index.php?route=login");
-                    echo $_SESSION['erreur_mail'];
                 }
             } else {
                 $_SESSION['erreur_remplissage'] = 'Vous devez remplir toutes les informations';
                 $this->redirect("index.php?route=login");
-                echo $_SESSION['erreur_remplissage'];
             }
         }
     }
-
 
 
     public function checkRegister(): void
@@ -63,23 +115,37 @@ class AuthController extends AbstractController
         $countryManager = new CountryManager();
         $tokenManager = new CSRFTokenManager();
         $languageManager =  new LanguageManager();
+        $passwordRegex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\d!@#$%^&*()-_+=]{8,}$/';;
 
         //Vaalidation du token avant toute chose pour empêcher les faille CSRF
         if ($tokenManager->validateCSRFToken($_SESSION['csrf_token'])) {
 
 
             //Sécurisation des données reçu par le biais du formulaire d'authentification avec le HTMLSPECIALCHARS
-            if (!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmPassword']) && !empty($_POST['country']) && !empty($_POST['language']) && !empty($_POST['reasons'])) {
+            if (!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmPassword']) && !empty($_POST['country']) && !empty($_POST['language'])) {
+
+                //Sécurisation du mot de passe avec la RegEx
+                if (preg_match($passwordRegex, $_POST['password'])) {
+                    $password = htmlspecialchars(password_hash($_POST['password'], PASSWORD_DEFAULT));
+                } else {
+                    $_SESSION['erreur_regex'] = 'Le mot de passe doit contenir au moins une lettre majuscule ou minuscule, un chiffre, un caractère spécial et doit faire au moins 8 caractères';
+                    $this->redirect("index.php?route=register");
+                }
+
+                //Initialisation des variables
                 $username = htmlspecialchars($_POST['username']);
                 $email = htmlspecialchars($_POST['email']);
-                $password = htmlspecialchars(password_hash($_POST['password'], PASSWORD_DEFAULT));
                 $confirmPassword = htmlspecialchars($_POST['confirmPassword']);
                 $country_data = $_POST['country'];
-                $language_data = $_POST['language'];
+                $language_data = strtolower($_POST['language']);
+                $reasons = $_POST['reasons'];
 
 
+                //Ajout du tableau 'reason' à la session afin de pouvoir les ajouter à la table de liaison 'users_reasons'
+                $_SESSION['reasons'] = $reasons;
 
 
+                //vérification que les deux mots de passe sont bien identique
                 if ($confirmPassword === $_POST['password']) {
 
                     $_SESSION['connexion'] = 'autorisé';
@@ -87,9 +153,11 @@ class AuthController extends AbstractController
                     $language = $languageManager->getOneLanguageByName($language_data);
 
 
-
+                    //Création d'un nouvel utilisateur et insertion en base de donnée
                     $newUser = new User($username, $email, $password, $country, $language, date('Y-m-d'));
                     $userManager->createUser($newUser);
+
+
                     $this->redirect("index.php?route=login");
                 } else {
                     $_SESSION['erreur_mdp'] = 'Les mots de passe ne sont pas indentiques';
@@ -108,6 +176,7 @@ class AuthController extends AbstractController
 
     public function logout(): void
     {
+        //destruction de la session afin de déconnécter l'utilisateur
         session_destroy();
         $this->redirect("index.php?route=login");
     }

@@ -1,0 +1,54 @@
+{% extends "layout.html.twig" %}
+
+{# {% block main %}
+	<section class="title_choice_mobile">
+		<h1>Vous y êtes presque...</h1>
+
+	</section>
+	<section class="choice_mobile">
+		<a href="index.php?route=login_home">
+			<i class="fa-solid fa-arrow-left"></i>
+		</a>
+		<div>
+			<a href="index.php?route=course&cat_id={{ category.id }}">
+				<button>Course</button>
+			</a>
+			<progress class='progress_choice_mobile' value="70" max="100"></progress>
+	</div>
+	<div>
+		<a href="index.php?route=exercices&cat_id={{ category.id }}">
+			<button>Exercices</button>
+		</a>
+		<div class='choice_flex'>
+			<p>{{ result }}</p>
+			<progress class='progress_choice_mobile' value="{{ result }}" max="{{ total }}"></progress>
+		<p>{{ total }}</p>
+	</div>
+</div></section>{% endblock %} #}
+
+{% block main %}
+	<main>
+		<section class="title_login_home_mobile">
+			<h2>A vous de choisir</h2>
+		</section>
+		<section class="choice_mobile">
+			<a href="index.php?route=course&cat_id={{ category.id }}" style="text-decoration: none; color: inherit;">
+				<div class="progress_container">
+					<div class="progress_bar" style="--i:100;--clr:black;">
+						<h4>Course</h4>
+					</div>
+				</div>
+			</a>
+			<a href="index.php?route=exercices&cat_id={{ category.id }}" style="text-decoration: none; color: inherit;">
+				<div class="progress_container">
+					<div class="progress_bar" style="--i:100;--clr:black;">
+						<h4>Exercice</h4>
+					</div>
+				</div>
+			</a>
+			<a class='link_back_choice' href="index.php?route=login_home">
+				<i class="fa-solid fa-arrow-left"></i>
+			</a>
+		</section>
+	</main>
+{% endblock %}

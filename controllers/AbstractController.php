@@ -18,6 +18,8 @@ abstract class AbstractController
         $this->twig = $twig;
     }
 
+
+
     protected function render(string $template, array $data): void
     {
         echo $this->twig->render($template, $data);
@@ -36,6 +38,18 @@ abstract class AbstractController
     {
         if (isset($_SESSION['role'])) {
             if ($_SESSION['role'] === 'USER' || $_SESSION['role'] === 'ADMIN') {
+                return true;
+            }
+        } else {
+            return null;
+        }
+    }
+
+    //Fonction qui check si le role de l'utilisateur est bien ADMIN
+    protected function checkAdmin(): ?bool
+    {
+        if (isset($_SESSION['role'])) {
+            if ($_SESSION['role'] === 'ADMIN') {
                 return true;
             }
         } else {
