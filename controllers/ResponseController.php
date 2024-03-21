@@ -2,6 +2,14 @@
 
 class ResponseController extends AbstractController
 {
+
+    public function __construct()
+    {
+        $lang = $_SESSION["user_lang"];
+
+        parent::__construct("response", $lang);
+    }
+
     //Enregistre les données de l'utilisateur en base de données et les remplaces si déjà existantes
     public function checkResponse()
     {
@@ -25,6 +33,8 @@ class ResponseController extends AbstractController
 
                 //Pour chaque question, on regarde si une réponse existe déjà dans la table users_responses
                 $existingResponses  = $rm->getResponseByExId($exercice->getId(), $_SESSION['user_id']);
+
+
 
                 //si non :
                 if (!$existingResponses) {

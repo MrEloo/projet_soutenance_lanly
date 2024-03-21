@@ -2,10 +2,17 @@
 
 abstract class AbstractController
 {
+
+    protected Translator $translator;
+
     //Initialisation de twig et de son environnement
     private \Twig\Environment $twig;
-    public function __construct()
+
+    public function __construct(string $file, protected string $currentLang = "fr")
     {
+        $this->translator = new Translator($file, $currentLang);
+
+
         $loader = new \Twig\Loader\FilesystemLoader('templates');
         $twig = new \Twig\Environment($loader, [
             'debug' => true,
@@ -18,10 +25,14 @@ abstract class AbstractController
         $this->twig = $twig;
     }
 
+    
+
+
 
 
     protected function render(string $template, array $data): void
     {
+        $data['translator'] = $this->translator;
         echo $this->twig->render($template, $data);
         exit();
     }

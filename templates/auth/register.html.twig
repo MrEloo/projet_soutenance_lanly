@@ -3,48 +3,48 @@
 {% block main %}
 	<main>
 		<section class="register_title_mobile">
-			<h2>Inscivez-vous et accedez à une multitudes d'exercices faits pour vous !</h2>
+			<h2>{{ translator.translate("register_title") }}</h2>
 		</section>
 		<section class="register_mobile">
 			<form class="" action="index.php?route=check-register" method="POST">
-				<input type="hidden" name="csrf-token" id="csrf-token" value=" {{ session.csrf_Token }} "/>
+				<input type="hidden" name="csrf-token" id="csrf-token" value="{{ session.csrf_Token }}"/>
 				<fieldset>
-					<label for="username" class="form-label">Nom d'utilisateur</label>
+					<label for="username" class="form-label">{{ translator.translate("username_label") }}</label>
 					<input type="text" id="username" name="username" class="form-control"/>
 				</fieldset>
 				<fieldset>
-					<label for="email" class="form-label">Email</label>
+					<label for="email" class="form-label">{{ translator.translate("email_label") }}</label>
 					<input type="email" id="email" name="email" class="form-control"/>
 				</fieldset>
 				<fieldset>
-					<label for="password" class="form-label">Mot de passe</label>
+					<label for="password" class="form-label">{{ translator.translate("password_label") }}</label>
 					<input type="password" id="password" name="password" class="form-control"/>
 				</fieldset>
 				<fieldset>
-					<label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
+					<label for="confirmPassword" class="form-label">{{ translator.translate("confirm_password_label") }}</label>
 					<input type="password" id="confirmPassword" name="confirmPassword" class="form-control"/>
 				</fieldset>
 
 				<fieldset>
 
-					<label for="country" class="form-label">D'où venez vous</label>
+					<label for="country" class="form-label">{{ translator.translate("country_label") }}</label>
 					<select id="country" name="country">
-						<option value="">Choisissez un pays</option>
+						<option value="">{{ translator.translate("select_country_option") }}</option>
 						<option value="france">France</option>
 						<option value="allemagne">Allemagne</option>
-						<option value="italie">italie</option>
+						<option value="italie">Italie</option>
 						<option value="espagne">Espagne</option>
 						<option value="russie">Russie</option>
-						<option value="Angleterre">Angleterre</option>
+						<option value="angleterre">Angleterre</option>
 					</select>
 				</fieldset>
 				<fieldset>
-					<label for="language" class="form-label">Quelle langue souhaitez-vous apprendre</label>
+					<label for="language" class="form-label">{{ translator.translate("language_label") }}</label>
 					<select id="language" name="language">
 						{% if session.selected_language_name is not empty %}
 							<option value="{{ session.selected_language_name }}">{{ session.selected_language_name }}</option>
 						{% else %}
-							<option value="">Choisissez une langue</option>
+							<option value="">{{ translator.translate("select_language_option") }}</option>
 						{% endif %}
 						{% for language in languages %}
 							{% if session.selected_language_name != language.name %}
@@ -54,36 +54,18 @@
 					</select>
 				</fieldset>
 				<fieldset class="form-label">
-					<label>Quelles sont vos raisons</label>
+					<label>{{ translator.translate("reasons_label") }}</label>
 					<div class="flex_form_label">
-						<fieldset>
-							<input type="checkbox" id="reason_voyage" name="reasons[]" value="voyages">
-							<label for="reason_voyage">Voyages</label>
-						</fieldset>
-						<fieldset>
-							<input type="checkbox" id="reason_travail" name="reasons[]" value="travail">
-							<label for="reason_travail">Travail</label>
-						</fieldset>
-						<fieldset>
-							<input type="checkbox" id="reason_etude" name="reasons[]" value="etudes">
-							<label for="reason_etude">Etudes</label>
-						</fieldset>
-						<fieldset>
-							<input type="checkbox" id="reason_culture" name="reasons[]" value="culture">
-							<label for="reason_culture">culture</label>
-						</fieldset>
-						<fieldset>
-							<input type="checkbox" id="reason_communication" name="reasons[]" value="communication">
-							<label for="reason_communication">communication</label>
-						</fieldset>
-						<fieldset>
-							<input type="checkbox" id="reason_amour" name="reasons[]" value="amour">
-							<label for="reason_amour">Amour</label>
-						</fieldset>
+						{% for reason in reasons %}
+							<fieldset>
+								<input type="checkbox" id="reason_{{ reason.name }}" name="reasons[]" value="{{ reason.name }}">
+								<label for="reason_{{ reason.name }}">{{ reason.name }}</label>
+							</fieldset>
+						{% endfor %}
 					</div>
 				</fieldset>
-				<button type="submit" class="">Inscription</button>
-				<a href="index.php?route=login">Vous avez déjà un compte ? Connectez-vous ici !</a>
+				<button type="submit" class="">{{ translator.translate("register_button") }}</button>
+				<a href="index.php?route=login">{{ translator.translate("login_link") }}</a>
 				{% if session.erreur_mdp is not empty %}
 					<p>
 						<i class="fa-solid fa-triangle-exclamation"></i>

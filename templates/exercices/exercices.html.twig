@@ -1,36 +1,39 @@
 {% extends "layout.html.twig" %}
 
-{% block mypage %}
+{% block main %}
 	<main>
 		<section class="title_exercice_mobile">
-			<h1>Exercices</h1>
-			<h2>
-				{{ courses[0].globalCategory.name }}
-			</h2>
+			<h1>{{ translator.translate('Exercices') }}</h1>
+			{% if courses is not empty %}
+				<h2>
+					{{ courses[0].globalCategory.name }}
+				</h2>
+			{% endif %}
 		</section>
-
-	{% endblock %}
-
-	{% block main %}
 		{% for course in courses %}
-			<section class="exercice_mobile">
-
-				<a href="index.php?route=choice&cat_id={{ course.globalCategory.id }}">
+			{% if course.exercices is not empty %}
+				<section class="exercice_mobile">
+					<a href="index.php?route=choice&cat_id={{ course.globalCategory.id }}">
+						<i class="fa-solid fa-arrow-left"></i>
+					</a>
+					<h3>{{ course.title }}</h3>
+					{% if course.finished == true %}
+						<a href="index.php?route=ex_res&course_id={{course.id}}&cat_id={{course.globalCategory.id}}">
+							<button>{{ translator.translate('Voir mes résultats') }}</button>
+						</a>
+					{% else  %}
+						<a href="index.php?route=exercice&course_id={{course.id}}&cat_id={{course.globalCategory.id}}">
+							<img class="lock" src="assets/images/playtry.png" alt="lock_exercice">
+						</a>
+					{% endif %}
+				</section>
+			{% endif %}
+		{% else %}
+			<section class="course_mobile">
+				<a class='link_back_choice' href="index.php?route=login_home">
 					<i class="fa-solid fa-arrow-left"></i>
 				</a>
-				<h3>{{ course.title }}</h3>
-
-				{% if course.finished == true %}
-					<a href="index.php?route=ex_res&course_id={{course.id}}&cat_id={{course.globalCategory.id}}">
-						<button>Voir mes résultat</button>
-					</a>
-				{% elseif course.id == 1 %}
-					<a href="index.php?route=exercice&course_id={{course.id}}&cat_id={{course.globalCategory.id}}"><img class="lock" src="assets/images/playtry.png" alt="lock_exercice"></a>
-				{% elseif course.locked == false %}
-					<a href="index.php?route=exercice&course_id={{course.id}}&cat_id={{course.globalCategory.id}}"><img class="lock" src="assets/images/playtry.png" alt="lock_exercice"></a>
-				{% else %}
-					<img class="lock" src="assets/images/lock.png" alt="lock_exercice">
-				{% endif %}
+				<h2 class="no_course_available">{{ translator.translate('no_exercice_available') }}</h2>
 			</section>
 		{% endfor %}
 	</main>

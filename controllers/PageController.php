@@ -2,6 +2,15 @@
 
 class PageController extends AbstractController
 {
+
+    public function __construct()
+    {
+        $lang = $_SESSION["user_lang"];
+
+        parent::__construct("page", $lang);
+    }
+
+
     public function home(): void
     {
         if ($this->isUserOrAdmin()) {
@@ -17,7 +26,6 @@ class PageController extends AbstractController
             $global_categories = $gcm->getAllGlobalCategory();
             //recuperation de toutes les langues
             $languages = $languageManager->getAllLanguages();
-
 
 
 
@@ -73,6 +81,7 @@ class PageController extends AbstractController
             $lm = new LanguageManager();
             $cm = new CountryManager();
 
+
             //Récupération de l'utilisateur grace à la session puis affichage de ces informations
             $user = $um->getUserByEmail($_SESSION['user_email']);
             $flag = $lm->getOneLanguageById($user->getLanguage()->getId());
@@ -91,6 +100,22 @@ class PageController extends AbstractController
 
             //Initialisation des managers
             $gcm = new GlobalCategoryManager();
+            $cm = new CourseManager();
+
+            $courses = $cm->getAllCourse($_GET['cat_id'], $_SESSION['user_language']);
+
+
+
+            foreach ($courses as $course) {
+
+                //On regarde pour cahque cours si l'utilisateur à une ligne dans la table users_courses
+                $userFinishedCourses = $cm->getCourseByUser($_SESSION['user_id'], $course->getId(), $_SESSION['user_language']);
+
+                //Afin d'afficher les cours, on va récupérer dans cette même table, tous les cours d'un utilisateur que l'on stock dans un tableau
+                if (!$userFinishedCourses) {
+                    $cm->addCourseInUsersCourses($_SESSION['user_id'], $course->getId());
+                }
+            }
 
             //Récuperation de la catégorie selon son id
             $category = $gcm->getOneCatById($_GET['cat_id']);
@@ -133,7 +158,7 @@ class PageController extends AbstractController
 
                 //récupération de la langue par son ID
                 $langue = $lm->getOneLanguageById($_GET['language_id']);
-                
+
                 // Stocker la langue sélectionnée dans la session
                 $_SESSION['selected_language'] = $langue->getDrapeau();
                 $_SESSION['selected_language_name'] = $langue->getName();

@@ -1,11 +1,11 @@
 {% extends "layout.html.twig" %}
 
 {% block mypage %}
-	<main>
+	<main class="admin">
 		<div class="container p-4">
-			<h1 class="fs-2">Users</h1>
+			<h1 class="fs-2 admin_title">{{ translator.translate('Users') }}</h1>
 			<a href="index.php?route=administration">
-				<button class='admin_retour_button'>RETOUR</button>
+				<button class='admin_retour_button'>{{ translator.translate('BACK') }}</button>
 			</a>
 
 			<div class="row">
@@ -14,36 +14,34 @@
 						<div class="card mb-4">
 							<div class="card-body">
 								<p class="card-title fs-4">
-									<strong>NAME:</strong>
+									<strong>{{ translator.translate('NAME') }}:</strong>
 									{{ user.username }}
 								</p>
 								<p class="card-text fs-4">
-									<strong>EMAIL:</strong>
+									<strong>{{ translator.translate('EMAIL') }}:</strong>
 									{{ user.email }}
 								</p>
 								<p class="card-text fs-4">
-									<strong>FROM:</strong>
+									<strong>{{ translator.translate('FROM') }}:</strong>
 									{{ user.country.name }}
 								</p>
 								<p class="card-text fs-4">
-									<strong>Wants to learn:</strong>
+									<strong>{{ translator.translate('Wants_to_learn') }}:</strong>
 									{{ user.language.name }}
 								</p>
 								<p class="card-text fs-4">
-									<strong>Role:</strong>
+									<strong>{{ translator.translate('Role') }}:</strong>
 									{{ user.role }}
 								</p>
 								<p class="card-text fs-4">
-									<strong>Created in:</strong>
+									<strong>{{ translator.translate('Created_in') }}:</strong>
 									{{ user.date }}
 								</p>
-
-								<!-- Bouton Modifier -->
-								<a href="index.php?route=update_user&user_id={{ user.id }}&role=ADMIN" class="btn btn-primary btn-sm mr-2 fs-4">Role vers ADMIN</a>
-								<a href="index.php?route=update_user&user_id={{ user.id }}&role=USER" class="btn btn-primary btn-sm mr-2 fs-4">Role vers USER</a>
-
-								<!-- Bouton Supprimer -->
-								<a href="index.php?route=delete_user&user_id={{ user.id }}" class="btn btn-danger btn-sm fs-4">DELETE</a>
+								<div class="button_admin_crud">
+									<a href="index.php?route=update_user&user_id={{ user.id }}&role=ADMIN" class="btn btn-primary btn-sm mr-2 fs-4">{{ translator.translate('Role_to_ADMIN') }}</a>
+									<a href="index.php?route=update_user&user_id={{ user.id }}&role=USER" class="btn btn-primary btn-sm mr-2 fs-4">{{ translator.translate('Role_to_USER') }}</a>
+									<a href="index.php?route=delete_user&user_id={{ user.id }}" class="btn btn-danger btn-sm fs-4">{{ translator.translate('DELETE') }}</a>
+								</div>
 							</div>
 						</div>
 					</div>

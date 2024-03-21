@@ -2,6 +2,19 @@
 
 class AuthController extends AbstractController
 {
+
+    public function __construct()
+    {
+        $lang = $_SESSION["user_lang"];
+
+        parent::__construct("auth", $lang);
+    }
+
+    public function getTranslator(): Translator
+    {
+        return $this->translator;
+    }
+
     public function login(): void
     {
 
@@ -9,6 +22,8 @@ class AuthController extends AbstractController
         $_SESSION['erreur_hash'] = '';
         $_SESSION['erreur_mail'] = '';
         $_SESSION['erreur_remplissage'] = '';
+
+
 
         $this->render("auth/login.html.twig", []);
     }
@@ -18,7 +33,16 @@ class AuthController extends AbstractController
 
         //Récupération de tous les langages pour les affichés dans le formulaire d'inscription
         $lm = new LanguageManager();
+        $rm = new ReasonManager();
+
+
+        $reasons = $rm->getAllReasons();
+        dump($reasons);
         $languages = $lm->getAllLanguages();
+
+
+
+
 
 
         //Réinitialisation des sessions de messages d'erreur lors de l'inscription ou la connexion
@@ -27,7 +51,7 @@ class AuthController extends AbstractController
         $_SESSION['erreur_remplissage'] = '';
 
 
-        $this->render("auth/register.html.twig", ['languages' => $languages]);
+        $this->render("auth/register.html.twig", ['languages' => $languages, 'reasons' => $reasons]);
     }
 
 
@@ -60,16 +84,14 @@ class AuthController extends AbstractController
                         $_SESSION['user_id'] = $user->getId();
                         $_SESSION['user_language'] = $user->getLanguage()->getId();
 
+                        $_SESSION['user_lang'] = $user->getCountry()->getLanguage()->getCode();
+
+
+
                         $rm = new ReasonManager();
 
-                        //Ajout à la table de liaison des utilisateur et leur raisons d'apprentissage si la raison n'existe pas déjà
-                        foreach ($_SESSION['reasons'] as $reason_data) {
-                            $reason = $rm->getReasonByName($reason_data);
-                            $existingReasons = $rm->getUserReasons($user->getId(), $reason->getId());
-                            if (!$existingReasons) {
-                                $rm->addUserReason($user->getId(), $reason->getId());
-                            }
-                        }
+
+
 
                         //Ajout de l'url du drapeau dans la session afin de l'afficher dans le header pour savoir quelle langue l'utilisateur est en train d'apprendre
                         $lm = new LanguageManager();
@@ -88,6 +110,8 @@ class AuthController extends AbstractController
                             $language_object->language_id = $language->getId();
                             $language_array[] = $language_object;
                         }
+
+                        $_SESSION['connexion_layout'] = 'autorise';
 
                         //Initialisation de la session avec l'objet précédemment créé
                         $_SESSION['languages'] = $language_array;
@@ -111,10 +135,12 @@ class AuthController extends AbstractController
 
     public function checkRegister(): void
     {
+
         $userManager = new UserManager();
         $countryManager = new CountryManager();
         $tokenManager = new CSRFTokenManager();
         $languageManager =  new LanguageManager();
+        $rm = new ReasonManager();
         $passwordRegex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\d!@#$%^&*()-_+=]{8,}$/';;
 
         //Vaalidation du token avant toute chose pour empêcher les faille CSRF
@@ -132,6 +158,7 @@ class AuthController extends AbstractController
                     $this->redirect("index.php?route=register");
                 }
 
+
                 //Initialisation des variables
                 $username = htmlspecialchars($_POST['username']);
                 $email = htmlspecialchars($_POST['email']);
@@ -140,15 +167,17 @@ class AuthController extends AbstractController
                 $language_data = strtolower($_POST['language']);
                 $reasons = $_POST['reasons'];
 
-
                 //Ajout du tableau 'reason' à la session afin de pouvoir les ajouter à la table de liaison 'users_reasons'
                 $_SESSION['reasons'] = $reasons;
+
+
+                //Ajout à la table de liaison des utilisateur et leur raisons d'apprentissage si la raison n'existe pas déjà
+
 
 
                 //vérification que les deux mots de passe sont bien identique
                 if ($confirmPassword === $_POST['password']) {
 
-                    $_SESSION['connexion'] = 'autorisé';
                     $country = $countryManager->getOneCountryByName($country_data);
                     $language = $languageManager->getOneLanguageByName($language_data);
 
@@ -157,6 +186,17 @@ class AuthController extends AbstractController
                     $newUser = new User($username, $email, $password, $country, $language, date('Y-m-d'));
                     $userManager->createUser($newUser);
 
+                    $user = $userManager->getUserByEmail($email);
+
+                    foreach ($_SESSION['reasons'] as $reason_data) {
+                        $reason = $rm->getReasonByName($reason_data);
+                        $existingReasons = $rm->getUserReasons($user->getId(), $reason->getId());
+                        if (!$existingReasons) {
+                            $rm->addUserReason($user->getId(), $reason->getId());
+                        }
+                    }
+
+                    $_SESSION['role'] = $user->getRole();
 
                     $this->redirect("index.php?route=login");
                 } else {
@@ -180,4 +220,9 @@ class AuthController extends AbstractController
         session_destroy();
         $this->redirect("index.php?route=login");
     }
+
+    // public function switchLang(): void
+    // {
+    //     $_SESSION['user_lang'] = $_SESSION["lang"];
+    // }
 }

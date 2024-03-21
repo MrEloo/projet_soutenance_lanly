@@ -29,20 +29,21 @@
 {% block main %}
 	<main>
 		<section class="title_login_home_mobile">
-			<h2>A vous de choisir</h2>
+			<h2>{{ translator.translate("login_home_choice") }}</h2>
+			<h3 class="category_name">{{ category.name }}</h3>
 		</section>
 		<section class="choice_mobile">
 			<a href="index.php?route=course&cat_id={{ category.id }}" style="text-decoration: none; color: inherit;">
 				<div class="progress_container">
 					<div class="progress_bar" style="--i:100;--clr:black;">
-						<h4>Course</h4>
+						<h4>{{ translator.translate("login_home_course") }}</h4>
 					</div>
 				</div>
 			</a>
 			<a href="index.php?route=exercices&cat_id={{ category.id }}" style="text-decoration: none; color: inherit;">
 				<div class="progress_container">
 					<div class="progress_bar" style="--i:100;--clr:black;">
-						<h4>Exercice</h4>
+						<h4>{{ translator.translate("login_home_exercice") }}</h4>
 					</div>
 				</div>
 			</a>

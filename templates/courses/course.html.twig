@@ -2,32 +2,48 @@
 
 {% block main %}
 	<main>
+
 		<section class="title_course_mobile">
-			<h1>Partie cours</h1>
+			<h1>{{ translator.translate("course_title") }}</h1>
 		</section>
 
-		{% for course in courses %}
-			<section class="course_mobile">
-				{% if loop.first %}
-					<a href="index.php?route=choice&cat_id={{ course.globalCategory.id }}">
-						<i class="fa-solid fa-arrow-left"></i>
+		{% if courses is not empty %}
+			{% for course in courses %}
+				<section class="course_mobile">
+					{% if loop.first %}
+						<a href="index.php?route=choice&cat_id={{ course.globalCategory.id }}">
+							<i class="fa-solid fa-arrow-left"></i>
+						</a>
+					{% endif %}
+
+					<h2>{{ course.title }}</h2>
+					<p>{{ course.description }}</p>
+
+
+					{% if course.examples %}
+						{% for example in course.examples %}
+							<h3>{{ translator.translate("course_example") }}
+								:</h3>
+							<p class="italic">-
+								{{ example.description }}</p>
+						{% endfor %}
+					{% endif %}
+
+					<a href="index.php?route=exercice&course_id={{course.id}}&cat_id={{ course.globalCategory.id }}">
+						<button>{{ translator.translate("course_button_exerice") }}</button>
 					</a>
-				{% endif %}
 
-				<h2>{{ course.title }}</h2>
-				<p>{{ course.description }}</p>
 
-				{% if course.examples is not empty %}
-					<h3>Exemple(s) :</h3>
-					{% for example in course.examples %}
-						<p class="italic">-
-							{{ example.description }}</p>
-					{% endfor %}
-				{% endif %}
-				<a href="index.php?route=exercice&course_id={{course.id}}&cat_id={{ course.globalCategory.id }}">
-					<button>On s'exerce ?</button>
+				</section>
+			{% endfor %}
+		{% else %}
+			<section class="course_mobile">
+				<a class='link_back_choice' href="index.php?route=login_home">
+					<i class="fa-solid fa-arrow-left"></i>
 				</a>
+				<h2 class="no_course_available">{{ translator.translate("no_course_available") }}</h2>
 			</section>
-		</main>
-	{% endfor %}
+		{% endif %}
+
+	</main>
 {% endblock %}

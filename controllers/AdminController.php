@@ -2,6 +2,13 @@
 
 class AdminController extends AbstractController
 {
+
+    public function __construct()
+    {
+        $lang = $_SESSION["user_lang"];
+
+        parent::__construct("admin", $lang);
+    }
     //Redirection vers l'espace administration
     public function showAdminSpace(): void
     {
@@ -29,7 +36,7 @@ class AdminController extends AbstractController
     {
         if ($this->checkAdmin()) {
             $cm = new CourseManager();
-            $courses = $cm->getAllCourse();
+            $courses = $cm->getAllCourseWithoutLanguageId();
             $this->render('admin/show-courses.html.twig', ['courses' => $courses]);
         } else {
             $this->render('page/home.html.twig', []);

@@ -4,6 +4,13 @@
 class ExerciceController extends AbstractController
 {
 
+    public function __construct()
+    {
+        $lang = $_SESSION["user_lang"];
+
+        parent::__construct("exercice", $lang);
+    }
+
     //////////////////////////////////////////////////////////////
     //LES EXERCICES SONT COMPOSE D'UN ENSEMBLE DE QUESTION////////
     //////////////////////////////////////////////////////////////
@@ -23,19 +30,11 @@ class ExerciceController extends AbstractController
             $courses = $cm->getCoursesByTheirCat($_GET['cat_id'], $_SESSION['user_language']);
 
 
+
             foreach ($courses as $course) {
 
                 //Afin d'individualisé chaque utilisateur, on va devoir récupérer les informations de la table users_courses
 
-                //On regarde pour cahque cours si l'utilisateur à une ligne dans la table users_courses
-                $userFinishedCourses = $cm->getCourseByUser($_SESSION['user_id'], $course->getId(), $_SESSION['user_language']);
-
-                //Si non, on l'a creer
-                if (!$userFinishedCourses) {
-                    $cm->addCourseInUsersCourses($_SESSION['user_id'], $course->getId());
-                }
-
-                //Afin d'afficher les cours, on va récupérer dans cette même table, tous les cours d'un utilisateur que l'on stock dans un tableau
                 $userCourses = $cm->getCourseFromUserById($_SESSION['user_id'], $course->getId());
 
                 $userCourse_array[] = $userCourses;
@@ -47,6 +46,7 @@ class ExerciceController extends AbstractController
                 $exercices = $em->getAllExercicesByCourse($userCourse->getId(), $_SESSION['user_language']);
                 $userCourse->setExercices($exercices);
             }
+
 
 
 

@@ -5,7 +5,7 @@ class CountryManager extends AbstractManager
 {
     public function getOneCountryByName(string $name): Country
     {
-        $selectCountryByNameQuery = $this->db->prepare('SELECT * from contries WHERE name = :name');
+        $selectCountryByNameQuery = $this->db->prepare("SELECT * FROM contries_{$_SESSION['user_lang']} WHERE name = :name");
         $parameters = [
             'name' => $name
         ];
@@ -19,10 +19,10 @@ class CountryManager extends AbstractManager
         $country->setId($country_data['id']);
         return $country;
     }
-    
+
     public function getOneCountryById(?int $id): ?Country
     {
-        $selectCountryByIdQuery = $this->db->prepare('SELECT * from contries WHERE id = :id');
+        $selectCountryByIdQuery = $this->db->prepare("SELECT * from contries_{$_SESSION['user_lang']} WHERE id = :id");
         $parameters = [
             'id' => $id
         ];

@@ -4,6 +4,13 @@
 class ExampleController extends AbstractController
 {
 
+    public function __construct()
+    {
+        $lang = $_SESSION["user_lang"];
+
+        parent::__construct("auth", $lang);
+    }
+
     //suppression d'un exemple en base de données
     public function deleteExample(): void
     {

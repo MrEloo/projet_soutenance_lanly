@@ -3,6 +3,13 @@
 class CourseController extends AbstractController
 {
 
+    public function __construct()
+    {
+        $lang = $_SESSION["user_lang"];
+
+        parent::__construct("course", $lang);
+    }
+
     //Affiche la liste des cours associés à sa catégorie
     public function showCourse(): void
     {
@@ -16,14 +23,19 @@ class CourseController extends AbstractController
             $courses = $cm->getCoursesByTheirCat($_GET['cat_id'], $_SESSION['user_language']);
 
 
+
+
+
             $examples_array = [];
+
 
             //Pour chacun de ses cours, récupération de ses exemples + ajout à l'attribut 
             foreach ($courses as $course) {
+
+
                 $examples_array = $em->getExamplesFromCourse($course->getId(), $_SESSION['user_language']);
                 $course->setExamples($examples_array);
             }
-
             $this->render("courses/course.html.twig", ['courses' => $courses]);
         } else {
             $this->render('page/home.html.twig', []);

@@ -3,22 +3,22 @@
 {% block main %}
 	<main class='main_login_mobile'>
 		<section class="login_title_mobile">
-			<h2>Connectez-vous pour prendre part à l'aventure !</h2>
+			<h2>{{ translator.translate("login_title") }}</h2>
 		</section>
 		<section class="login_mobile">
 			<form action="index.php?route=check-login" method="post">
-				<input type="hidden" name="csrf-token" id="csrf-token" value=" {{ session.csrf_Token }} "/>
+				<input type="hidden" name="csrf-token" id="csrf-token" value="{{ session.csrf_Token }}"/>
 				<fieldset>
-					<label for="email" class="form-label">Nom d'utilisateur</label>
+					<label for="email" class="form-label">{{ translator.translate("username_label") }}</label>
 					<input type="text" id="email" name="email" class="form-control"/>
 				</fieldset>
 				<fieldset>
-					<label for="password" class="form-label">Mot de passe</label>
+					<label for="password" class="form-label">{{ translator.translate("password_label") }}</label>
 					<input type="password" id="password" name="password" class="form-control"/>
 				</fieldset>
-				<button type="submit" class="">Login</button>
+				<button type="submit" class="">{{ translator.translate("login_button") }}</button>
 			</form>
-			<a href="index.php?route=register">Vous n'avez pas de compte ? Inscrivez-vous ici !</a>
+			<a href="index.php?route=register">{{ translator.translate("register_link") }}</a>
 			{% if session.erreur_hash is not empty %}
 				<p>
 					<i class="fa-solid fa-triangle-exclamation"></i>
@@ -34,10 +34,9 @@
 			{% if session.erreur_remplissage is not empty %}
 				<p>
 					<i class="fa-solid fa-triangle-exclamation"></i>
-					{{session.erreur_remplissage}}</p><br>
+					{{ session.erreur_remplissage }}</p><br>
 			{% endif %}
 		</section>
 	</main>
-
-
+	<a href="index.php?route=logout">ec</a>
 {% endblock %}

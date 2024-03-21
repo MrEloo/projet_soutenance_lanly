@@ -1,4 +1,4 @@
-@media only screen and (min-width: 390px) and (max-width: 1280px) {
+@media only screen and (min-width: 1px) and (max-width: 1280px) {
     .active {
         display: block;
     }
@@ -287,6 +287,7 @@
     /*****************************
     //FOOTER
     ******************************/
+
     .footer {
         background-color: #080E16;
         color: white;
@@ -317,6 +318,26 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+
+    .switchLang {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .switchLang p {
+        font-size: 2rem;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+    }
+
+    .switchLang a {
+        text-decoration: underline;
+
     }
 
 
@@ -776,7 +797,13 @@
         transition: all 0.71s ease;
     }
 
-
+    .no_course_available {
+        text-align: center;
+        color: #FA8F21;
+        font-size: 4rem;
+        padding: 1em;
+        margin: 0;
+    }
 
     /*****************************
     //EXERCICE MOBILE
@@ -1132,23 +1159,113 @@
     /// ADMINISTRATION MOBILE
     ******************************/
 
-    .container {
-        font-size: 3rem;
-        margin: 5rem;
-    }
 
-    .container a {
+
+    .list-group-item {
+        padding: 2em !important;
         font-size: 2rem;
     }
 
-
-    .container h1 {
-        font-size: 5rem;
-        padding: 2em;
+    .admin {
+        background-color: #131F31 !important;
+        color: #D9D9D9;
     }
 
-    .container a {
+
+    .admin a {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: 2rem;
+        padding: 1em !important;
+        border-radius: 1em;
+    }
+
+    .list-group a {
+        font-size: 2rem !important;
+    }
+
+    .card-title {
         padding: 1em;
+        font-size: 3rem !important;
+    }
+
+    .admin .card-text {
+        padding: 1em;
+        font-size: 2.5rem !important;
+    }
+
+    .admin_retour_button {
+        display: block;
+        padding: 1em;
+        font-size: 2rem;
+        background-color: #FA8F21;
+        border-radius: 3em;
+        color: black;
+        border: none;
+        margin: 5rem auto;
+        transition: all 0.71s ease;
+    }
+
+    .admin_retour_button:hover {
+        transform: scale(1.05);
+        background-color: #080E16;
+        color: #FA8F21;
+        transition: all 0.71s ease;
+    }
+
+    .button_admin_crud {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-body {
+        background-color: #080E16;
+        border-radius: 3em !important;
+
+    }
+
+    .admin_title {
+        text-align: center;
+        font-size: 3rem;
+        color: #FA8F21;
+        padding: 1em;
+    }
+
+    .card {
+        border: none !important;
+    }
+
+    .card p {
+        padding: 0.5em !important;
+    }
+
+    .btn-group-sm>.btn,
+    .btn-sm {
+        padding: 2em !important;
+        font-size: 2rem;
+    }
+
+    .card-title {
+        font-size: 2rem;
+
+    }
+
+    .card-text {
+        font-size: 2rem !important;
+    }
+
+    .admin_image {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .texte_exemple {
+        font-size: 2rem;
+        text-align: center !important;
+        margin: 0;
+        padding: 2em;
     }
 
 
@@ -1422,11 +1539,20 @@
         margin: 0;
     }
 
+    .about_section_mobile h3 {
+        padding: 2em;
+        font-size: 2.5rem;
+        text-align: center;
+        color: #D9D9D9;
+        margin: 0;
+    }
+
     .about_section_mobile img {
         display: block;
         margin: 0 auto;
-        max-width: 30%;
+        max-width: 50%;
         padding: 2em;
+        border-radius: 5em;
     }
 
     /*****************************
@@ -1451,6 +1577,73 @@
 
     .slider_desktop {
         display: none;
+    }
+
+    /*****************************
+    /// ESPACE CONTACT 
+    ******************************/
+
+    .contact_section_mobile {
+        background-color: #131F31;
+        margin: 0;
+        padding: 2em;
+    }
+
+    .contact_section_mobile h2 {
+        color: #D9D9D9;
+    }
+
+    .contact_section_mobile .container {
+        max-width: 600px;
+        background-color: #080E16;
+        padding: 2em;
+        border-radius: 2em;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact_section_mobile .container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .contact_section_mobile .form-group {
+        margin-bottom: 20px;
+    }
+
+    .contact_section_mobile .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #D9D9D9;
+    }
+
+    .contact_section_mobile .form-group input[type="text"],
+    .contact_section_mobile .form-group input[type="email"],
+    .contact_section_mobile .form-group textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.7rem;
+        font-size: 2rem;
+        box-sizing: border-box;
+    }
+
+    .contact_section_mobile .form-group textarea {
+        height: 100px;
+    }
+
+    .contact_section_mobile .form-group button {
+        background-color: #FA8F21;
+        color: #fff;
+        border: none;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        border-radius: 0.5em;
+        font-size: 2rem;
+    }
+
+    .contact_section_mobile .form-group button:hover {
+        background-color: #080E16;
     }
 }
 
@@ -1604,12 +1797,6 @@
     }
 
 
-
-
-
-
-
-
     .dropdown_container {
         position: relative;
         transition: all 0.3s ease;
@@ -1653,6 +1840,9 @@
         color: white;
         font-size: 3rem;
         padding: 2em;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
 
     .footer a {
@@ -1662,6 +1852,7 @@
         margin: 1rem;
         text-align: center;
         width: 40rem;
+        text-decoration: underline;
     }
 
     .footer i {
@@ -1689,11 +1880,10 @@
     .text_footer_mobile {
         font-size: 3rem;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-
 
     .footer_home_non_connected {
         background-color: #131F31;
@@ -1729,13 +1919,30 @@
         align-items: center;
     }
 
+    .switchLang {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .switchLang p {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .switchLang a {
+        text-decoration: underline;
+
+    }
+
 
     /*****************************
     //SWIPER DESKTOP
     ******************************/
 
     .swiper_desktop {
-        background-color: #080E16;
+        background-color: #FA8F21;
     }
 
     .swiper {
@@ -1757,8 +1964,8 @@
 
     .swiper-slide img {
         display: block;
-        width: 70%;
-        height: 70%;
+        width: 50%;
+        height: 50%;
         /* Vous pouvez ajuster la valeur selon vos besoins */
         object-fit: cover;
         margin: auto;
@@ -1813,6 +2020,9 @@
     //MAIN DESKTOP
     ******************************/
 
+    .editor_section_mobile {
+        display: none;
+    }
 
     .text_container {
         width: 100%;
@@ -1994,7 +2204,7 @@
 
 
     .form-label {
-        display: flex;
+        display: flex !important;
         flex-wrap: wrap;
     }
 
@@ -2008,8 +2218,15 @@
         align-items: center;
         flex-direction: column !important;
         text-align: center;
-        width: 40%;
         border-bottom: none !important;
+    }
+
+
+    .flex_form_label {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
 
 
@@ -2238,6 +2455,13 @@
         color: #FA8F21;
     }
 
+    .category_name {
+        text-align: center;
+        margin: 0;
+        padding: 0 1em 2em 1em;
+        color: #D9D9D9;
+        font-size: 2.5em;
+    }
 
 
     .choice_mobile {
@@ -2935,6 +3159,77 @@
         font-size: 2rem;
     }
 
+    .admin {
+        background-color: #131F31 !important;
+        color: #D9D9D9;
+    }
+
+
+    .admin a {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: 2rem;
+        padding: 1em !important;
+        border-radius: 1em;
+    }
+
+    .card-title {
+        padding: 1em;
+        font-size: 3rem !important;
+    }
+
+    .admin .card-text {
+        padding: 1em;
+        font-size: 2.5rem !important;
+    }
+
+    .admin_retour_button {
+        display: block;
+        padding: 1em;
+        font-size: 2rem;
+        background-color: #FA8F21;
+        border-radius: 3em;
+        color: black;
+        border: none;
+        margin: 5rem auto;
+        transition: all 0.71s ease;
+    }
+
+    .admin_retour_button:hover {
+        transform: scale(1.05);
+        background-color: #080E16;
+        color: #FA8F21;
+        transition: all 0.71s ease;
+    }
+
+    .button_admin_crud {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-body {
+        background-color: #080E16;
+        border-radius: 3em !important;
+
+    }
+
+    .admin_title {
+        text-align: center;
+        font-size: 3rem;
+        color: #FA8F21;
+        padding: 1em;
+    }
+
+    .card {
+        border: none !important;
+    }
+
+    .card p {
+        padding: 0.5em !important;
+    }
+
     .btn-group-sm>.btn,
     .btn-sm {
         padding: 2em !important;
@@ -2943,9 +3238,91 @@
 
     .card-title {
         font-size: 2rem;
+
     }
 
     .card-text {
         font-size: 2rem !important;
+    }
+
+    .admin_image {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .texte_exemple {
+        font-size: 2rem;
+        text-align: center !important;
+        margin: 0;
+        padding: 2em;
+    }
+
+
+    /*****************************
+    /// ESPACE CONTACT
+    ******************************/
+
+
+    .contact_section_mobile {
+        background-color: #131F31;
+        margin: 0;
+        padding: 2em;
+    }
+
+    .contact_section_mobile h2 {
+        color: #D9D9D9;
+    }
+
+    .contact_section_mobile .container {
+        max-width: 600px;
+        background-color: #080E16;
+        padding: 2em;
+        border-radius: 2em;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact_section_mobile .container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .contact_section_mobile .form-group {
+        margin-bottom: 20px;
+    }
+
+    .contact_section_mobile .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #D9D9D9;
+    }
+
+    .contact_section_mobile .form-group input[type="text"],
+    .contact_section_mobile .form-group input[type="email"],
+    .contact_section_mobile .form-group textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.7rem;
+        font-size: 2rem;
+        box-sizing: border-box;
+    }
+
+    .contact_section_mobile .form-group textarea {
+        height: 100px;
+    }
+
+    .contact_section_mobile .form-group button {
+        background-color: #FA8F21;
+        color: #fff;
+        border: none;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        border-radius: 0.5em;
+        font-size: 2rem;
+    }
+
+    .contact_section_mobile .form-group button:hover {
+        background-color: #080E16;
     }
 }

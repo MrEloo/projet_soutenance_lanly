@@ -14,6 +14,10 @@ if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = $newTokenManger->generateCSRFToken();
 }
 
+if (!isset($_SESSION['user_lang'])) {
+    $_SESSION['user_lang'] = 'fr';
+}
+
 
 
 

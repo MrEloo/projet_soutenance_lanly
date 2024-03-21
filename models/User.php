@@ -9,7 +9,7 @@ class User
     private string $picture;
     private array $reasons = [];
 
-    public function __construct(private string $username, private string $email, private string $password, private Country $country, private Language $language, private string $date)
+    public function __construct(private string $username, private string $email, private string $password, private ?Country $country, private ?Language $language, private string $date)
     {
 
         $this->username = $username;

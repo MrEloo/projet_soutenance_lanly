@@ -1,19 +1,21 @@
 {% extends "layout.html.twig" %}
 
 {% block mypage %}
-	<main>
+	<main class="admin">
 		<section class="container admin_menu p-4">
-			<h1 class="mt-5">Mon espace ADMIN</h1>
+			<h1 class="mt-5">
+				{{translator.translate("admin_title")}}
+			</h1>
 			<article class="list-group mt-4">
-				<a href="index.php?route=allUsers" class="list-group-item list-group-item-action bg-primary text-white">gerer les utilisateurs</a>
+				<a href="index.php?route=allUsers" class="list-group-item list-group-item-action bg-primary text-white">{{translator.translate("admin_users")}}</a>
 				<br>
-				<a href="index.php?route=allCourses" class="list-group-item list-group-item-action bg-primary text-white">gerer les cours</a>
+				<a href="index.php?route=allCourses" class="list-group-item list-group-item-action bg-primary text-white">{{translator.translate("admin_courses")}}</a>
 				<br>
-				<a href="index.php?route=allExercices" class="list-group-item list-group-item-action bg-primary text-white">gerer les exercices</a>
+				<a href="index.php?route=allExercices" class="list-group-item list-group-item-action bg-primary text-white">{{translator.translate("admin_exercices")}}</a>
 				<br>
-				<a href="index.php?route=allExamples" class="list-group-item list-group-item-action bg-primary text-white">gerer les exemples</a>
+				<a href="index.php?route=allExamples" class="list-group-item list-group-item-action bg-primary text-white">{{translator.translate("admin_examples")}}</a>
 				<br>
-				<a href="index.php?route=allLanguages" class="list-group-item list-group-item-action bg-primary text-white">gerer les langues</a>
+				<a href="index.php?route=allLanguages" class="list-group-item list-group-item-action bg-primary text-white">{{translator.translate("admin_languages")}}</a>
 			</article>
 		</section>
 	</main>

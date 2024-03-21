@@ -5,7 +5,7 @@ class GlobalCategoryManager extends AbstractManager
 {
     public function getAllGlobalCategory(): array
     {
-        $selectAllGlobalCategoryQuery = $this->db->prepare('SELECT * FROM global_category ');
+        $selectAllGlobalCategoryQuery = $this->db->prepare("SELECT * FROM global_category_{$_SESSION['user_lang']} ");
         $selectAllGlobalCategoryQuery->execute();
         $global_categories_data = $selectAllGlobalCategoryQuery->fetchAll(PDO::FETCH_ASSOC);
 
@@ -22,10 +22,11 @@ class GlobalCategoryManager extends AbstractManager
 
     public function getOneCatById(int $id): GlobalCategory
     {
-        $selectOneCatById = $this->db->prepare('SELECT * FROM global_category WHERE id = :id');
+        $selectOneCatById = $this->db->prepare("SELECT * FROM global_category_{$_SESSION['user_lang']} WHERE id = :id");
         $parameters = ['id' => $id];
         $selectOneCatById->execute($parameters);
         $category_data = $selectOneCatById->fetch(PDO::FETCH_ASSOC);
+
 
         $global_category = new GlobalCategory($category_data['name']);
         $global_category->setId($category_data['id']);

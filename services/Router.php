@@ -144,6 +144,10 @@ class Router
             if (isset($get["lan_id"])) {
                 $this->lc->changeLanguage();
             }
+        } else if (isset($get["route"]) && $get["route"] === 'switchLang') {
+            if (isset($get["lang_code"])) {
+                $this->lc->switchLanguage();
+            }
         } else if (isset($get["route"]) && $get["route"] === 'profil') {
             $this->pc->profil();
         }

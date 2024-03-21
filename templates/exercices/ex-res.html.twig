@@ -25,16 +25,17 @@
 						<i class="fa-solid fa-xmark"></i>
 					{% else %}
 						<i class="fa-solid fa-check"></i>
-					{% endif %}votre réponse :
+					{% endif %}
+					{{ translator.translate("result_response") }}
 					<span class="response_word">{{ exercice.response.content }}</span>
 				</p>
 			{% endfor %}
 			<section class="button_resultat_mobile">
 				<a href="index.php?route=exercices&cat_id={{exercices[0].globalCategory.id}}">
-					<button>finish</button>
+					<button>{{ translator.translate("result_finish") }}</button>
 				</a>
 				<a href="index.php?route=exercice&course_id={{ exercices[0].course_id }}&cat_id={{ exercices[0].globalCategory.id }}">
-					<button>Try again</button>
+					<button>{{ translator.translate("result_try_again") }}</button>
 				</a>
 			</section>
 

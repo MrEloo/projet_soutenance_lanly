@@ -4,6 +4,13 @@
 class LanguageController extends AbstractController
 {
 
+    public function __construct()
+    {
+        $lang = $_SESSION["user_lang"];
+
+        parent::__construct("auth", $lang);
+    }
+
     //suppression d'une langue en base de données
     public function deleteLanguage(): void
     {
@@ -71,6 +78,24 @@ class LanguageController extends AbstractController
             $this->redirect("index.php?route=login_home");
         } else {
             $this->render("page/home.html.twig", []);
+        }
+    }
+
+    public function switchLanguage(): void
+    {
+
+        if ($this->isUserOrAdmin()) {
+            $_SESSION['user_lang'] = $_GET['lang_code'];
+            $this->redirect("index.php?route=login_home");
+        } else {
+            $_SESSION['user_lang'] = $_GET['lang_code'];
+
+
+            //Réinitialisation des sessions de messages d'erreur lors de l'inscription ou la connexion
+            $_SESSION['erreur_hash'] = '';
+            $_SESSION['erreur_mail'] = '';
+            $_SESSION['erreur_remplissage'] = '';
+            $this->redirect("index.php");
         }
     }
 }

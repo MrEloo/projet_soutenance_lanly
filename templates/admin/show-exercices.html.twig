@@ -2,51 +2,59 @@
 
 {% block mypage %}
 
-	<main>
+	<main class="admin">
 		<div class="container p-4">
-			<h1>Exercices</h1>
+			<h1 class="admin_title">{{ translator.translate('Exercises') }}</h1>
 			<a href="index.php?route=administration">
-				<button class='admin_retour_button'>RETOUR</button>
+				<button class='admin_retour_button'>{{ translator.translate('BACK') }}</button>
 			</a>
 
 			<!-- Bouton Ajouter un cours -->
-			<a href="index.php?route=create_exercice" class="btn btn-success mb-3">Ajouter un cours</a>
+			<a href="index.php?route=create_exercice" class="btn btn-success mb-3">{{ translator.translate('Add_an_exercise') }}</a>
 
 			{% for exercice in exercices %}
 				<div class="card mb-4">
 					<div class="card-body">
-						<h2 class="card-title">Title :
+						<h2 class="card-title">{{ translator.translate('Title') }}
+							:
 							{{ exercice.title }}
 						</h2>
-						<p class="card-text">Difficulty :
+						<p class="card-text">{{ translator.translate('Difficulty') }}
+							:
 							{{ exercice.difficulty }}
 						</p>
 						<p class="card-text">
-							Question :
+							{{ translator.translate('Question') }}
+							:
 							{{ exercice.question }}
 						</p>
 						<p class="card-text">
-							correction_text :
+							{{ translator.translate('Correction_Text') }}
+							:
 							{{ exercice.correction_text }}
 						</p>
 						<p class="card-text">
-							correction word :
+							{{ translator.translate('Correction_Word') }}
+							:
 							{{ exercice.correction }}
 						</p>
 						<p class="card-text">
-							Category name :
+							{{ translator.translate('Category_Name') }}
+							:
 							{{ exercice.globalCategory.name }}
 						</p>
 						<p class="card-text">
-							Course ID :
+							{{ translator.translate('Course_ID') }}
+							:
 							{{ exercice.course_id }}
 						</p>
 
-						<!-- Bouton Modifier -->
-						<a href="index.php?route=update_exercice&ex_id={{exercice.id}}" class="btn btn-primary btn-sm mr-2">Modifier</a>
+						<div class="button_admin_crud">
 
-						<!-- Bouton Supprimer -->
-						<a href="index.php?route=delete_exercice&ex_id={{exercice.id}}" class="btn btn-danger btn-sm">Supprimer</a>
+							<a href="index.php?route=update_exercice&ex_id={{exercice.id}}" class="btn btn-primary btn-sm mr-2">{{ translator.translate('Edit') }}</a>
+							<a href="index.php?route=delete_exercice&ex_id={{exercice.id}}" class="btn btn-danger btn-sm">{{ translator.translate('DELETE') }}</a>
+
+						</div>
 					</div>
 				</div>
 			{% endfor %}

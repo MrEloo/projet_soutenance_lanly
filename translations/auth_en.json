@@ -1,0 +1,22 @@
+{
+    "site_title": "Lanly",
+    "login_title": "Log in to join the adventure!",
+    "username_label": "Username",
+    "password_label": "Password",
+    "login_button": "Login",
+    "register_link": "Don't have an account? Sign up here!",
+    "register_title": "Sign up and access a multitude of exercises tailored for you!",
+    "email_label": "Email",
+    "confirm_password_label": "Confirm Password",
+    "country_label": "Where are you from",
+    "select_country_option": "Choose a country",
+    "language_label": "Which language do you want to learn",
+    "select_language_option": "Choose a language",
+    "reasons_label": "What are your reasons",
+    "register_button": "Register",
+    "login_link": "Already have an account? Log in here!",
+    "contact": "Contact",
+    "legal_mentions": "Legal Mentions",
+    "admin_area": "Admin Area",
+    "data_protection_policy": "Data Protection Policy"
+}

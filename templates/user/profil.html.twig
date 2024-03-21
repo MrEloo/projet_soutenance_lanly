@@ -1,45 +1,38 @@
 {% extends "layout.html.twig" %}
 
-{% block headerWhenConnected %}
-	{{ parent() }}
-{% endblock %}
-
 {% block main %}
-
 	<main>
 		<section class='title_profil_mobile'>
-			<h1 class="reveal-1">
-				Mon profil
-			</h1>
+			<h1 class="reveal-1">{{ translator.translate("my_profile") }}</h1>
 		</section>
 		<section class='profil_mobile'>
-
-
 			<div
 				class="image_uploader">
-				{# Affichage de l'image si il y en a une présente en base de donné #}
+				{# Affichage de l'image si elle est présente en base de données #}
 				{% if user.picture is not empty %}
 					<img class='profil_image_user' src="{{ user.picture }}" alt="{{ user.username }}">
 				{% endif %}
-
-
-				{# Formulaire d'ajout de photo de profil grace à la super global $_FILES['name] #}
+				{# Formulaire d'ajout de photo de profil grâce à la super globale $_FILES['name] #}
 				<form action="index.php?route=addImage" method="POST" enctype="multipart/form-data">
-					<label class="label_image" for="input_file">Update image</label>
+					<label class="label_image" for="input_file">{{ translator.translate("update_image") }}</label>
 					<input type="file" accept="image/jpeg, image/png, image/jpg" name="input_file" id="input_file">
-					<button id="button_send_image" class="button_send_image" type="submit">Enregistrer</button>
+					<button id="button_send_image" class="button_send_image" type="submit">{{ translator.translate("save") }}</button>
 				</form>
 			</div>
 
-			<p class='profil_global'>name :</p>
+			<p class='profil_global'>{{ translator.translate("name") }}
+				:</p>
 			<p class='profil_user'>{{ user.username }}</p>
-			<p class='profil_global'>Email :</p>
+			<p class='profil_global'>{{ translator.translate("email") }}
+				:</p>
 			<p class='profil_user'>{{ user.email }}</p>
-			<p class='profil_global'>native country :</p>
-			<img class="image_profil" src="{{flag_from.drapeau}}" alt="desired language flag">
+			<p class='profil_global'>{{ translator.translate("native_country") }}
+				:</p>
+			<img class="image_profil" src="{{flag_from.drapeau}}" alt="Flag of native country">
 			<p class='profil_user native'>{{ user.country.name }}</p>
-			<p class='profil_global'>desired language :</p>
-			<img class="image_profil" src="{{flag.drapeau}}" alt="desired language flag">
+			<p class='profil_global'>{{ translator.translate("desired_language") }}
+				:</p>
+			<img class="image_profil" src="{{flag.drapeau}}" alt="Flag of desired language">
 			<p class='profil_user desired'>{{ user.language.name }}</p>
 		</section>
 	</main>

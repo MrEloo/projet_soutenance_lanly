@@ -102,9 +102,17 @@ class UserManager extends AbstractManager
 
     public function deleteUser(int $id): void
     {
-        $deleteUserQuery = $this->db->prepare('DELETE FROM users WHERE id = :id ');
-        $parameters = ['id' => $id];
-        $deleteUserQuery->execute($parameters);
+        $updateQuery = $this->db->prepare('UPDATE users SET username = :default_name, email = :default_email, password = :default_password, country_id = 0, language_id = 0, picture = :default_picture, role = :default, date = :none WHERE id = :id');
+        $parameters = [
+            'default_name' => "default",
+            'default_email' => "default@email.default",
+            'default_password' => "default_password",
+            'default_picture' => "default_picture",
+            'default' => 0,
+            'none' => "default_date",
+            'id' => $id
+        ];
+        $updateQuery->execute($parameters);
     }
 
     public function updateUserRole(string $role, int $id): void

@@ -1,28 +1,23 @@
 {% extends "layout.html.twig" %}
 
-
 {% block main %}
-
-
 	<main>
 
 		<div class='flex_desktop'>
 			<section class="first_text_main_mobile">
 				<article class="text_container">
-					<h2 class="reveal-1">Plongez dans une expérience d'apprentissage immersive :</h2>
-					<p class="reveal-2">Découvrez une plateforme d'apprentissage captivante, où chaque exercice et révision est conçu pour vous immerger dans la langue et la culture que vous explorez. Nos exercices évolutifs, corrections détaillées et courbes de progression font de l'apprentissage une expérience passionnante.</p>
+					<h2 class="reveal-1">{{ translator.translate("first_section_title") }}</h2>
+					<p class="reveal-2">{{ translator.translate("first_section_description") }}</p>
 					<button>
-						<a href="index.php?route=login">COMMENCER</a>
+						<a href="index.php?route=login">{{ translator.translate("start_button") }}</a>
 					</button>
 					<img class="editor_play_desktop" src="assets/images/play.png" alt="">
 				</article>
 			</section>
 
-
 			<section class='full_earth_dektop'>
 				<img class="" src="assets/images/terre_full.png" alt="">
 			</section>
-
 
 			{# Slider des langages proposés #}
 			<section class="slider_contry_mobile">
@@ -34,14 +29,11 @@
 							</div>
 						{% endfor %}
 					</div>
-
-
 				</div>
 				<button>
-					<a href="index.php?route=register">Un univers s'offre à vous !</a>
+					<a href="index.php?route=register">{{ translator.translate("universe_button") }}</a>
 				</button>
 			</section>
-
 
 			<section class="editor_section_mobile">
 				<img src="assets/images/appdark.png" alt="">
@@ -52,14 +44,12 @@
 				<article class="text_container_last_paragraphe">
 					<img class="editor_play_desktop" src="assets/images/app.png" alt="">
 					<button class="button_last_paragraphe_dektop">
-						<a href="index.php?route=login">COMMENCER</a>
+						<a href="index.php?route=login">{{ translator.translate("start_button") }}</a>
 					</button>
-					<h2 class="reveal-1">Apprenez avec une communauté mondiale :</h2>
-					<p class="reveal-2">Rejoignez une communauté internationale passionnée par l'apprentissage des langues. Partagez vos succès, découvrez de nouvelles cultures et échangez avec d'autres utilisateurs du monde entier. Notre plateforme transforme l'apprentissage en une expérience collaborative et enrichissante.</p>
+					<h2 class="reveal-1">{{ translator.translate("second_section_title") }}</h2>
+					<p class="reveal-2">{{ translator.translate("second_section_description") }}</p>
 				</article>
 			</section>
-
-
 		</div>
 
 		<section class='swiper_desktop '>
@@ -71,8 +61,11 @@
 						</div>
 					{% endfor %}
 				</div>
-			</section>
+			</div>
+		</section>
 
-		</main>
 
-	{% endblock %}
+	</main>
+{% endblock %}
+
+
