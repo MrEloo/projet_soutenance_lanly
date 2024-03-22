@@ -8,5 +8,11 @@
     "my_profile": "Мой профиль",
     "admin_area": "Административная область",
     "no_course_available": "нет доступных курсов на данный момент на этом языке",
-    "change_language": "сменить язык на"
+    "change_language": "сменить язык на",
+    "learn": "Учить",
+    "title": "Заголовок",
+    "description": "Описание",
+    "category": "Категория",
+    "language": "Язык",
+    "save": "Сохранить"
 }

@@ -10,5 +10,8 @@
     "my_profile": "Mein Profil",
     "admin_area": "Admin-Bereich",
     "no_course_available": "Keine Übungen sind derzeit verfügbar",
-    "change_language": "Sprache ändern zu"
+    "change_language": "Sprache ändern zu",
+    "exercice_title_page": "Übung",
+    "questions_title_page": "Fragen",
+    "result_title_page": "Ergebnisse"
 }

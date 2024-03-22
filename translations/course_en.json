@@ -8,5 +8,11 @@
     "my_profile": "My Profile",
     "admin_area": "Admin Area",
     "no_course_available": "no courses available in this language at the moment",
-    "change_language": "change language to"
+    "change_language": "change language to",
+    "learn": "Learn",
+    "title": "Title",
+    "description": "Description",
+    "category": "Category",
+    "language": "Language",
+    "save": "Save"
 }

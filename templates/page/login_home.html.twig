@@ -1,20 +1,8 @@
 {% extends "layout.html.twig" %}
 
-
-{# {% block main %}
-	<section class="title_login_home_mobile">
-		<h2>A vous de choisir</h2>
-	</section>
-	<section class="login_home_mobile">
-		{% for category in categories %}
-			<a href="index.php?route=choice&cat_id={{ category.id }}">
-				<button>{{ category.name }}</button>
-			</a>
-		{% endfor %}
-	</section>
+{% block title %}
+	{{ translator.translate("learn_language") }}
 {% endblock %}
-
-{% extends "layout.html.twig" %} #}
 
 {% block main %}
 	<main>

@@ -8,7 +8,7 @@ class ExampleController extends AbstractController
     {
         $lang = $_SESSION["user_lang"];
 
-        parent::__construct("auth", $lang);
+        parent::__construct("example", $lang);
     }
 
     //suppression d'un exemple en base de données
@@ -27,7 +27,11 @@ class ExampleController extends AbstractController
     public function exampleForm(): void
     {
         if ($this->isUserOrAdmin()) {
-            $this->render("admin/update/update-example.html.twig", ['example_id' => $_GET['example_id']]);
+            $lm = new LanguageManager();
+            $cm = new CourseManager();
+            $courses = $cm->getAllCourse();
+            $languages = $lm->getAllLanguages();
+            $this->render("admin/update/update-example.html.twig", ['example_id' => $_GET['example_id'], 'languages' => $languages, "courses" => $courses]);
         } else {
             $this->render("page/home.html.twig", []);
         }
@@ -55,7 +59,11 @@ class ExampleController extends AbstractController
     public function exampleFormAdd(): void
     {
         if ($this->isUserOrAdmin()) {
-            $this->render("admin/add/add-example.html.twig", []);
+            $lm = new LanguageManager();
+            $cm = new CourseManager();
+            $courses = $cm->getAllCourse();
+            $languages = $lm->getAllLanguages();
+            $this->render("admin/add/add-example.html.twig", ['languages' => $languages, "courses" => $courses]);
         } else {
             $this->render("page/home.html.twig", []);
         }

@@ -25,5 +25,7 @@
     "home": "Inicio",
     "admin_area": "Área de administración",
     "logout": "Cerrar sesión",
-    "change_language": "cambiar de idioma a"
+    "change_language": "cambiar de idioma a",
+    "Lanly_register": "Registro",
+    "Lanly_login": "Inicio de Sesión"
 }

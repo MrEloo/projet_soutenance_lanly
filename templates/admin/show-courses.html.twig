@@ -1,5 +1,9 @@
 {% extends "layout.html.twig" %}
 
+{% block title %}
+	{{ translator.translate("admin_area") }}
+{% endblock %}
+
 {% block mypage %}
 	<main class="admin">
 		<div class="container p-4">

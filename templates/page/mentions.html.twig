@@ -1,0 +1,68 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+	{{ translator.translate("legal_mentions") }}
+{% endblock %}
+
+{% block main %}
+	<main>
+		<section class="mentions_legales">
+			<h1>{{ translator.translate("legal_mentions") }}</h1>
+
+			<h2>{{ translator.translate("publisher") }}</h2>
+			<p>{{ translator.translate("company_name") }}
+				: [Nom de l'entreprise]<br>
+				{{ translator.translate("legal_form") }}
+				: [Forme juridique de l'entreprise]<br>
+				{{ translator.translate("headquarters_address") }}
+				: [Adresse]<br>
+				{{ translator.translate("phone") }}
+				: [Numéro de téléphone]<br>
+				{{ translator.translate("email_address") }}
+				:
+				<a href="mailto:contact@entreprise.com">contact@entreprise.com</a><br>
+				{{ translator.translate("registration_number") }}
+				: [Numéro d'immatriculation au registre du commerce et des sociétés]</p>
+
+			<h2>{{ translator.translate("publication_director") }}</h2>
+			<p>{{ translator.translate("director_name") }}
+				: [Nom et prénom du directeur de la publication]<br>
+				{{ translator.translate("director_email") }}
+				:
+				<a href="mailto:directeur@entreprise.com">directeur@entreprise.com</a>
+			</p>
+
+			<h2>{{ translator.translate("site_host") }}</h2>
+			<p>{{ translator.translate("host_name") }}
+				: [Nom de l'hébergeur]<br>
+				{{ translator.translate("host_address") }}
+				: [Adresse de l'hébergeur]<br>
+				{{ translator.translate("host_phone") }}
+				: [Numéro de téléphone de l'hébergeur]<br>
+				{{ translator.translate("host_email") }}
+				:
+				<a href="mailto:support@hebergeur.com">support@hebergeur.com</a>
+			</p>
+
+			<h2>{{ translator.translate("intellectual_property") }}</h2>
+			<p>{{ translator.translate("intellectual_property_content") }}</p>
+
+			<h2>{{ translator.translate("personal_data_protection") }}</h2>
+			<p>{{ translator.translate("personal_data_protection_content") }}</p>
+
+			<h2>{{ translator.translate("cookies") }}</h2>
+			<p>{{ translator.translate("cookies_content") }}</p>
+
+			<h2>{{ translator.translate("external_links") }}</h2>
+			<p>{{ translator.translate("external_links_content") }}</p>
+
+			<h2>{{ translator.translate("limitation_of_liability") }}</h2>
+			<p>{{ translator.translate("limitation_of_liability_content") }}</p>
+
+			<h2>{{ translator.translate("applicable_law") }}</h2>
+			<p>{{ translator.translate("applicable_law_content") }}</p>
+
+			<p>{{ translator.translate("legal_disclaimer_changes") }}</p>
+		</section>
+	</main>
+{% endblock %}

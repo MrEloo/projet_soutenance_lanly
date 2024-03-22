@@ -10,5 +10,17 @@
     "my_profile": "Мой профиль",
     "admin_area": "Административная область",
     "no_exercice_available": "Нет доступных упражнений на данный момент",
-    "change_language": "сменить язык на"
+    "change_language": "сменить язык на",
+    "exercice_title_page": "Упражнение",
+    "questions_title_page": "Вопросы",
+    "result_title_page": "Результаты",
+    "title": "Название",
+    "difficulty": "Сложность",
+    "question": "Вопрос",
+    "correction_text": "Текст исправления",
+    "correction_word": "Слово исправления",
+    "global_category_id": "Глобальная категория",
+    "course_id": "Курс",
+    "language": "Язык",
+    "add": "Добавить"
 }

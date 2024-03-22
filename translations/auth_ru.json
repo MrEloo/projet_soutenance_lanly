@@ -25,5 +25,7 @@
     "home": "Главная",
     "admin_area": "Административная область",
     "logout": "Выйти",
-    "change_language": "сменить язык на"
+    "change_language": "сменить язык на",
+    "Lanly_register": "Регистрация",
+    "Lanly_login": "Вход"
 }

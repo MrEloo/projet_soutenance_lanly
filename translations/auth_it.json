@@ -25,5 +25,7 @@
     "home": "Home",
     "admin_area": "Area amministrativa",
     "logout": "Disconnessione",
-    "change_language": "cambiare lingua in"
+    "change_language": "cambiare lingua in",
+    "Lanly_register": "Registrazione",
+    "Lanly_login": "Accesso"
 }

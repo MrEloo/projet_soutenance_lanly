@@ -8,5 +8,13 @@
     "my_profile": "Mon profil",
     "admin_area": "Espace Admin",
     "no_course_available": "aucun cours disponible dans cette langue pour le moment",
-    "change_language": "changer de langue vers"
+    "change_language": "changer de langue vers",
+    "exercice_title_page": "Exercice",
+    "questions_title_page": "Questions",
+    "result_title_page": "Résultats",
+    "title": "Titre",
+    "description": "Description",
+    "category": "Catégorie",
+    "language": "Langue",
+    "save": "Enregistrer"
 }

@@ -8,7 +8,7 @@ class LanguageController extends AbstractController
     {
         $lang = $_SESSION["user_lang"];
 
-        parent::__construct("auth", $lang);
+        parent::__construct("language", $lang);
     }
 
     //suppression d'une langue en base de données

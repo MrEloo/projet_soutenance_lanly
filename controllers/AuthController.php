@@ -37,7 +37,6 @@ class AuthController extends AbstractController
 
 
         $reasons = $rm->getAllReasons();
-        dump($reasons);
         $languages = $lm->getAllLanguages();
 
 

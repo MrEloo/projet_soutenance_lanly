@@ -88,7 +88,13 @@ class ExerciceController extends AbstractController
     public function exerciceForm(): void
     {
         if ($this->isUserOrAdmin()) {
-            $this->render("admin/update/update-exercice.html.twig", ['exercice_id' => $_GET['ex_id']]);
+            $gcm = new GlobalCategoryManager();
+            $lm = new LanguageManager();
+            $cm = new CourseManager();
+            $courses = $cm->getAllCourse();
+            $languages = $lm->getAllLanguages();
+            $categories = $gcm->getAllGlobalCategory();
+            $this->render("admin/update/update-exercice.html.twig", ['exercice_id' => $_GET['ex_id'], 'categories' => $categories, 'languages' => $languages, "courses" => $courses]);
         } else {
             $this->render("page/home.html.twig", []);
         }
@@ -116,7 +122,13 @@ class ExerciceController extends AbstractController
     public function exerciceFormAdd(): void
     {
         if ($this->isUserOrAdmin()) {
-            $this->render("admin/add/add-exercice.html.twig", []);
+            $gcm = new GlobalCategoryManager();
+            $lm = new LanguageManager();
+            $cm = new CourseManager();
+            $courses = $cm->getAllCourse();
+            $languages = $lm->getAllLanguages();
+            $categories = $gcm->getAllGlobalCategory();
+            $this->render("admin/add/add-exercice.html.twig", ['categories' => $categories, 'languages' => $languages, "courses" => $courses]);
         } else {
             $this->render("page/home.html.twig", []);
         }

@@ -62,7 +62,11 @@ class CourseController extends AbstractController
     public function courseForm(): void
     {
         if ($this->isUserOrAdmin()) {
-            $this->render("admin/update/update-course.html.twig", ['course_id' => $_GET['course_id']]);
+            $gcm = new GlobalCategoryManager();
+            $lm = new LanguageManager();
+            $languages = $lm->getAllLanguages();
+            $categories = $gcm->getAllGlobalCategory();
+            $this->render("admin/update/update-course.html.twig", ['course_id' => $_GET['course_id'], 'categories' => $categories, 'languages' => $languages]);
         } else {
             $this->render("page/home.html.twig", []);
         }
@@ -72,7 +76,11 @@ class CourseController extends AbstractController
     public function courseFormAdd(): void
     {
         if ($this->isUserOrAdmin()) {
-            $this->render("admin/add/add-course.html.twig", []);
+            $gcm = new GlobalCategoryManager();
+            $lm = new LanguageManager();
+            $languages = $lm->getAllLanguages();
+            $categories = $gcm->getAllGlobalCategory();
+            $this->render("admin/add/add-course.html.twig", ['categories' => $categories, 'languages' => $languages]);
         } else {
             $this->render("page/home.html.twig", []);
         }

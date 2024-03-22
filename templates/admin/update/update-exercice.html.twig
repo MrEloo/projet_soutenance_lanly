@@ -1,70 +1,73 @@
 {% extends "layout.html.twig" %}
 
+{% block title %}
+	{{ translator.translate("admin_area") }}
+{% endblock %}
+
 {% block main %}
-	<form class='form_admin' action="index.php?route=update_info_exercice" method="post">
-		<input type="hidden" class="form-control" id="exercice_id" name="exercice_id" value="{{exercice_id}}">
+	<main>
+		<form class='form_admin' action="index.php?route=update_info_exercice" method="post">
+			<input type="hidden" class="form-control" id="exercice_id" name="exercice_id" value="">
 
-		<div class="form-group">
-			<label for="title">Titre :</label>
-			<input type="text" class="form-control" id="title" name="title" value="">
-		</div>
+			<div class="form-group">
+				<label for="title">{{ translator.translate("title") }}
+					:</label>
+				<input type="text" class="form-control" id="title" name="title" value="">
+			</div>
 
-		<div class="form-group">
-			<label for="difficulty">Difficulté :</label>
-			<input type="text" class="form-control" id="difficulty" name="difficulty" value="">
-		</div>
+			<div class="form-group">
+				<label for="difficulty">{{ translator.translate("difficulty") }}
+					:</label>
+				<input type="text" class="form-control" id="difficulty" name="difficulty" value="">
+			</div>
 
-		<div class="form-group">
-			<label for="question">Question :</label>
-			<textarea class="form-control" id="question" name="question"></textarea>
-		</div>
+			<div class="form-group">
+				<label for="question">{{ translator.translate("question") }}
+					:</label>
+				<textarea class="form-control" id="question" name="question"></textarea>
+			</div>
 
-		<div class="form-group">
-			<label for="correction_text">Correction Texte :</label>
-			<textarea class="form-control" id="correction_text" name="correction_text"></textarea>
-		</div>
+			<div class="form-group">
+				<label for="correction_text">{{ translator.translate("correction_text") }}
+					:</label>
+				<textarea class="form-control" id="correction_text" name="correction_text"></textarea>
+			</div>
 
-		<div class="form-group">
-			<label for="correction_word">Correction Mot :</label>
-			<input type="text" class="form-control" id="correction_word" name="correction_word" value="">
-		</div>
+			<div class="form-group">
+				<label for="correction_word">{{ translator.translate("correction_word") }}
+					:</label>
+				<input type="text" class="form-control" id="correction_word" name="correction_word" value="">
+			</div>
 
-		<div class="form-group">
-			<label for="global_category_id">Catégorie Globale :</label>
-			<select class="form-control" id="global_category_id" name="global_category_id">
-				<option value="1">grammaire</option>
-				<option value="2">Vocabulaire</option>
-				<option value="3">Orthographe3</option>
-			</select>
-		</div>
+			<div class="form-group">
+				<label for="global_category_id">{{ translator.translate("global_category_id") }}
+					:</label>
+				<select class="form-control" id="global_category_id" name="global_category_id">
+					{% for category in categories %}
+						<option value="{{ category.id }}">{{ category.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="course_id">{{ translator.translate("course_id") }}
+					:</label>
+				<select class="form-control" id="course_id" name="course_id">
+					{% for course in courses %}
+						<option value="{{ course.id }}">{{ course.title }}</option>
+					{% endfor %}
+				</select>
+			</div>
 
-		<div class="form-group">
-			<label for="course_id">Course :</label>
-			<select class="form-control" id="course_id" name="course_id">
-				<option value="1">Les articles définis et indéfinis
-				</option>
-				<option value="2">L'accord des adjectifs
-				</option>
-				<option value="3">Les prépositions de lieu</option>
-				<option value="4">Les animaux
-				</option>
-				<option value="5">La nature et l'environnement
-				</option>
-				<option value="6">Les règles d'accord du participe passé</option>
-				<option value="7">Les homophones</option>
-			</select>
-		</div>
+			<div class="form-group">
+				<label for="language">{{ translator.translate("language") }}</label>
+				<select class="form-control" id="language" name="language">
+					{% for language in languages %}
+						<option value="{{ language.id }}">{{ language.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
 
-		<div class="form-group">
-			<label for="language">Language</label>
-			<select class="form-control" id="language" name="language">
-				<option value="1">français</option>
-				<option value="2">allemand</option>
-				<option value="3">italien</option>
-				<option value="4">espagnol</option>
-				<option value="5">anglais</option>
-			</select>
-		</div>
-		<button type="submit" class="btn btn-primary">Enregistrer</button>
-	</form>
+			<button type="submit" class="btn btn-primary">{{ translator.translate("add") }}</button>
+		</form>
+	</main>
 {% endblock %}

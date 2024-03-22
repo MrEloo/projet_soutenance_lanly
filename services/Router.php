@@ -88,6 +88,10 @@ class Router
             $this->uc->AddImage();
         } else if (isset($get["route"]) && $get["route"] === 'contact') {
             $this->pc->contactPage();
+        } else if (isset($get["route"]) && $get["route"] === 'mentions') {
+            $this->pc->mentionPage();
+        } else if (isset($get["route"]) && $get["route"] === 'protection') {
+            $this->pc->protectionPage();
         } else if (isset($get["route"]) && $get["route"] === 'choice') {
             if (isset($get["cat_id"])) {
                 $this->pc->showChoice();

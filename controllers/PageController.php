@@ -188,4 +188,14 @@ class PageController extends AbstractController
             $this->redirect("index.php", ['language' => $langue]);
         }
     }
+
+    public function mentionPage(): void
+    {
+        $this->render("page/mentions.html.twig", []);
+    }
+
+    public function protectionPage(): void
+    {
+        $this->render("page/protection.html.twig", []);
+    }
 }

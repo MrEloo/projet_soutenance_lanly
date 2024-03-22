@@ -8,5 +8,11 @@
     "my_profile": "Mein Profil",
     "admin_area": "Admin-Bereich",
     "no_course_available": "keine Kurse in dieser Sprache verfügbar im Moment",
-    "change_language": "Sprache ändern zu"
+    "change_language": "Sprache ändern zu",
+    "learn": "Lernen",
+    "title": "Titel",
+    "description": "Beschreibung",
+    "category": "Kategorie",
+    "language": "Sprache",
+    "save": "Speichern"
 }

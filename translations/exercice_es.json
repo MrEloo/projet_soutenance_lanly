@@ -10,5 +10,17 @@
     "my_profile": "Mi perfil",
     "admin_area": "Área de administración",
     "no_exercice_available": "No hay ejercicios disponibles en este momento",
-    "change_language": "cambiar de idioma a"
+    "change_language": "cambiar de idioma a",
+    "exercice_title_page": "Ejercicio",
+    "questions_title_page": "Preguntas",
+    "result_title_page": "Resultados",
+    "title": "Título",
+    "difficulty": "Dificultad",
+    "question": "Pregunta",
+    "correction_text": "Texto de Corrección",
+    "correction_word": "Palabra de Corrección",
+    "global_category_id": "Categoría Global",
+    "course_id": "Curso",
+    "language": "Idioma",
+    "add": "Agregar"
 }

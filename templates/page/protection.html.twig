@@ -1,0 +1,63 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+	{{ translator.translate("protection_donnees") }}
+{% endblock %}
+
+{% block main %}
+	<main>
+		<section class="protection_donnees">
+			<h1>{{ translator.translate("policy_title") }}</h1>
+
+			<h2>{{ translator.translate("objective_title") }}</h2>
+			<p>{{ translator.translate("objective_content") }}</p>
+
+			<h2>{{ translator.translate("scope_title") }}</h2>
+
+			<h3>{{ translator.translate("scope_inside_title") }}</h3>
+			<p>{{ translator.translate("scope_inside_content") }}</p>
+
+			<h3>{{ translator.translate("scope_outside_title") }}</h3>
+			<p>{{ translator.translate("scope_outside_content") }}</p>
+
+			<h2>{{ translator.translate("principles_title") }}</h2>
+			<ul>
+				{% for principle in translator.translate("principles_list") %}
+					<li>{{ principle }}</li>
+				{% endfor %}
+			</ul>
+
+			<h2>{{ translator.translate("access_control_title") }}</h2>
+			<ul>
+				{% for control in translator.translate("access_control_list") %}
+					<li>{{ control }}</li>
+				{% endfor %}
+			</ul>
+
+			<h2>{{ translator.translate("users_responsibilities_title") }}</h2>
+			<ul>
+				{% for responsibility in translator.translate("users_responsibilities_list") %}
+					<li>{{ responsibility }}</li>
+				{% endfor %}
+			</ul>
+
+			<h2>{{ translator.translate("information_access_title") }}</h2>
+			<ul>
+				{% for access in translator.translate("information_access_list") %}
+					<li>{{ access }}</li>
+				{% endfor %}
+			</ul>
+
+			<h2>{{ translator.translate("sensitive_data_access_title") }}</h2>
+			<ul>
+				{% for sensitive_access in translator.translate("sensitive_data_access_list") %}
+					<li>{{ sensitive_access }}</li>
+				{% endfor %}
+			</ul>
+
+			<h2>{{ translator.translate("sanctions_title") }}</h2>
+			<p>{{ translator.translate("sanctions_content") }}</p>
+		</section>
+	</main>
+
+{% endblock %}

@@ -8,5 +8,11 @@
     "my_profile": "Il mio profilo",
     "admin_area": "Area amministrativa",
     "no_course_available": "nessun corso disponibile in questa lingua al momento",
-    "change_language": "cambiare lingua in"
+    "change_language": "cambiare lingua in",
+    "learn": "Imparare",
+    "title": "Titolo",
+    "description": "Descrizione",
+    "category": "Categoria",
+    "language": "Lingua",
+    "save": "Salva"
 }
