@@ -9,6 +9,7 @@
 
     a {
         text-decoration: none;
+        color: inherit;
     }
 
     h2 {
@@ -147,6 +148,10 @@
         align-items: center;
         margin: 0 auto;
         padding: 2em;
+    }
+
+    .text_container button a {
+        color: #080E16;
     }
 
     .first_text_main_mobile button {
@@ -1658,7 +1663,7 @@
         display: none;
     }
 
-    s a {
+    a {
         text-decoration: none;
         color: inherit;
     }
@@ -2051,6 +2056,10 @@
         transform: scale(1.00);
         transition: all 0.6s ease;
         box-shadow: 1px 5px 10px rgba(250, 143, 33, 0.7);
+    }
+
+    .text_container button a {
+        color: #080E16 !important;
     }
 
     .flex_desktop {

@@ -5,7 +5,7 @@ class CourseManager extends AbstractManager
 {
     public function getCoursesByTheirCat(int $global_category_id, int $language_id): array
     {
-        $selectAllCoursesByCat = $this->db->prepare("SELECT courses_{$_SESSION['user_lang']}.*, users_courses.locked AS users_courses_locked FROM courses_{$_SESSION['user_lang']} JOIN users_courses ON courses_{$_SESSION['user_lang']}.id = users_courses.course_id GROUP BY courses_{$_SESSION['user_lang']}.id HAVING courses_{$_SESSION['user_lang']}.global_category_id = :global_category_id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
+        $selectAllCoursesByCat = $this->db->prepare("SELECT courses_{$_SESSION['user_lang']}.* FROM courses_{$_SESSION['user_lang']} WHERE courses_{$_SESSION['user_lang']}.global_category_id = :global_category_id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
         $parameters = ['global_category_id' => $global_category_id, 'language_id' => $language_id];
         $selectAllCoursesByCat->execute($parameters);
 

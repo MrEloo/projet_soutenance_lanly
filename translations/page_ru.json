@@ -36,5 +36,6 @@
     "send_button": "Отправить",
     "login_home_choice": "Ваш выбор",
     "login_home_course": "Курс",
-    "login_home_exercice": "Упражнение"
+    "login_home_exercice": "Упражнение",
+    "change_language": "сменить язык на"
 }

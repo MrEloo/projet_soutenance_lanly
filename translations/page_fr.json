@@ -36,5 +36,6 @@
     "send_button": "Envoyer",
     "login_home_choice": "A vous de choisir",
     "login_home_course": "Cours",
-    "login_home_exercice": "Exercices"
+    "login_home_exercice": "Exercices",
+    "change_language": "changer de langue vers"
 }

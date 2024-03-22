@@ -7,5 +7,6 @@
     "data_protection_policy": "Politique de protection des données",
     "my_profile": "Mon profil",
     "admin_area": "Espace Admin",
-    "no_course_available": "aucun cours disponible dans cette langue pour le moment"
+    "no_course_available": "aucun cours disponible dans cette langue pour le moment",
+    "change_language": "changer de langue vers"
 }

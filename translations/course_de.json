@@ -7,5 +7,6 @@
     "data_protection_policy": "Datenschutzrichtlinie",
     "my_profile": "Mein Profil",
     "admin_area": "Admin-Bereich",
-    "no_course_available": "keine Kurse in dieser Sprache verfügbar im Moment"
+    "no_course_available": "keine Kurse in dieser Sprache verfügbar im Moment",
+    "change_language": "Sprache ändern zu"
 }
