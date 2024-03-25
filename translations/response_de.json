@@ -11,5 +11,8 @@
     "result_title_page": "Ergebnisse",
     "about": "Über uns",
     "home": "Startseite",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "result_title": "Ergebnisse",
+    "result_question": "Frage",
+    "result_correction": "Korrektur"
 }

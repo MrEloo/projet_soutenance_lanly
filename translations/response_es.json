@@ -11,5 +11,8 @@
     "result_title_page": "Resultados",
     "about": "Acerca de nosotros",
     "home": "Inicio",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "result_title": "Resultados",
+    "result_question": "Pregunta",
+    "result_correction": "Corrección"
 }

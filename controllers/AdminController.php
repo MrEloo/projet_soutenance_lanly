@@ -13,7 +13,7 @@ class AdminController extends AbstractController
     public function showAdminSpace(): void
     {
         if ($this->checkAdmin()) {
-            $this->render('ADMIN/espace-admin.html.twig', []);
+            $this->render('admin/espace-admin.html.twig', []);
         } else {
             $this->render('page/home.html.twig', []);
         }

@@ -8,7 +8,7 @@
 {% block main %}
 	<main>
 		<section class="title_resultat_mobile">
-			<h1>RESULTAT :
+			<h1>{{translator.translate("result_title")}}
 				{{ result }}
 				/
 				{{ exercices|length }}</h1>
@@ -18,7 +18,7 @@
 			<h2 class="visually-hidden">result button</h2>
 			{% for exercice in exercices %}
 				<article>
-					<h2>QUESTION
+					<h2>{{translator.translate("result_question")}}
 						{{ loop.index }}
 						:</h2>
 					<p>
@@ -26,7 +26,9 @@
 					</p>
 
 					<div class='ex_res_flex'>
-						<h3>correction :</h3>
+						<h3>{{translator.translate("result_correction")}}
+							:
+						</h3>
 						<p>{{ exercice.correction_Text }}</p>
 					</div>
 

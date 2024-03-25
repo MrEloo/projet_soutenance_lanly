@@ -13,5 +13,8 @@
     "register": "Inscription",
     "about": "À propos",
     "home": "Accueil",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "result_title": "Résultats",
+    "result_question": "Question",
+    "result_correction": "Correction"
 }

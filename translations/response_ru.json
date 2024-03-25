@@ -11,5 +11,8 @@
     "result_title_page": "Результаты",
     "about": "О нас",
     "home": "Главная",
-    "logout": "Выйти"
+    "logout": "Выйти",
+    "result_title": "Результаты",
+    "result_question": "Вопрос",
+    "result_correction": "Коррекция"
 }

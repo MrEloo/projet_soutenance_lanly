@@ -8,5 +8,7 @@
     "result_try_again": "try again",
     "admin_area": "Admin Area",
     "change_language": "change language to",
-    "result_title_page": "Results"
+    "result_title": "Results",
+    "result_question": "Question",
+    "result_correction": "Correction"
 }
