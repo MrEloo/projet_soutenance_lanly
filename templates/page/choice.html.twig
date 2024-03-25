@@ -6,11 +6,12 @@
 
 {% block main %}
 	<main>
-		<section class="title_login_home_mobile">
+		<section class="title_choice_mobile">
 			<h2>{{ translator.translate("login_home_choice") }}</h2>
 			<h3 class="category_name">{{ category.name }}</h3>
 		</section>
 		<section class="choice_mobile">
+			<h4 class="visually-hidden">Chose button</h4>
 			<a href="index.php?route=course&cat_id={{ category.id }}" style="text-decoration: none; color: inherit;">
 				<div class="progress_container">
 					<div class="progress_bar" style="--i:100;--clr:black;">

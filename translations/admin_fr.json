@@ -19,7 +19,7 @@
     "FROM": "De",
     "Wants_to_learn": "Veut apprendre",
     "Role": "Rôle",
-    "Created in": "Créé le",
+    "Created_in": "Créé le",
     "Role_to_ADMIN": "Rôle vers ADMIN",
     "Role_to_USER": "Rôle vers UTILISATEUR",
     "DELETE": "SUPPRIMER",

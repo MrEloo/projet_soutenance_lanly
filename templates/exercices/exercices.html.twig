@@ -22,8 +22,8 @@
 					</a>
 					<h3>{{ course.title }}</h3>
 					{% if course.finished == true %}
-						<a href="index.php?route=ex_res&course_id={{course.id}}&cat_id={{course.globalCategory.id}}">
-							<button>{{ translator.translate('Voir mes résultats') }}</button>
+						<a class="exercice_mobile_link_to_result" href="index.php?route=ex_res&course_id={{course.id}}&cat_id={{course.globalCategory.id}}">
+							{{ translator.translate('Voir mes résultats') }}
 						</a>
 					{% else  %}
 						<a href="index.php?route=exercice&course_id={{course.id}}&cat_id={{course.globalCategory.id}}">
@@ -34,6 +34,7 @@
 			{% endif %}
 		{% else %}
 			<section class="course_mobile">
+				<h3 class="visually-hidden">Back button</h3>
 				<a class='link_back_choice' href="index.php?route=login_home">
 					<i class="fa-solid fa-arrow-left"></i>
 				</a>

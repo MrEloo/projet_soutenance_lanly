@@ -48,6 +48,18 @@
         font-family: "Nunito Sans", sans-serif !important;
     }
 
+    .visually-hidden {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+    }
+
 
 
     /*****************************
@@ -124,17 +136,14 @@
     //MAIN HOME NON CONNECTE
     ******************************/
 
-    button a {
-        text-decoration: none;
-        color: inherit;
-    }
+
 
     .first_text_main_mobile {
         background-color: #080E16;
         padding: 4em 4em 4em 0;
     }
 
-    .first_text_main_mobile h2 {
+    .first_text_main_mobile h3 {
         font-size: 3.8rem;
         margin: 0 auto;
         color: #D9D9D9;
@@ -150,9 +159,7 @@
         padding: 2em;
     }
 
-    .text_container button a {
-        color: #080E16;
-    }
+
 
     .first_text_main_mobile button {
         padding: 1em 3em 1em 3em;
@@ -186,7 +193,7 @@
     }
 
     .swiper {
-        margin-top: 10rem;
+        margin: 5rem;
         width: 80%;
         height: 100%;
     }
@@ -271,12 +278,42 @@
         padding: 2em;
     }
 
+    .text_container a {
+        display: block;
+        padding: 1em 3em 1em 3em;
+        margin: 5rem 0 5rem 0;
+        border: none;
+        border-radius: 3em;
+        background-color: #FA8F21;
+        color: #080E16 !important;
+        font-size: 2rem;
+        transform: scale(1.00);
+        transition: all 0.6s ease;
+        box-shadow: 1px 5px 10px rgba(250, 143, 33, 0.7);
+    }
+
+    .text_container a:hover {
+        transform: scale(1.05);
+        background-color: #080E16;
+        color: #FA8F21 !important;
+        transition: all 0.71s ease;
+    }
+
+    .text_container_last_paragraphe a:hover {
+        transform: scale(1.05);
+        background-color: #080E16;
+        color: #FA8F21 !important;
+        transition: all 0.71s ease;
+    }
+
     .last_text_main_mobile {
         background-color: #131F31;
         padding: 4em;
     }
 
-    .last_text_main_mobile h2 {
+
+
+    .last_text_main_mobile h3 {
         font-size: 3.8rem;
         margin: 0 auto;
         color: #D9D9D9;
@@ -288,6 +325,8 @@
         font-size: 3rem;
         margin: 0 auto;
     }
+
+
 
     /*****************************
     //FOOTER
@@ -564,7 +603,7 @@
     .title_login_home_mobile h2 {
         margin: 0;
         padding: 2em;
-        font-size: 2rem;
+        font-size: 3rem;
         text-align: center;
         color: #FA8F21;
     }
@@ -672,10 +711,19 @@
         background-color: #080E16;
     }
 
-    .title_choice_mobile h1 {
+    .title_choice_mobile h2 {
         margin: 0;
-        padding: 3em;
-        font-size: 5rem;
+        padding: 1em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
+    .title_choice_mobile h3 {
+        margin: 0;
+        padding: 1em;
+        padding-top: 0;
+        font-size: 2rem;
         text-align: center;
         color: #D9D9D9;
     }
@@ -870,7 +918,7 @@
         font-size: 7rem;
     }
 
-    .exercice_mobile button {
+    .exercice_mobile_link_to_result {
         display: block;
         margin: 3rem auto;
         padding: 1em;
@@ -881,7 +929,7 @@
         font-size: 3.5rem;
         background-color: black;
         border-radius: 3em;
-        color: #D9D9D9;
+        color: #FA8F21 !important;
         border: none;
     }
 
@@ -917,6 +965,7 @@
         font-size: 3.5rem;
         margin: 0;
         padding: 2em;
+        text-decoration: underline;
     }
 
     .resultat_mobile h3 {
@@ -932,6 +981,7 @@
         color: #D9D9D9;
         font-size: 3.5rem;
         margin: 0;
+        padding: 1em;
     }
 
     .reponse {
@@ -950,6 +1000,7 @@
 
     .ex_res_flex {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 2rem;
@@ -957,6 +1008,7 @@
 
     .ex_res_flex p {
         padding: 0 1em 0 1em;
+
     }
 
     .response_word {
@@ -964,15 +1016,23 @@
         padding: 0 1em 0 1em;
     }
 
-    .resultat_mobile a button {
+    .resultat_mobile a {
         margin: 5rem;
         display: block;
         padding: 1em;
         font-size: 4rem;
         background-color: black;
         border-radius: 3em;
-        color: #D9D9D9;
+        color: #FA8F21 !important;
         border: none;
+        transition: all 0.71s ease;
+    }
+
+    .resultat_mobile a:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16 !important;
+        transition: all 0.71s ease;
     }
 
     .button_resultat_mobile {
@@ -1067,7 +1127,7 @@
     /// MODALE MOBILE
     ******************************/
 
-    #close-modale {
+    .close-modale {
         position: absolute;
         top: 5rem;
         right: 5rem;
@@ -1076,7 +1136,7 @@
         transition: all 0.71s ease;
     }
 
-    #close-modale:hover {
+    .close-modale:hover {
         transform: scale(1.05);
         color: #FA8F21;
         transition: all 0.71s ease;
@@ -1234,6 +1294,8 @@
         border: none;
         margin: 5rem auto;
         transition: all 0.71s ease;
+        width: 60%;
+        text-align: center;
     }
 
     .admin_retour_button:hover {
@@ -1815,15 +1877,25 @@
         font-family: "Nunito Sans", sans-serif !important;
     }
 
-
+    .visually-hidden {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+    }
 
     /*****************************
     //HEADER LAYOUT NON CONNECTE DESKTOP
     ******************************/
 
 
-    #close-modale {
-        display: none;
+    .close-modale {
+        display: none !important;
     }
 
     .title_header_desktop {
@@ -1880,7 +1952,7 @@
         padding: 2em;
     }
 
-    #header_mobile_logo {
+    .header_mobile_logo {
         width: 100%;
         border-radius: 1.3em;
     }
@@ -2081,7 +2153,7 @@
 
     .swiper-slide img {
         display: block;
-        width: 50%;
+        width: 70%;
         height: 50%;
         /* Vous pouvez ajuster la valeur selon vos besoins */
         object-fit: cover;
@@ -2152,27 +2224,39 @@
         font-size: 2rem;
     }
 
-    .text_container h2 {
+    .text_container h3 {
         font-size: 3rem;
         margin-bottom: 1em;
     }
 
-    .text_container button {
+    .text_container a {
         padding: 1em 3em 1em 3em;
         margin: 5rem 0 5rem 0;
         border: none;
         border-radius: 3em;
         background-color: #FA8F21;
-        color: #080E16;
+        color: #080E16 !important;
         font-size: 2rem;
         transform: scale(1.00);
         transition: all 0.6s ease;
         box-shadow: 1px 5px 10px rgba(250, 143, 33, 0.7);
     }
 
-    .text_container button a {
-        color: #080E16 !important;
+    .text_container a:hover {
+        transform: scale(1.05);
+        background-color: #080E16;
+        color: #FA8F21 !important;
+        transition: all 0.71s ease;
     }
+
+    .text_container_last_paragraphe a:hover {
+        transform: scale(1.05);
+        background-color: #080E16;
+        color: #FA8F21 !important;
+        transition: all 0.71s ease;
+    }
+
+
 
     .flex_desktop {
         display: flex;
@@ -2197,17 +2281,17 @@
         font-size: 2rem;
     }
 
-    .text_container_last_paragraphe h2 {
+    .text_container_last_paragraphe h3 {
         font-size: 3rem;
     }
 
-    .text_container_last_paragraphe button {
+    .text_container_last_paragraphe a {
         padding: 1em 3em 1em 3em;
         margin: 5rem 0 5rem 0;
         border: none;
         border-radius: 3em;
         background-color: #FA8F21;
-        color: #080E16;
+        color: #080E16 !important;
         font-size: 2rem;
         transform: scale(1.00);
         transition: all 0.6s ease;
@@ -2578,6 +2662,14 @@
         color: #FA8F21;
     }
 
+    .title_choice_mobile h2 {
+        margin: 0;
+        padding: 1em;
+        font-size: 3rem;
+        text-align: center;
+        color: #FA8F21;
+    }
+
     .category_name {
         text-align: center;
         margin: 0;
@@ -2737,21 +2829,18 @@
         font-size: 7rem;
     }
 
-    .exercice_mobile button {
-        width: 100%;
+    .exercice_mobile_link_to_result {
         padding: 1em;
         background-color: #FA8F21;
-        color: #080E16;
+        color: #080E16 !important;
         border-radius: 0.4em;
-        margin: 4rem auto;
         font-size: 3rem;
         transition: all 0.71s ease;
     }
 
-    .exercice_mobile button:hover {
+    .exercice_mobile_link_to_result:hover {
         transform: scale(1.05);
-        background-color: #131F31;
-        color: #FA8F21;
+        opacity: 0.6;
         transition: all 0.71s ease;
     }
 
@@ -2782,7 +2871,7 @@
 
     }
 
-    .resultat_mobile section {
+    .resultat_mobile article {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -2795,6 +2884,7 @@
         font-size: 2.5rem;
         margin: 0;
         padding: 2em;
+        text-decoration: underline;
     }
 
     .resultat_mobile h3 {
@@ -2839,15 +2929,23 @@
         padding: 0 2em 0 2em;
     }
 
-    .resultat_mobile a button {
+    .resultat_mobile a {
         margin: 5rem;
         display: block;
         padding: 1em;
         font-size: 4rem;
         background-color: black;
         border-radius: 3em;
-        color: #FA8F21;
+        color: #FA8F21 !important;
         border: none;
+        transition: all 0.71s ease;
+    }
+
+    .resultat_mobile a:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16 !important;
+        transition: all 0.71s ease;
     }
 
     .button_resultat_mobile {
@@ -3202,19 +3300,21 @@
         margin: 0;
     }
 
-    .course_mobile a button {
+    .course_mobile_link_to_exercice {
         display: block;
         padding: 1em;
         font-size: 2rem;
         background-color: black;
         border-radius: 3em;
-        color: #D9D9D9;
+        color: #FA8F21 !important;
         border: none;
-        margin: 5rem auto;
+        margin: 1rem auto !important;
         transition: all 0.71s ease;
+        width: 30%;
+        text-align: center;
     }
 
-    .course_mobile a button:hover {
+    .course_mobile_link_to_exercice:hover {
         transform: scale(1.05);
         background-color: #FA8F21;
         color: #080E16;
@@ -3342,6 +3442,8 @@
         border: none;
         margin: 5rem auto;
         transition: all 0.71s ease;
+        width: 20%;
+        text-align: center;
     }
 
     .admin_retour_button:hover {

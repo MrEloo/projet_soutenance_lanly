@@ -25,6 +25,7 @@
 		{% endfor %}
 
 		<section class="form_question_exercice_mobile">
+			<h3 class="visually-hidden">Form send reponse</h3>
 			<form class='form_exercice'>
 				<input type="hidden" name="csrf-token" id="csrf-token" value=" {{ session.csrf_Token }} "/>
 				<input type="hidden" name="course_id" value="{{ exercice[0].course_id }}">

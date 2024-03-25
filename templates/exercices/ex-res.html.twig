@@ -15,8 +15,9 @@
 		</section>
 
 		<section class="resultat_mobile">
+			<h2 class="visually-hidden">result button</h2>
 			{% for exercice in exercices %}
-				<section>
+				<article>
 					<h2>QUESTION
 						{{ loop.index }}
 						:</h2>
@@ -39,14 +40,15 @@
 						:
 						<span class="response_word">{{ exercice.response.content }}</span>
 					</p>
-				</section>
+				</article>
 			{% endfor %}
 			<section class="button_resultat_mobile">
+				<h3 class="visually-hidden">result button</h3>
 				<a href="index.php?route=exercices&cat_id={{exercices[0].globalCategory.id}}">
-					<button>{{ translator.translate("result_finish") }}</button>
+					{{ translator.translate("result_finish") }}
 				</a>
 				<a href="index.php?route=exercice&course_id={{ exercices[0].course_id }}&cat_id={{ exercices[0].globalCategory.id }}">
-					<button>{{ translator.translate("result_try_again") }}</button>
+					{{ translator.translate("result_try_again") }}
 				</a>
 			</section>
 

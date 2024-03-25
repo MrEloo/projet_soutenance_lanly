@@ -10,6 +10,7 @@
 			<h2>{{ translator.translate("login_title") }}</h2>
 		</section>
 		<section class="login_mobile">
+			<h3 class="visually-hidden">form login</h3>
 			<form action="index.php?route=check-login" method="post">
 				<input type="hidden" name="csrf-token" id="csrf-token" value="{{ session.csrf_Token }}"/>
 				<fieldset>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="{% if session.user_lang is not empty %}{{ session.user_lang }}{% else %}fr{% endif %}">
 	<head>
 		<meta charset="utf-8"/>
 		<title>
-			{% block title %}{% endblock %}
+			{% block title %}Lanly
+			{% endblock %}
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
@@ -22,7 +22,7 @@
 			{% block header %}
 				<header>
 					<nav class="header_mobile">
-						<a class="logo_header_mobile reveal-1" href="index.php"><img id="header_mobile_logo" src="assets/images/logo.jpg" alt="logo"></a>
+						<a class="logo_header_mobile reveal-1" href="index.php"><img class="header_mobile_logo" src="assets/images/logo.jpg" alt="logo"></a>
 						<h1 class="title_header_desktop">{{ translator.translate("site_title") }}</h1>
 
 						<div class="menu_burger">
@@ -34,7 +34,7 @@
 						<div class="overlay"></div>
 
 						<div class="modale_burger_mobile">
-							<i id="close-modale" class="fa-solid fa-circle-xmark"></i>
+							<i class="fa-solid fa-circle-xmark close-modale"></i>
 							<ul class="menu_list">
 								<li>
 									<a href="index.php?route=login">{{ translator.translate("login") }}</a>
@@ -57,7 +57,7 @@
 			{% block headerWhenConnected %}
 				<header>
 					<nav class="header_mobile">
-						<a class="logo_header_mobile reveal-2" href="index.php?route=login_home"><img id="header_mobile_logo" src="assets/images/logo.jpg" alt="logo"></a>
+						<a class="logo_header_mobile reveal-2" href="index.php?route=login_home"><img class="header_mobile_logo" src="assets/images/logo.jpg" alt="logo"></a>
 						<div class="menu_burger">
 							<div></div>
 							<div></div>
@@ -65,7 +65,7 @@
 						</div>
 						<div class="overlay"></div>
 						<div class="modale_burger_mobile">
-							<i id="close-modale" class="fa-solid fa-circle-xmark"></i>
+							<i class="fa-solid fa-circle-xmark close-modale"></i>
 							<ul class="menu_list reveal-1">
 								{% if session.role == 'ADMIN' %}
 									<li>
@@ -112,7 +112,9 @@
 		{% block footer %}
 			<footer>
 				<section class="footer">
+					<h2 class="visually-hidden">footer</h2>
 					<article class="icons_footer_mobile">
+						<h3 class="visually-hidden">media link</h3>
 						<a target="_blank" href="https://www.instagram.com/">
 							<i class="fa-brands fa-instagram"></i>
 						</a>
@@ -126,12 +128,14 @@
 
 					</article>
 					<article class="text_footer_mobile">
+						<h3 class="visually-hidden">about_me link</h3>
 						<a href="index.php?route=contact">{{ translator.translate("contact") }}</a>
 						<a href="index.php?route=mentions">{{ translator.translate("legal_mentions") }}</a>
 						<a href="index.php?route=protection">{{ translator.translate("data_protection_policy") }}</a>
 					</article>
 					{% block switchLang %}
-						<section class="switchLang">
+						<article class="switchLang">
+							<h3 class="visually-hidden">language link</h3>
 							<p>{{ translator.translate("change_language") }}</p>
 							<a href="index.php?route=switchLang&lang_code=fr">français</a>
 							<a href="index.php?route=switchLang&lang_code=en">English</a>
@@ -139,7 +143,7 @@
 							<a href="index.php?route=switchLang&lang_code=it">Italiano</a>
 							<a href="index.php?route=switchLang&lang_code=es">Espanol</a>
 							<a href="index.php?route=switchLang&lang_code=ru">Русский</a>
-						</section>
+						</article>
 					{% endblock %}
 				</section>
 			</footer>

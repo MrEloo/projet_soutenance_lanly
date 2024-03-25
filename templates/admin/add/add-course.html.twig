@@ -5,39 +5,41 @@
 {% endblock %}
 
 {% block main %}
-	<form class='form_admin' action="index.php?route=add_course" method="post">
-		<input type="hidden" class="form-control" id="course_id" name="course_id" value="{{ course_id }}">
-		<div class="form-group">
-			<label for="title">{{ translator.translate("title") }}
-				:</label>
-			<input type="text" class="form-control" id="title" name="title" value="">
-		</div>
+	<main>
+		<form class='form_admin' action="index.php?route=add_course" method="post">
+			<input type="hidden" class="form-control" id="course_id" name="course_id" value="{{ course_id }}">
+			<div class="form-group">
+				<label for="title">{{ translator.translate("title") }}
+					:</label>
+				<input type="text" class="form-control" id="title" name="title" value="">
+			</div>
 
-		<div class="form-group">
-			<label for="description">{{ translator.translate("description") }}
-				:</label>
-			<textarea class="form-control" id="description" name="description"></textarea>
-		</div>
+			<div class="form-group">
+				<label for="description">{{ translator.translate("description") }}
+					:</label>
+				<textarea class="form-control" id="description" name="description"></textarea>
+			</div>
 
-		<div class="form-group">
-			<label for="category">{{ translator.translate("category") }}
-				:</label>
-			<select class="form-control" id="category" name="category">
-				{% for category in categories %}
-					<option value="{{ category.id }}">{{ category.name }}</option>
-				{% endfor %}
-			</select>
-		</div>
+			<div class="form-group">
+				<label for="category">{{ translator.translate("category") }}
+					:</label>
+				<select class="form-control" id="category" name="category">
+					{% for category in categories %}
+						<option value="{{ category.id }}">{{ category.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
 
-		<div class="form-group">
-			<label for="language">{{ translator.translate("language") }}</label>
-			<select class="form-control" id="language" name="language">
-				{% for language in languages %}
-					<option value="{{ language.id }}">{{ language.name }}</option>
-				{% endfor %}
-			</select>
-		</div>
+			<div class="form-group">
+				<label for="language">{{ translator.translate("language") }}</label>
+				<select class="form-control" id="language" name="language">
+					{% for language in languages %}
+						<option value="{{ language.id }}">{{ language.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
 
-		<button type="submit" class="btn btn-primary">{{ translator.translate("save") }}</button>
-	</form>
+			<button type="submit" class="btn btn-primary">{{ translator.translate("save") }}</button>
+		</form>
+	</main>
 {% endblock %}

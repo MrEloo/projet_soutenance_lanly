@@ -2,7 +2,7 @@ try {
     document.addEventListener('DOMContentLoaded', function () {
         const menu_burger = document.querySelector('.menu_burger');
         const modale = document.querySelector('.modale_burger_mobile');
-        const closeModaleButton = document.querySelector("#close-modale");
+        const closeModaleButton = document.querySelector(".close-modale");
         const overlay = document.querySelector('.overlay');
 
         menu_burger.addEventListener('click', (e) => {

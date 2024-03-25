@@ -7,5 +7,8 @@
     "about": "Acerca de nosotros",
     "home": "Inicio",
     "my_profile": "Mi perfil",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "contact": "Contacto",
+    "legal_mentions": "Avisos legales",
+    "data_protection_policy": "Política de protección de datos"
 }

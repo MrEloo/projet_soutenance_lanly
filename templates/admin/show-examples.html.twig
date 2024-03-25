@@ -4,17 +4,18 @@
 	{{ translator.translate("admin_area") }}
 {% endblock %}
 
-{% block mypage %}
+{% block main %}
 	<main class="admin">
 		<div class="container p-4">
 			<h1 class="admin_title">{{ translator.translate('Example') }}</h1>
-			<a href="index.php?route=administration">
-				<button class='admin_retour_button'>{{ translator.translate('BACK') }}</button>
+			<a href="index.php?route=administration" class='admin_retour_button'>
+				{{ translator.translate('BACK') }}
 			</a>
 
 			<a href="index.php?route=create_example" class="btn btn-success mb-3">{{ translator.translate('Add_an_example') }}</a>
 			{% for example in examples %}
 				<section class="mb-4">
+					<h3 class="visually-hidden">Examples</h3>
 					<p class="texte_exemple">
 						<strong>{{ translator.translate('Example') }}
 							:</strong>

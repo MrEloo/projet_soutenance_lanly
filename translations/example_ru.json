@@ -7,5 +7,8 @@
     "about": "О нас",
     "home": "Главная",
     "my_profile": "Мой профиль",
-    "logout": "Выйти"
+    "logout": "Выйти",
+    "contact": "Контакт",
+    "legal_mentions": "Юридические уведомления",
+    "data_protection_policy": "Политика защиты данных"
 }

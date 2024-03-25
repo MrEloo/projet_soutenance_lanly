@@ -1,7 +1,12 @@
 {
-    "admin_area": "Zone d'administration",
+    "admin_area": "Espace admin",
     "description": "Description",
     "course_id": "Cours",
     "language": "Langue",
-    "save": "Enregistrer"
+    "save": "Enregistrer",
+    "my_profile": "Mon profil",
+    "contact": "Contact",
+    "legal_mentions": "Mentions légales",
+    "data_protection_policy": "Politique de protection des données",
+    "home": "Accueil"
 }

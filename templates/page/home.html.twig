@@ -9,22 +9,25 @@
 
 		<div class='flex_desktop'>
 			<section class="first_text_main_mobile">
+				<h2 class="visually-hidden">First paragraphe</h2>
 				<article class="text_container">
-					<h2 class="reveal-1">{{ translator.translate("first_section_title") }}</h2>
+					<h3 class="reveal-1">{{ translator.translate("first_section_title") }}</h3>
 					<p class="reveal-2">{{ translator.translate("first_section_description") }}</p>
-					<button>
-						<a href="index.php?route=login">{{ translator.translate("start_button") }}</a>
-					</button>
+					<a href="index.php?route=login" class="button_last_paragraphe_dektop">
+						{{ translator.translate("start_button") }}
+					</a>
 					<img class="editor_play_desktop" src="assets/images/play.png" alt="">
 				</article>
 			</section>
 
 			<section class='full_earth_dektop'>
+				<h2 class="visually-hidden">earth</h2>
 				<img class="" src="assets/images/terre_full.png" alt="">
 			</section>
 
 			{# Slider des langages proposés #}
 			<section class="slider_contry_mobile">
+				<h2 class="visually-hidden">Slider</h2>
 				<div class="swiper">
 					<div class="swiper-wrapper">
 						{% for language in languages %}
@@ -34,29 +37,30 @@
 						{% endfor %}
 					</div>
 				</div>
-				<button>
-					<a href="index.php?route=register">{{ translator.translate("universe_button") }}</a>
-				</button>
+
 			</section>
 
 			<section class="editor_section_mobile">
+				<h2 class="visually-hidden">editor's images</h2>
 				<img src="assets/images/appdark.png" alt="">
 				<img src="assets/images/playdark.png" alt="">
 			</section>
 
 			<section class="last_text_main_mobile">
+				<h2 class="visually-hidden">Last paragraphe</h2>
 				<article class="text_container_last_paragraphe">
 					<img class="editor_play_desktop" src="assets/images/app.png" alt="">
-					<button class="button_last_paragraphe_dektop">
-						<a href="index.php?route=login">{{ translator.translate("start_button") }}</a>
-					</button>
-					<h2 class="reveal-1">{{ translator.translate("second_section_title") }}</h2>
+					<a href="index.php?route=login" class="button_last_paragraphe_dektop">
+						{{ translator.translate("start_button") }}
+					</a>
+					<h3 class="reveal-1">{{ translator.translate("second_section_title") }}</h3>
 					<p class="reveal-2">{{ translator.translate("second_section_description") }}</p>
 				</article>
 			</section>
 		</div>
 
 		<section class='swiper_desktop '>
+			<h2 class="visually-hidden">Slider</h2>
 			<div class="swiper mySwiper reveal-1">
 				<div class="swiper-wrapper ">
 					{% for language in languages %}

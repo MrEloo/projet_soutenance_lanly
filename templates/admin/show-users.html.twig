@@ -4,12 +4,12 @@
 	{{ translator.translate("admin_area") }}
 {% endblock %}
 
-{% block mypage %}
+{% block main %}
 	<main class="admin">
 		<div class="container p-4">
 			<h1 class="fs-2 admin_title">{{ translator.translate('Users') }}</h1>
-			<a href="index.php?route=administration">
-				<button class='admin_retour_button'>{{ translator.translate('BACK') }}</button>
+			<a href="index.php?route=administration" class='admin_retour_button'>
+				{{ translator.translate('BACK') }}
 			</a>
 
 			<div class="row">

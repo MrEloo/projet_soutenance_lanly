@@ -4,13 +4,14 @@
 	{{ translator.translate("admin_area") }}
 {% endblock %}
 
-{% block mypage %}
+{% block main %}
 	<main class="admin">
 		<section class="container admin_menu p-4">
 			<h1 class="mt-5">
 				{{translator.translate("admin_title")}}
 			</h1>
 			<article class="list-group mt-4">
+				<h2 class="visually-hidden">Admin space</h2>
 				<a href="index.php?route=allUsers" class="list-group-item list-group-item-action bg-primary text-white">{{translator.translate("admin_users")}}</a>
 				<br>
 				<a href="index.php?route=allCourses" class="list-group-item list-group-item-action bg-primary text-white">{{translator.translate("admin_courses")}}</a>
