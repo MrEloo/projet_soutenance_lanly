@@ -12,7 +12,6 @@ const handleIntersect = (entries, observer) => {
             entry.target.classList.add('reveal_visible')
             observer.unobserve(entry.target)
         } else {
-            console.log('invisible')
         }
     });
 }
