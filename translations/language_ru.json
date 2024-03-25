@@ -2,5 +2,12 @@
     "admin_area": "Административная область",
     "language_name": "Название языка",
     "flag_url": "URL флага",
-    "add": "Добавить"
+    "add": "Добавить",
+    "about": "О нас",
+    "home": "Главная",
+    "my_profile": "Мой профиль",
+    "logout": "Выйти",
+    "contact": "Контакт",
+    "legal_mentions": "Юридические упоминания",
+    "data_protection_policy": "Политика защиты данных"
 }

@@ -2,5 +2,9 @@
     "admin_area": "Admin Area",
     "language_name": "Language Name",
     "flag_url": "Flag URL",
-    "add": "Add"
+    "add": "Add",
+    "contact": "Contact",
+    "legal_mentions": "Legal Mentions",
+    "data_protection_policy": "Data Protection Policy",
+    "my_profile": "My Profile"
 }

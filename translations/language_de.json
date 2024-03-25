@@ -2,5 +2,12 @@
     "admin_area": "Administrationsbereich",
     "language_name": "Sprachname",
     "flag_url": "Flaggen-URL",
-    "add": "Hinzufügen"
+    "add": "Hinzufügen",
+    "about": "Über uns",
+    "home": "Startseite",
+    "my_profile": "Mein Profil",
+    "logout": "Abmelden",
+    "contact": "Kontakt",
+    "legal_mentions": "Rechtliche Hinweise",
+    "data_protection_policy": "Datenschutzrichtlinie"
 }

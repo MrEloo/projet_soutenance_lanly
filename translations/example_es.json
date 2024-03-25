@@ -3,5 +3,9 @@
     "description": "Descripción",
     "course_id": "Curso",
     "language": "Idioma",
-    "save": "Guardar"
+    "save": "Guardar",
+    "about": "Acerca de nosotros",
+    "home": "Inicio",
+    "my_profile": "Mi perfil",
+    "logout": "Cerrar sesión"
 }

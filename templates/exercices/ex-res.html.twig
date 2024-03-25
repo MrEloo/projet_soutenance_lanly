@@ -16,23 +16,30 @@
 
 		<section class="resultat_mobile">
 			{% for exercice in exercices %}
-				<h2>QUESTION
-					{{ loop.index }}
-					:</h2>
-				<p>{{ exercice.question }}
-				</p>
-				<h3>correction :</h3>
-				<p>{{ exercice.correction_Text }}</p>
+				<section>
+					<h2>QUESTION
+						{{ loop.index }}
+						:</h2>
+					<p>
+						{{ exercice.question }}
+					</p>
 
-				<p class="reponse">
-					{% if exercice.response.content|lower != exercice.correction|lower %}
-						<i class="fa-solid fa-xmark"></i>
-					{% else %}
-						<i class="fa-solid fa-check"></i>
-					{% endif %}
-					{{ translator.translate("result_response") }}
-					<span class="response_word">{{ exercice.response.content }}</span>
-				</p>
+					<div class='ex_res_flex'>
+						<h3>correction :</h3>
+						<p>{{ exercice.correction_Text }}</p>
+					</div>
+
+					<p class="reponse">
+						{% if exercice.response.content|lower != exercice.correction|lower %}
+							<i class="fa-solid fa-xmark"></i>
+						{% else %}
+							<i class="fa-solid fa-check"></i>
+						{% endif %}
+						{{ translator.translate("result_response") }}
+						:
+						<span class="response_word">{{ exercice.response.content }}</span>
+					</p>
+				</section>
 			{% endfor %}
 			<section class="button_resultat_mobile">
 				<a href="index.php?route=exercices&cat_id={{exercices[0].globalCategory.id}}">

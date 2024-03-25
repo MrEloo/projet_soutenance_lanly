@@ -5,7 +5,7 @@ class CourseManager extends AbstractManager
 {
     public function getCoursesByTheirCat(int $global_category_id, int $language_id): array
     {
-        $selectAllCoursesByCat = $this->db->prepare("SELECT courses_{$_SESSION['user_lang']}.* FROM courses_{$_SESSION['user_lang']} WHERE courses_{$_SESSION['user_lang']}.global_category_id = :global_category_id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
+        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']} WHERE courses_{$_SESSION['user_lang']}.global_category_id = :global_category_id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
         $parameters = ['global_category_id' => $global_category_id, 'language_id' => $language_id];
         $selectAllCoursesByCat->execute($parameters);
 
@@ -20,7 +20,7 @@ class CourseManager extends AbstractManager
             $global_category = $gc->getOneCatById($course_data['global_category_id']);
             $course = new Course($course_data['title'], $course_data['description'], $global_category);
             $course->setId($course_data['id']);
-            $course->setLocked($course_data['users_courses_locked']);
+            // $course->setLocked($course_data['users_courses_locked']);
             $course_array[] = $course;
         }
         return $course_array;

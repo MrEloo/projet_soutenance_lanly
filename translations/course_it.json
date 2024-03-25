@@ -14,5 +14,8 @@
     "description": "Descrizione",
     "category": "Categoria",
     "language": "Lingua",
-    "save": "Salva"
+    "save": "Salva",
+    "about": "Chi siamo",
+    "home": "Home",
+    "logout": "Esci"
 }

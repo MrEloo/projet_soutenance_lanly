@@ -13,7 +13,7 @@
 			<form action="index.php?route=check-login" method="post">
 				<input type="hidden" name="csrf-token" id="csrf-token" value="{{ session.csrf_Token }}"/>
 				<fieldset>
-					<label for="email" class="form-label">{{ translator.translate("username_label") }}</label>
+					<label for="email" class="form-label">{{ translator.translate("email_label") }}</label>
 					<input type="text" id="email" name="email" class="form-control"/>
 				</fieldset>
 				<fieldset>
@@ -42,5 +42,4 @@
 			{% endif %}
 		</section>
 	</main>
-	<a href="index.php?route=logout">ec</a>
 {% endblock %}

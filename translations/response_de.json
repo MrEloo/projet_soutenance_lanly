@@ -7,5 +7,9 @@
     "result_finish": "beenden",
     "result_try_again": "versuchen Sie es erneut",
     "admin_area": "Admin-Bereich",
-    "change_language": "Sprache ändern zu"
+    "change_language": "Sprache ändern zu",
+    "result_title_page": "Ergebnisse",
+    "about": "Über uns",
+    "home": "Startseite",
+    "logout": "Abmelden"
 }

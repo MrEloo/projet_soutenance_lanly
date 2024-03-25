@@ -33,9 +33,11 @@
 						{% endfor %}
 					{% endif %}
 
-					<a href="index.php?route=exercice&course_id={{course.id}}&cat_id={{ course.globalCategory.id }}">
-						<button>{{ translator.translate("course_button_exerice") }}</button>
-					</a>
+					{% if course.exercices is not empty %}
+						<a href="index.php?route=exercice&course_id={{course.id}}&cat_id={{ course.globalCategory.id }}">
+							<button>{{ translator.translate("course_button_exerice") }}</button>
+						</a>
+					{% endif %}
 
 
 				</section>

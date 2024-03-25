@@ -2,5 +2,12 @@
     "admin_area": "Area amministrativa",
     "language_name": "Nome della lingua",
     "flag_url": "URL della bandiera",
-    "add": "Aggiungi"
+    "add": "Aggiungi",
+    "about": "Chi siamo",
+    "home": "Home",
+    "my_profile": "Il mio profilo",
+    "logout": "Esci",
+    "contact": "Contatto",
+    "legal_mentions": "Avvisi legali",
+    "data_protection_policy": "Politica sulla privacy dei dati"
 }

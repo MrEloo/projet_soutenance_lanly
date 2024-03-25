@@ -7,5 +7,9 @@
     "result_finish": "завершить",
     "result_try_again": "попробуйте еще раз",
     "admin_area": "Административная область",
-    "change_language": "сменить язык на"
+    "change_language": "сменить язык на",
+    "result_title_page": "Результаты",
+    "about": "О нас",
+    "home": "Главная",
+    "logout": "Выйти"
 }

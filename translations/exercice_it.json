@@ -13,7 +13,6 @@
     "change_language": "cambiare lingua in",
     "exercice_title_page": "Esercizio",
     "questions_title_page": "Domande",
-    "result_title_page": "Risultati",
     "title": "Titolo",
     "difficulty": "Difficoltà",
     "question": "Domanda",
@@ -22,5 +21,8 @@
     "global_category_id": "Categoria Globale",
     "course_id": "Corso",
     "language": "Lingua",
-    "add": "Aggiungi"
+    "add": "Aggiungi",
+    "about": "Chi siamo",
+    "home": "Home",
+    "logout": "Esci"
 }

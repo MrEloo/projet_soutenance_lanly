@@ -1,6 +1,13 @@
 {
-    "admin_area": "Área de administración",
-    "language_name": "Nombre del idioma",
-    "flag_url": "URL de la bandera",
-    "add": "Agregar"
-  }
+  "admin_area": "Área de administración",
+  "language_name": "Nombre del idioma",
+  "flag_url": "URL de la bandera",
+  "add": "Agregar",
+  "about": "Acerca de nosotros",
+  "home": "Inicio",
+  "my_profile": "Mi perfil",
+  "logout": "Cerrar sesión",
+  "contact": "Contacto",
+  "legal_mentions": "Menciones legales",
+  "data_protection_policy": "Política de protección de datos"
+}

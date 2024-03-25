@@ -18,6 +18,7 @@ class CourseController extends AbstractController
             //initialisation des managers
             $cm = new CourseManager();
             $em = new ExampleManager();
+            $exm = new ExerciceManager();
 
             //recuperation de tous les cours d'une catégorie
             $courses = $cm->getCoursesByTheirCat($_GET['cat_id'], $_SESSION['user_language']);
@@ -32,9 +33,10 @@ class CourseController extends AbstractController
             //Pour chacun de ses cours, récupération de ses exemples + ajout à l'attribut 
             foreach ($courses as $course) {
 
-
+                $exercices_array = $exm->getAllExercicesByCourse($course->getId(), $_SESSION['user_language']);
                 $examples_array = $em->getExamplesFromCourse($course->getId(), $_SESSION['user_language']);
                 $course->setExamples($examples_array);
+                $course->setExercices($exercices_array);
             }
             $this->render("courses/course.html.twig", ['courses' => $courses]);
         } else {

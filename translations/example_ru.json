@@ -3,5 +3,9 @@
     "description": "Описание",
     "course_id": "Курс",
     "language": "Язык",
-    "save": "Сохранить"
+    "save": "Сохранить",
+    "about": "О нас",
+    "home": "Главная",
+    "my_profile": "Мой профиль",
+    "logout": "Выйти"
 }

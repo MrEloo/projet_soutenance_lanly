@@ -14,5 +14,8 @@
     "description": "Beschreibung",
     "category": "Kategorie",
     "language": "Sprache",
-    "save": "Speichern"
+    "save": "Speichern",
+    "about": "Über uns",
+    "home": "Startseite",
+    "logout": "Abmelden"
 }

@@ -16,5 +16,10 @@
     "description": "Description",
     "category": "Catégorie",
     "language": "Langue",
-    "save": "Enregistrer"
+    "save": "Enregistrer",
+    "login": "Connexion",
+    "register": "Inscription",
+    "about": "À propos",
+    "home": "Accueil",
+    "logout": "Déconnexion"
 }

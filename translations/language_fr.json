@@ -2,5 +2,14 @@
     "admin_area": "Zone d'administration",
     "language_name": "Nom de la langue",
     "flag_url": "URL du drapeau",
-    "add": "Ajouter"
+    "add": "Ajouter",
+    "login": "Connexion",
+    "register": "Inscription",
+    "about": "À propos",
+    "home": "Accueil",
+    "logout": "Déconnexion",
+    "contact": "Contact",
+    "legal_mentions": "Mentions légales",
+    "data_protection_policy": "Politique de protection des données",
+    "my_profile": "Mon profil"
 }

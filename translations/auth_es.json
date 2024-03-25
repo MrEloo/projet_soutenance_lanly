@@ -27,5 +27,6 @@
     "logout": "Cerrar sesión",
     "change_language": "cambiar de idioma a",
     "Lanly_register": "Registro",
-    "Lanly_login": "Inicio de Sesión"
+    "Lanly_login": "Inicio de Sesión",
+    "my_profile": "Mi perfil"
 }
