@@ -19,6 +19,7 @@ class Uploader
 
         if (in_array($file_ext, $this->extensions) === false && $size < 30000) {
             throw new Exception("Bad file extension or size. Please upload a JPG, PDF or PNG file.");
+            $_SESSION['picture_size'] = "L'image que vous tentez d'enregistrer est trop lourde. Veuillez en choisir une autre";
         } else {
             move_uploaded_file($tempImagePath, "./uploads/$name");
         }

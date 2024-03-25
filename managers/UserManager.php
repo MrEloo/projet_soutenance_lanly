@@ -5,13 +5,14 @@ class UserManager extends AbstractManager
 {
     public function createUser(User $user): void
     {
-        $insertUserQuery = $this->db->prepare('INSERT INTO users (username, email, password, country_id, language_id, role, date) VALUES (:username, :email, :password, :country_id, :language_id, :role, :date)');
+        $insertUserQuery = $this->db->prepare('INSERT INTO users (username, email, password, country_id, picture, language_id, role, date) VALUES (:username, :email, :password, :country_id, :picture, :language_id, :role, :date)');
         $parameters = [
             'username' => $user->getUsername(),
             'email' => $user->getEmail(),
             'password' => $user->getPassword(),
             'country_id' => $user->getCountry()->getId(),
             'language_id' => $user->getLanguage()->getId(),
+            'picture' => 'none',
             'role' => $user->getRole(),
             'date' => $user->getDate(),
         ];

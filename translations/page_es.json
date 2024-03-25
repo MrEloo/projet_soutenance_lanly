@@ -1,4 +1,5 @@
 {
+    "wich_language": "¿Qué idioma te gustaría aprender?",
     "first_section_title": "Sumérgete en una experiencia de aprendizaje inmersiva:",
     "first_section_description": "Descubre una plataforma de aprendizaje cautivadora donde cada ejercicio y revisión está diseñado para sumergirte en el idioma y la cultura que estás explorando. Nuestros ejercicios en evolución, correcciones detalladas y curvas de progreso hacen que el aprendizaje sea una experiencia emocionante.",
     "start_button": "COMENZAR",
@@ -46,6 +47,7 @@
     "about_me": "Sobre Mí",
     "my_profil": "Mi Perfil",
     "objective_title": "Objetivo",
+    "policy_title": "Política de Protección de Datos Personales",
     "objective_content": "Esta política tiene como objetivo garantizar la seguridad y confidencialidad de los datos personales recopilados por nuestra empresa, con el fin de proteger la privacidad de las personas involucradas y cumplir con los estándares de protección de datos.",
     "scope_title": "Ámbito de Aplicación",
     "scope_inside_title": "Dentro del Ámbito de Aplicación",

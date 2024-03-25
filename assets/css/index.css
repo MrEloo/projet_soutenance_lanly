@@ -192,6 +192,10 @@
         display: none;
     }
 
+    .swiper_desktop h3 {
+        text-align: center;
+    }
+
     .swiper {
         margin: 5rem;
         width: 80%;
@@ -2134,6 +2138,12 @@
         background-color: #FA8F21;
     }
 
+    .swiper_desktop h3 {
+        text-align: center;
+        font-size: 4em;
+        padding-bottom: 2em;
+    }
+
     .swiper {
         width: 80%;
         height: 100%;
@@ -2826,7 +2836,8 @@
         justify-content: center;
         text-align: left;
         color: #FA8F21;
-        font-size: 7rem;
+        font-size: 4rem;
+        margin: 1rem;
     }
 
     .exercice_mobile_link_to_result {

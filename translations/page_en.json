@@ -1,4 +1,5 @@
 {
+    "wich_language": "Which language would you like to learn?",
     "first_section_title": "Immerse yourself in an immersive learning experience:",
     "first_section_description": "Discover a captivating learning platform where each exercise and review is designed to immerse you in the language and culture you're exploring. Our evolving exercises, detailed corrections, and progress curves make learning an exciting experience.",
     "start_button": "START",
@@ -45,6 +46,7 @@
     "about_me": "About Me",
     "protection_donnees": "Data Protection",
     "my_profil": "My Profile",
+    "policy_title": "Personal Data Protection Policy",
     "objective_title": "Objective",
     "objective_content": "This policy aims to ensure the security and confidentiality of personal data collected by our company, in order to protect the privacy of the individuals concerned and to comply with data protection standards.",
     "scope_title": "Scope of Application",

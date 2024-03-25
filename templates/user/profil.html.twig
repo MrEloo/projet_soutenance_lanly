@@ -16,6 +16,12 @@
 				{# Affichage de l'image si elle est présente en base de données #}
 				{% if user.picture is not empty %}
 					<img class='profil_image_user' src="{{ user.picture }}" alt="{{ user.username }}">
+					{% if session.picture_size is not empty  %}
+						<p>
+							{{session.picture_size}}
+						</p>
+					{% endif %}
+
 				{% endif %}
 				{# Formulaire d'ajout de photo de profil grâce à la super globale $_FILES['name] #}
 				<form action="index.php?route=addImage" method="POST" enctype="multipart/form-data">

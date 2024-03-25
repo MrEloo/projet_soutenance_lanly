@@ -1,4 +1,5 @@
 {
+    "wich_language": "Welche Sprache möchten Sie lernen?",
     "first_section_title": "Tauchen Sie ein in ein immersives Lernerlebnis:",
     "first_section_description": "Entdecken Sie eine fesselnde Lernplattform, auf der jedes Übungs- und Wiederholungsmaterial darauf ausgelegt ist, Sie in die Sprache und Kultur einzutauchen, die Sie erkunden. Unsere sich entwickelnden Übungen, detaillierten Korrekturen und Fortschrittskurven machen das Lernen zu einem aufregenden Erlebnis.",
     "start_button": "START",
@@ -45,6 +46,7 @@
     "start_journey": "Starte deine Reise",
     "about_me": "Über mich",
     "my_profil": "Mein Profil",
+    "policy_title": "Datenschutzrichtlinie für personenbezogene Daten",
     "objective_title": "Ziel",
     "objective_content": "Diese Richtlinie zielt darauf ab, die Sicherheit und Vertraulichkeit personenbezogener Daten zu gewährleisten, die von unserem Unternehmen gesammelt werden, um die Privatsphäre der betroffenen Personen zu schützen und Datenschutzstandards einzuhalten.",
     "scope_title": "Anwendungsbereich",

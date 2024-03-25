@@ -88,7 +88,7 @@ class CourseManager extends AbstractManager
     public function addCourseInUsersCourses(int $user_id, int $course_id): void
     {
         $insertCourseQuery = $this->db->prepare('INSERT INTO users_courses (user_id, course_id, locked, finished) VALUES (:user_id, :course_id, :locked, :finished)');
-        $parameters = ['user_id' => $user_id, 'course_id' => $course_id, 'locked' => true, 'finished' => false];
+        $parameters = ['user_id' => $user_id, 'course_id' => $course_id, 'locked' => 1, 'finished' => 0];
         $insertCourseQuery->execute($parameters);
     }
 
