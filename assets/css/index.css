@@ -2907,6 +2907,7 @@
         margin: 0;
         padding: 2em;
         text-decoration: underline;
+        width: 40rem;
     }
 
     .resultat_mobile h3 {
@@ -2915,6 +2916,7 @@
         font-size: 3rem;
         padding: 1em 0.4em 1em 0.4em;
         margin: 0;
+        width: 20rem;
     }
 
     .resultat_mobile p {
@@ -2923,6 +2925,7 @@
         font-size: 2rem;
         padding: 1em;
         margin: 0;
+        width: 30%;
     }
 
     .reponse {
@@ -2936,6 +2939,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 70%;
+    }
+
+    .ex_res_flex p {
+        width: 50%;
     }
 
     .fa-xmark {
