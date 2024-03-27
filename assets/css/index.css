@@ -2149,11 +2149,14 @@
         height: 100%;
     }
 
+
+
     .swiper-slide {
         text-align: center;
         font-size: 18px;
         background: #fff;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         background-color: transparent;
@@ -2161,11 +2164,19 @@
 
     }
 
+    .overlay_languages img {
+        opacity: 0.4;
+    }
+
+    .overlay_languages {
+        pointer-events: none;
+    }
+
     .swiper-slide img {
+        position: relative;
         display: block;
         width: 70%;
         height: 50%;
-        /* Vous pouvez ajuster la valeur selon vos besoins */
         object-fit: cover;
         margin: auto;
         border-radius: 1em;

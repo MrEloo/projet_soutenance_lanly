@@ -15,37 +15,46 @@ class PageController extends AbstractController
     {
         if ($this->isUserOrAdmin()) {
 
-            $gcm = new GlobalCategoryManager();
-            $cm = new CourseManager();
+            // $gcm = new GlobalCategoryManager();
+            // $cm = new CourseManager();
 
-            //recuperation de toutes les catégories
-            $global_categories = $gcm->getAllGlobalCategory();
+            // //recuperation de toutes les catégories
+            // $global_categories = $gcm->getAllGlobalCategory();
 
-            //Pour chacune de ces catégories, on va chercher le nombre total de cours qu'il a, et le nombre de cours terminé par l'utilisateur sachant que pour finir un cours, il faut avoir répondu à toutes les QUESTIONS de ce cours
-            // Ce procesuss permet d'afficher la progression de chaque utilisateur
-            foreach ($global_categories as $key => $global_category) {
-                $progression = 0;
-                $totalCourse = $cm->getTotalCoursesByCatAndLang($global_category->getId(), $_SESSION['user_language']);
-                $totalFinished =  $cm->getTotalFinishedCoursesByUser($global_category->getId(), $_SESSION['user_id'], $_SESSION['user_language']);
-                if ($totalCourse > 0) {
-                    $progression = ($totalFinished / $totalCourse) * 100;
-                }
+            // //Pour chacune de ces catégories, on va chercher le nombre total de cours qu'il a, et le nombre de cours terminé par l'utilisateur sachant que pour finir un cours, il faut avoir répondu à toutes les QUESTIONS de ce cours
+            // // Ce procesuss permet d'afficher la progression de chaque utilisateur
+            // foreach ($global_categories as $key => $global_category) {
+            //     $progression = 0;
+            //     $totalCourse = $cm->getTotalCoursesByCatAndLang($global_category->getId(), $_SESSION['user_language']);
+            //     $totalFinished =  $cm->getTotalFinishedCoursesByUser($global_category->getId(), $_SESSION['user_id'], $_SESSION['user_language']);
+            //     if ($totalCourse > 0) {
+            //         $progression = ($totalFinished / $totalCourse) * 100;
+            //     }
 
-                $global_category->setProgression($progression);
-            }
+            //     $global_category->setProgression($progression);
+            // }
 
-            $this->render("page/login_home.html.twig", ['categories' => $global_categories]);
+            $this->redirect("index.php?route=login_home");
         } else {
 
             //initialisation des managers
             $gcm = new GlobalCategoryManager();
             $languageManager = new LanguageManager();
+            $cm = new CourseManager();
 
             //recuperation de toutes les catégories
             $global_categories = $gcm->getAllGlobalCategory();
             //recuperation de toutes les langues
             $languages = $languageManager->getAllLanguages();
 
+            foreach ($languages as $key => $language) {
+                $courses = $cm->getCoursesByLanguageId($language->getId());
+                if ($courses) {
+                    $language->setHasCourse(true);
+                } else {
+                    $language->setHasCourse(false);
+                }
+            }
 
 
 

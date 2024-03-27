@@ -44,6 +44,26 @@ class CourseManager extends AbstractManager
         return $course;
     }
 
+    public function getCoursesByLanguageId(int $language_id): array
+    {
+        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']} WHERE  courses_{$_SESSION['user_lang']}.language_id = :language_id");
+        $parameters = ['language_id' => $language_id];
+        $selectAllCoursesByCat->execute($parameters);
+
+        $courses_data = $selectAllCoursesByCat->fetchAll(PDO::FETCH_ASSOC);
+
+        $course_array = [];
+
+        foreach ($courses_data as $key => $course_data) {
+            $gc = new GlobalCategoryManager;
+            $global_category = $gc->getOneCatById($course_data['global_category_id']);
+            $course = new Course($course_data['title'], $course_data['description'], $global_category);
+            $course->setId($course_data['id']);
+            $course_array[] = $course;
+        }
+        return $course_array;
+    }
+
 
     public function unlockCourse(int $user_id, int $course_id): void
     {

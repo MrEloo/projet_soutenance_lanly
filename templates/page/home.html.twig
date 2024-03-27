@@ -65,7 +65,11 @@
 				<div class="swiper-wrapper ">
 					{% for language in languages %}
 						<div class="swiper-slide ">
-							<a class="" href="index.php?route=langue&language_id={{language.id}}"><img src="{{language.drapeau}}" alt=""></a>
+							<a {% if language.hasCourse == false %} class="overlay_languages" {% endif %} href="index.php?route=langue&language_id={{language.id}}"><img src="{{language.drapeau}}" alt="">
+								{% if language.hasCourse == false %}
+									<i class="fa-regular fa-clock"></i>
+								{% endif %}
+							</a>
 						</div>
 					{% endfor %}
 				</div>

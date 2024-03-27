@@ -5,6 +5,7 @@ class Language
 {
     private ?int $id = null;
     private string $code;
+    private bool $hasCourse;
 
     public function __construct(private string $name, private string $drapeau)
     {
@@ -88,6 +89,28 @@ class Language
     public function setCode($code)
     {
         $this->code = $code;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Get the value of hasCourse
+     */ 
+    public function getHasCourse()
+    {
+        return $this->hasCourse;
+    }
+
+    /**
+     * Set the value of hasCourse
+     *
+     * @return  self
+     */ 
+    public function setHasCourse($hasCourse)
+    {
+        $this->hasCourse = $hasCourse;
 
         return $this;
     }
