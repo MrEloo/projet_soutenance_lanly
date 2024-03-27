@@ -21,5 +21,7 @@
     "global_category_id": "Глобальная категория",
     "course_id": "Курс",
     "language": "Язык",
-    "add": "Добавить"
+    "add": "Добавить",
+    "change_police": "изменить размер шрифта",
+    "reset_button": "сброс"
 }

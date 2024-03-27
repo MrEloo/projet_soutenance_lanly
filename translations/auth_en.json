@@ -21,5 +21,7 @@
     "data_protection_policy": "Data Protection Policy",
     "change_language": "change language to",
     "Lanly_register": "Register",
-    "Lanly_login": "Login"
+    "Lanly_login": "Login",
+    "change_police": "change police size",
+    "reset_button": "reset"
 }

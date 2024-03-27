@@ -14,5 +14,7 @@
     "logout": "Выйти",
     "result_title": "Результаты",
     "result_question": "Вопрос",
-    "result_correction": "Коррекция"
+    "result_correction": "Коррекция",
+    "change_police": "изменить размер шрифта",
+    "reset_button": "сброс"
 }

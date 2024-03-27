@@ -14,5 +14,7 @@
     "description": "Описание",
     "category": "Категория",
     "language": "Язык",
-    "save": "Сохранить"
+    "save": "Сохранить",
+    "change_police": "изменить размер шрифта",
+    "reset_button": "сброс"
 }

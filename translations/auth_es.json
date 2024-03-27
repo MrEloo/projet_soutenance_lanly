@@ -28,5 +28,7 @@
     "change_language": "cambiar de idioma a",
     "Lanly_register": "Registro",
     "Lanly_login": "Inicio de Sesión",
-    "my_profile": "Mi perfil"
+    "my_profile": "Mi perfil",
+    "change_police": "cambiar el tamaño de la fuente",
+    "reset_button": "restablecer"
 }

@@ -14,5 +14,7 @@
     "logout": "Esci",
     "result_title": "Risultati",
     "result_question": "Domanda",
-    "result_correction": "Correzione"
+    "result_correction": "Correzione",
+    "change_police": "cambiare la dimensione del carattere",
+    "reset_button": "reset"
 }

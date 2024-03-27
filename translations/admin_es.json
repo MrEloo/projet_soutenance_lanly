@@ -41,5 +41,7 @@
     "Add_a_course": "Agregar un curso",
     "Description": "Descripción",
     "Category_name": "Nombre de la categoría",
-    "change_language": "cambiar de idioma a"
+    "change_language": "cambiar de idioma a",
+    "change_police": "cambiar el tamaño de la fuente",
+    "reset_button": "restablecer"
 }

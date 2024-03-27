@@ -10,5 +10,7 @@
     "logout": "Выйти",
     "contact": "Контакт",
     "legal_mentions": "Юридические уведомления",
-    "data_protection_policy": "Политика защиты данных"
+    "data_protection_policy": "Политика защиты данных",
+    "change_police": "изменить размер шрифта",
+    "reset_button": "сброс"
 }

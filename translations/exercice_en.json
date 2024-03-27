@@ -21,5 +21,7 @@
     "global_category_id": "Global Category",
     "course_id": "Course",
     "language": "Language",
-    "add": "Add"
+    "add": "Add",
+    "change_police": "change police size",
+    "reset_button": "reset"
 }

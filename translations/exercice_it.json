@@ -24,5 +24,7 @@
     "add": "Aggiungi",
     "about": "Chi siamo",
     "home": "Home",
-    "logout": "Esci"
+    "logout": "Esci",
+    "change_police": "cambiare la dimensione del carattere",
+    "reset_button": "reset"
 }

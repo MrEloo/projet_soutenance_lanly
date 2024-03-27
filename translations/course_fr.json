@@ -21,5 +21,7 @@
     "register": "Inscription",
     "about": "À propos",
     "home": "Accueil",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "change_police": "changer la taille de la police",
+    "reset_button": "réinitialiser"
 }

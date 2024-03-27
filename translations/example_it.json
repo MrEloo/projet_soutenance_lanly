@@ -10,5 +10,7 @@
     "logout": "Esci",
     "contact": "Contatto",
     "legal_mentions": "Note legali",
-    "data_protection_policy": "Informativa sulla privacy"
+    "data_protection_policy": "Informativa sulla privacy",
+    "change_police": "cambiare la dimensione del carattere",
+    "reset_button": "reset"
 }

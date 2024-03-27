@@ -27,5 +27,7 @@
     "logout": "Abmeldung",
     "change_language": "Sprache ändern zu",
     "Lanly_register": "Registrieren",
-    "Lanly_login": "Anmelden"
+    "Lanly_login": "Anmelden",
+    "change_police": "Schriftgröße ändern",
+    "reset_button": "zurücksetzen"
 }

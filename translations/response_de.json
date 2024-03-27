@@ -14,5 +14,7 @@
     "logout": "Abmelden",
     "result_title": "Ergebnisse",
     "result_question": "Frage",
-    "result_correction": "Korrektur"
+    "result_correction": "Korrektur",
+    "change_police": "Schriftgröße ändern",
+    "reset_button": "zurücksetzen"
 }

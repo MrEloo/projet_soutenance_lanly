@@ -14,5 +14,7 @@
     "logout": "Cerrar sesión",
     "result_title": "Resultados",
     "result_question": "Pregunta",
-    "result_correction": "Corrección"
+    "result_correction": "Corrección",
+    "change_police": "cambiar el tamaño de la fuente",
+    "reset_button": "restablecer"
 }

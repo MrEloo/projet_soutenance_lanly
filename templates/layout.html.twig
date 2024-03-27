@@ -146,6 +146,12 @@
 							<a href="index.php?route=switchLang&lang_code=ru">Русский</a>
 						</article>
 					{% endblock %}
+					<article>
+						<h3>{{translator.translate("change_police")}}</h3>
+						<p id="increase">+</p>
+						<p id="decrease">-</p>
+						<button id="reset">{{translator.translate("reset_button")}}</button>
+					</article>
 				</section>
 			</footer>
 		{% endblock %}

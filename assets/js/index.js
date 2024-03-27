@@ -100,6 +100,57 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    const increase = document.getElementById("increase");
+    const decrease = document.getElementById("decrease");
+    const resetButton = document.getElementById("reset");
+    const htmlElement = document.querySelector('html');
+    const baseFontSize = 16; // Taille de police de base en pixels (correspondant à 100%)
+
+
+    // Fonction pour augmenter la taille de la police
+    function increasePoliceSize() {
+        const currentFontSize = parseFloat(window.getComputedStyle(htmlElement).fontSize);
+        const newSize = currentFontSize + 1;
+        if (newSize <= maxFontSize) {
+            htmlElement.style.fontSize = newSize / baseFontSize * 100 + "%";
+            localStorage.setItem('fontSize', newSize); // Enregistrer la nouvelle taille dans le stockage local
+        }
+    }
+
+    function resetPoliceSize() {
+        const pourcentageSize = 62.5;
+        htmlElement.style.fontSize = pourcentageSize + "%";
+        localStorage.removeItem('fontSize'); // Supprimer la taille enregistrée dans le stockage local
+    }
+
+    // Fonction pour diminuer la taille de la police
+    function decreasePoliceSize() {
+        const currentFontSize = parseFloat(window.getComputedStyle(htmlElement).fontSize);
+        const newSize = currentFontSize - 1;
+        if (newSize >= minFontSize) {
+            htmlElement.style.fontSize = newSize / baseFontSize * 100 + "%";
+            localStorage.setItem('fontSize', newSize); // Enregistrer la nouvelle taille dans le stockage local
+        }
+    }
+
+
+    // Taille de police maximale et minimale
+    const maxFontSize = 24; // Taille de police maximale
+    const minFontSize = 10; // Taille de police minimale
+
+    // Récupérer la taille de police précédemment enregistrée depuis le stockage local
+    const storedFontSize = localStorage.getItem('fontSize');
+    if (storedFontSize) {
+        const htmlElement = document.querySelector('html');
+        const baseFontSize = 16; // Taille de police de base en pixels (correspondant à 100%)
+        htmlElement.style.fontSize = storedFontSize / baseFontSize * 100 + "%";
+    }
+
+    // Écouteurs d'événements pour les boutons d'augmentation et de diminution de la police
+    increase.addEventListener('click', increasePoliceSize);
+    decrease.addEventListener('click', decreasePoliceSize);
+    resetButton.addEventListener('click', resetPoliceSize)
+
 
 });
 

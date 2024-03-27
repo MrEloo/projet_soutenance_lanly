@@ -27,5 +27,7 @@
     "logout": "Déconnexion",
     "change_language": "changer de langue vers",
     "Lanly_register": "Inscription",
-    "Lanly_login": "Connexion"
+    "Lanly_login": "Connexion",
+    "change_police": "changer la taille de la police",
+    "reset_button": "réinitialiser"
 }

@@ -11,5 +11,7 @@
     "contact": "Contact",
     "legal_mentions": "Mentions légales",
     "data_protection_policy": "Politique de protection des données",
-    "my_profile": "Mon profil"
+    "my_profile": "Mon profil",
+    "change_police": "changer la taille de la police",
+    "reset_button": "réinitialiser"
 }

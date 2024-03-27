@@ -15,5 +15,7 @@
     "questions_title_page": "Fragen",
     "about": "Über uns",
     "home": "Startseite",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "change_police": "Schriftgröße ändern",
+    "reset_button": "zurücksetzen"
 }

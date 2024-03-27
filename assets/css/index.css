@@ -389,6 +389,32 @@
     }
 
 
+    #decrease {
+        cursor: pointer;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    #increase {
+        cursor: pointer;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    #decrease:hover {
+        transform: scale(1.05);
+        transition: all .5s;
+        color: #FA8F21;
+    }
+
+    #increase:hover {
+        transform: scale(1.05);
+        transition: all .5s;
+        color: #FA8F21;
+    }
+
+
+
     /*****************************
     //REGISTER MOBILE
     ******************************/
@@ -1879,6 +1905,7 @@
         min-height: 100vh;
         min-width: 321px;
         font-family: "Nunito Sans", sans-serif !important;
+        overflow-x: hidden;
     }
 
     .visually-hidden {
@@ -1912,6 +1939,7 @@
         justify-content: space-around;
         align-items: center;
         background-color: #080E16;
+        max-width: 100%;
     }
 
     .first_text_main_mobile button:hover,
@@ -2029,8 +2057,10 @@
         font-size: 3rem;
         padding: 2em;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
+        max-width: 100%;
     }
 
     .footer a {
@@ -2129,6 +2159,40 @@
 
     }
 
+    #decrease {
+        cursor: pointer;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    #increase {
+        cursor: pointer;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    #decrease:hover {
+        transform: scale(1.05);
+        transition: all .5s;
+        color: #FA8F21;
+    }
+
+    #increase:hover {
+        transform: scale(1.05);
+        transition: all .5s;
+        color: #FA8F21;
+    }
+
+    #reset {
+        display: block;
+        margin: 0 auto;
+        border-radius: 1em;
+        border: none;
+        padding: 0.5em;
+        font-size: 0.8em;
+        background-color: #131F31;
+        color: #FA8F21;
+    }
 
     /*****************************
     //SWIPER DESKTOP

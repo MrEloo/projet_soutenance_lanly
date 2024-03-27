@@ -10,5 +10,7 @@
     "change_language": "change language to",
     "result_title": "Results",
     "result_question": "Question",
-    "result_correction": "Correction"
+    "result_correction": "Correction",
+    "change_police": "change police size",
+    "reset_button": "reset"
 }

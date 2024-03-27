@@ -24,5 +24,7 @@
     "add": "Agregar",
     "about": "Acerca de nosotros",
     "home": "Inicio",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "change_police": "cambiar el tamaño de la fuente",
+    "reset_button": "restablecer"
 }

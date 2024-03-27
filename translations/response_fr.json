@@ -16,5 +16,7 @@
     "logout": "Déconnexion",
     "result_title": "Résultats",
     "result_question": "Question",
-    "result_correction": "Correction"
+    "result_correction": "Correction",
+    "change_police": "changer la taille de la police",
+    "reset_button": "réinitialiser"
 }

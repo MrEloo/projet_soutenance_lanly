@@ -27,5 +27,7 @@
     "logout": "Выйти",
     "change_language": "сменить язык на",
     "Lanly_register": "Регистрация",
-    "Lanly_login": "Вход"
+    "Lanly_login": "Вход",
+    "change_police": "изменить размер шрифта",
+    "reset_button": "сброс"
 }

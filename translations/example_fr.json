@@ -8,5 +8,7 @@
     "contact": "Contact",
     "legal_mentions": "Mentions légales",
     "data_protection_policy": "Politique de protection des données",
-    "home": "Accueil"
+    "home": "Accueil",
+    "change_police": "changer la taille de la police",
+    "reset_button": "réinitialiser"
 }

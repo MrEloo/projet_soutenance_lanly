@@ -9,5 +9,7 @@
   "logout": "Cerrar sesión",
   "contact": "Contacto",
   "legal_mentions": "Menciones legales",
-  "data_protection_policy": "Política de protección de datos"
+  "data_protection_policy": "Política de protección de datos",
+  "change_police": "cambiar el tamaño de la fuente",
+    "reset_button": "restablecer"
 }

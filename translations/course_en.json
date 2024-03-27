@@ -14,5 +14,7 @@
     "description": "Description",
     "category": "Category",
     "language": "Language",
-    "save": "Save"
+    "save": "Save",
+    "change_police": "change police size",
+    "reset_button": "reset"
 }

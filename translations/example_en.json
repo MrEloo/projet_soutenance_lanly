@@ -7,5 +7,7 @@
     "contact": "Contact",
     "legal_mentions": "Legal Mentions",
     "data_protection_policy": "Data Protection Policy",
-    "my_profile": "My profile"
+    "my_profile": "My profile",
+    "change_police": "change police size",
+    "reset_button": "reset"
 }

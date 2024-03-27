@@ -41,5 +41,7 @@
     "Add_a_course": "Add a course",
     "Description": "Description",
     "Category_name": "Category name",
-    "change_language": "change language to"
+    "change_language": "change language to",
+    "change_police": "change police size",
+    "reset_button": "reset"
 }

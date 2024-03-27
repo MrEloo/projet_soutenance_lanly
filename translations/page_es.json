@@ -112,5 +112,7 @@
     "limitation_of_liability_content": "[Nombre de la Empresa] se esfuerza por proporcionar información precisa y actualizada en este sitio, pero no puede garantizar la exactitud, integridad o relevancia de la información proporcionada. En consecuencia, [Nombre de la Empresa] declina cualquier responsabilidad en caso de posibles daños directos o indirectos resultantes del uso de la información presente en este sitio.",
     "applicable_law": "Ley Aplicable:",
     "applicable_law_content": "Estas menciones legales están sujetas a la ley francesa. En caso de disputa, los tribunales competentes serán los del lugar de residencia de [Nombre de la Empresa].",
-    "legal_disclaimer_changes": "Estas menciones legales están sujetas a cambios en cualquier momento, por lo que recomendamos que las revises regularmente."
+    "legal_disclaimer_changes": "Estas menciones legales están sujetas a cambios en cualquier momento, por lo que recomendamos que las revises regularmente.",
+    "change_police": "cambiar el tamaño de la fuente",
+    "reset_button": "restablecer"
 }

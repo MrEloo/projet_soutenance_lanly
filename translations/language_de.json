@@ -9,5 +9,7 @@
     "logout": "Abmelden",
     "contact": "Kontakt",
     "legal_mentions": "Rechtliche Hinweise",
-    "data_protection_policy": "Datenschutzrichtlinie"
+    "data_protection_policy": "Datenschutzrichtlinie",
+    "change_police": "Schriftgröße ändern",
+    "reset_button": "zurücksetzen"
 }
