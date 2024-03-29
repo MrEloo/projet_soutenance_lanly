@@ -59,10 +59,6 @@ Make sure you have the following installed on your system:
 
 5. Import the provided SQL file into your MySQL database.
 
-## Téléchargement de la Base de Données
-
-Vous pouvez télécharger la base de données utilisée dans ce projet en cliquant [ici](https://drive.google.com/file/d/1Ai4kg13HxOzzr6WZo_vcyccPQq7rVo4Y/view?usp=sharing).
-
 6. Start your local server and navigate to LANLY in your web browser.
 
 ## Usage
