@@ -14,7 +14,7 @@ class LanguageController extends AbstractController
     //suppression d'une langue en base de données
     public function deleteLanguage(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             $lm = new LanguageManager();
             $lm->deleteLanguage($_GET['lan_id']);
             $this->redirect("index.php?route=allLanguages");
@@ -26,7 +26,7 @@ class LanguageController extends AbstractController
     //redirection vers le formulaire d'édition d'une langue
     public function languageForm(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             $this->render("admin/update/update-language.html.twig", ['lan_id' => $_GET['lan_id']]);
         } else {
             $this->render("page/home.html.twig", []);
@@ -36,7 +36,7 @@ class LanguageController extends AbstractController
     //redirection vers le formulaire d'ajout d'une langue
     public function languageFormAdd(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             $this->render("admin/add/add-language.html.twig", []);
         } else {
             $this->render("page/home.html.twig", []);
@@ -46,7 +46,7 @@ class LanguageController extends AbstractController
 
     public function addLanguage(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             if (isset($_POST['language_name']) && isset($_POST['flag_url'])) {
 
                 //initalisation des managers
@@ -86,6 +86,24 @@ class LanguageController extends AbstractController
 
         if ($this->isUserOrAdmin()) {
             $_SESSION['user_lang'] = $_GET['lang_code'];
+
+            $lm = new LanguageManager();
+
+            //Création d'un objet composé du nom de la langue et de son id qui permettrons, dans un menu dropdown, de changer de langue d'apprentissage
+            $languages = $lm->getAllLanguages();
+            $language_array = [];
+
+            //creation d'un objet STDclass qui permettra d'afficher les langues avec leurs ID associé dans un dropdown du header
+            foreach ($languages as $language) {
+                $language_object = new stdClass();
+                $language_object->language_name = $language->getName();
+                $language_object->language_id = $language->getId();
+                $language_array[] = $language_object;
+            }
+
+            //Initialisation de la session avec l'objet précédemment créé
+            $_SESSION['languages'] = $language_array;
+
             $this->redirect("index.php?route=login_home");
         } else {
             $_SESSION['user_lang'] = $_GET['lang_code'];

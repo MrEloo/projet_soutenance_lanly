@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // Taille de police maximale et minimale
-    const maxFontSize = 24; // Taille de police maximale
+    const maxFontSize = 15; // Taille de police maximale
     const minFontSize = 10; // Taille de police minimale
 
     // Récupérer la taille de police précédemment enregistrée depuis le stockage local

@@ -7,36 +7,36 @@
 {% block main %}
 	<main>
 		<form class='form_admin' action="index.php?route=update_info_exercice" method="post">
-			<input type="hidden" class="form-control" id="exercice_id" name="exercice_id" value="">
+			<input type="hidden" class="form-control" id="exercice_id" name="exercice_id" value="" required>
 
 			<div class="form-group">
 				<label for="title">{{ translator.translate("title") }}
 					:</label>
-				<input type="text" class="form-control" id="title" name="title" value="">
+				<input type="text" class="form-control" id="title" name="title" value="" required>
 			</div>
 
 			<div class="form-group">
 				<label for="difficulty">{{ translator.translate("difficulty") }}
 					:</label>
-				<input type="text" class="form-control" id="difficulty" name="difficulty" value="">
+				<input type="text" class="form-control" id="difficulty" name="difficulty" value="" required>
 			</div>
 
 			<div class="form-group">
 				<label for="question">{{ translator.translate("question") }}
 					:</label>
-				<textarea class="form-control" id="question" name="question"></textarea>
+				<textarea class="form-control" id="question" name="question" required></textarea>
 			</div>
 
 			<div class="form-group">
 				<label for="correction_text">{{ translator.translate("correction_text") }}
 					:</label>
-				<textarea class="form-control" id="correction_text" name="correction_text"></textarea>
+				<textarea class="form-control" id="correction_text" name="correction_text" required></textarea>
 			</div>
 
 			<div class="form-group">
 				<label for="correction_word">{{ translator.translate("correction_word") }}
 					:</label>
-				<input type="text" class="form-control" id="correction_word" name="correction_word" value="">
+				<input type="text" class="form-control" id="correction_word" name="correction_word" value="" required>
 			</div>
 
 			<div class="form-group">
@@ -44,7 +44,7 @@
 					:</label>
 				<select class="form-control" id="global_category_id" name="global_category_id">
 					{% for category in categories %}
-						<option value="{{ category.id }}">{{ category.name }}</option>
+						<option value="{{ category.id }}" required>{{ category.name }}</option>
 					{% endfor %}
 				</select>
 			</div>
@@ -53,7 +53,7 @@
 					:</label>
 				<select class="form-control" id="course_id" name="course_id">
 					{% for course in courses %}
-						<option value="{{ course.id }}">{{ course.title }}</option>
+						<option value="{{ course.id }}" required>{{ course.title }}</option>
 					{% endfor %}
 				</select>
 			</div>
@@ -62,7 +62,7 @@
 				<label for="language">{{ translator.translate("language") }}</label>
 				<select class="form-control" id="language" name="language">
 					{% for language in languages %}
-						<option value="{{ language.id }}">{{ language.name }}</option>
+						<option value="{{ language.id }}" required>{{ language.name }}</option>
 					{% endfor %}
 				</select>
 			</div>

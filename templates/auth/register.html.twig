@@ -15,25 +15,25 @@
 				<input type="hidden" name="csrf-token" id="csrf-token" value="{{ session.csrf_Token }}"/>
 				<fieldset>
 					<label for="username" class="form-label">{{ translator.translate("username_label") }}</label>
-					<input type="text" id="username" name="username" class="form-control"/>
+					<input type="text" id="username" name="username" class="form-control" required/>
 				</fieldset>
 				<fieldset>
 					<label for="email" class="form-label">{{ translator.translate("email_label") }}</label>
-					<input type="email" id="email" name="email" class="form-control"/>
+					<input type="email" id="email" name="email" class="form-control" required/>
 				</fieldset>
 				<fieldset>
 					<label for="password" class="form-label">{{ translator.translate("password_label") }}</label>
-					<input type="password" id="password" name="password" class="form-control"/>
+					<input type="password" id="password" name="password" class="form-control" required/>
 				</fieldset>
 				<fieldset>
 					<label for="confirmPassword" class="form-label">{{ translator.translate("confirm_password_label") }}</label>
-					<input type="password" id="confirmPassword" name="confirmPassword" class="form-control"/>
+					<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required/>
 				</fieldset>
 
 				<fieldset>
 
 					<label for="country" class="form-label">{{ translator.translate("country_label") }}</label>
-					<select id="country" name="country">
+					<select id="country" name="country" required>
 						<option value="">{{ translator.translate("select_country_option") }}</option>
 						<option value="france">France</option>
 						<option value="allemagne">Allemagne</option>
@@ -45,7 +45,7 @@
 				</fieldset>
 				<fieldset>
 					<label for="language" class="form-label">{{ translator.translate("language_label") }}</label>
-					<select id="language" name="language">
+					<select id="language" name="language" required>
 						{% if session.selected_language_name is not empty %}
 							<option value="{{ session.selected_language_name }}">{{ session.selected_language_name }}</option>
 						{% else %}
@@ -63,7 +63,7 @@
 					<div class="flex_form_label">
 						{% for reason in reasons %}
 							<fieldset>
-								<input type="checkbox" id="reason_{{ reason.name }}" name="reasons[]" value="{{ reason.name }}">
+								<input type="checkbox" id="reason_{{ reason.name }}" name="reasons[]" value="{{ reason.name }}" required>
 								<label for="reason_{{ reason.name }}">{{ reason.name }}</label>
 							</fieldset>
 						{% endfor %}

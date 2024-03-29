@@ -14,7 +14,7 @@ class ExampleController extends AbstractController
     //suppression d'un exemple en base de données
     public function deleteExample(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             $em = new ExampleManager();
             $em->deleteExample($_GET['example_id']);
             $this->redirect("index.php?route=allExamples");
@@ -26,7 +26,7 @@ class ExampleController extends AbstractController
     //redirection vers le formulaire d'édition d'un exemple
     public function exampleForm(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             $lm = new LanguageManager();
             $cm = new CourseManager();
             $courses = $cm->getAllCourse();
@@ -39,7 +39,7 @@ class ExampleController extends AbstractController
 
     public function updateExample(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             if (isset($_POST['description']) && isset($_POST['course_id'])) {
 
                 //initalisation des managers
@@ -58,7 +58,7 @@ class ExampleController extends AbstractController
     //redirection vers le formulaire d'ajout d'un cours
     public function exampleFormAdd(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             $lm = new LanguageManager();
             $cm = new CourseManager();
             $courses = $cm->getAllCourse();
@@ -72,7 +72,7 @@ class ExampleController extends AbstractController
 
     public function addExample(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             if (isset($_POST['description']) && isset($_POST['course_id'])) {
 
                 //initalisation des managers

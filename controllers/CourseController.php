@@ -47,7 +47,7 @@ class CourseController extends AbstractController
     //suppression d'un cours en base de données
     public function deleteCourse(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             //initialisation des managers
             $em = new CourseManager();
 
@@ -63,7 +63,7 @@ class CourseController extends AbstractController
     //redirection vers le formulaire d'édition d'un cours
     public function courseForm(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             $gcm = new GlobalCategoryManager();
             $lm = new LanguageManager();
             $languages = $lm->getAllLanguages();
@@ -77,7 +77,7 @@ class CourseController extends AbstractController
     //redirection vers le formulaire d'ajout d'un cours
     public function courseFormAdd(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             $gcm = new GlobalCategoryManager();
             $lm = new LanguageManager();
             $languages = $lm->getAllLanguages();
@@ -91,7 +91,7 @@ class CourseController extends AbstractController
 
     public function updateCourse(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['category'])) {
 
                 //initalisation des managers
@@ -108,7 +108,7 @@ class CourseController extends AbstractController
 
     public function addCourse(): void
     {
-        if ($this->isUserOrAdmin()) {
+        if ($this->checkAdmin()) {
             if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['category'])) {
                 //initalisation des managers
                 $cm = new CourseManager();

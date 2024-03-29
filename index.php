@@ -19,7 +19,6 @@ if (!isset($_SESSION['user_lang'])) {
 }
 
 
-
 $router = new Router();
 
 $router->handleRequest($_GET);

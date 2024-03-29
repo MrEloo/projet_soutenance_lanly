@@ -7,18 +7,18 @@
 {% block main %}
 	<main>
 		<form class='form_admin' action="index.php?route=add_example" method="post">
-			<input type="hidden" class="form-control" id="example_id" name="example_id" value="">
+			<input type="hidden" class="form-control" id="example_id" name="example_id" required>
 
 			<div class="form-group">
 				<label for="description">{{ translator.translate("description") }} :</label>
-				<textarea class="form-control" id="description" name="description"></textarea>
+				<textarea class="form-control" id="description" name="description" required></textarea>
 			</div>
 
 			<div class="form-group">
 				<label for="course_id">{{ translator.translate("course_id") }} :</label>
 				<select class="form-control" id="course_id" name="course_id">
 					{% for course in courses %}
-						<option value="{{ course.id }}">{{ course.title }}</option>
+						<option value="{{ course.id }}" required>{{ course.title }}</option>
 					{% endfor %}
 				</select>
 			</div>
@@ -27,7 +27,7 @@
 				<label for="language">{{ translator.translate("language") }}</label>
 				<select class="form-control" id="language" name="language">
 					{% for language in languages %}
-						<option value="{{ language.id }}">{{ language.name }}</option>
+						<option value="{{ language.id }}" required>{{ language.name }}</option>
 					{% endfor %}
 				</select>
 			</div>

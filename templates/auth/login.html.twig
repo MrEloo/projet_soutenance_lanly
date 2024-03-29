@@ -15,11 +15,11 @@
 				<input type="hidden" name="csrf-token" id="csrf-token" value="{{ session.csrf_Token }}"/>
 				<fieldset>
 					<label for="email" class="form-label">{{ translator.translate("email_label") }}</label>
-					<input type="text" id="email" name="email" class="form-control"/>
+					<input type="text" id="email" name="email" class="form-control" required/>
 				</fieldset>
 				<fieldset>
 					<label for="password" class="form-label">{{ translator.translate("password_label") }}</label>
-					<input type="password" id="password" name="password" class="form-control"/>
+					<input type="password" id="password" name="password" class="form-control" required/>
 				</fieldset>
 				<button type="submit" class="">{{ translator.translate("login_button") }}</button>
 			</form>

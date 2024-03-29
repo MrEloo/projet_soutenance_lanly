@@ -170,7 +170,6 @@ class AuthController extends AbstractController
                 $_SESSION['reasons'] = $reasons;
 
 
-                //Ajout à la table de liaison des utilisateur et leur raisons d'apprentissage si la raison n'existe pas déjà
 
 
 

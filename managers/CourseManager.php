@@ -5,7 +5,8 @@ class CourseManager extends AbstractManager
 {
     public function getCoursesByTheirCat(int $global_category_id, int $language_id): array
     {
-        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']} WHERE courses_{$_SESSION['user_lang']}.global_category_id = :global_category_id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
+        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']} 
+        WHERE courses_{$_SESSION['user_lang']}.global_category_id = :global_category_id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
         $parameters = ['global_category_id' => $global_category_id, 'language_id' => $language_id];
         $selectAllCoursesByCat->execute($parameters);
 
@@ -173,7 +174,10 @@ class CourseManager extends AbstractManager
 
     public function getCourseByUser(int $user_id, int $course_id, int $language_id): array
     {
-        $selectAllCoursesByUser = $this->db->prepare("SELECT users_courses.*, courses_{$_SESSION['user_lang']}.* FROM users_courses JOIN courses_{$_SESSION['user_lang']} ON courses_{$_SESSION['user_lang']}.id = users_courses.course_id  WHERE users_courses.user_id = :user_id AND users_courses.course_id = :course_id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
+        $selectAllCoursesByUser = $this->db->prepare("SELECT users_courses.*, courses_{$_SESSION['user_lang']}.* FROM users_courses 
+        JOIN courses_{$_SESSION['user_lang']} 
+        ON courses_{$_SESSION['user_lang']}.id = users_courses.course_id  
+        WHERE users_courses.user_id = :user_id AND users_courses.course_id = :course_id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
         $parameters = ['user_id' => $user_id, 'course_id' => $course_id, 'language_id' => $language_id];
         $selectAllCoursesByUser->execute($parameters);
 
