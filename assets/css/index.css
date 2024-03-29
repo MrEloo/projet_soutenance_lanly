@@ -413,6 +413,20 @@
         color: #FA8F21;
     }
 
+    #reset {
+        display: block;
+        margin: 0 auto;
+        border-radius: 1em;
+        border: none;
+        padding: 0.5em;
+        font-size: 0.8em;
+        background-color: #131F31;
+        color: #FA8F21;
+    }
+
+    .align {
+        text-align: center;
+    }
 
 
     /*****************************
