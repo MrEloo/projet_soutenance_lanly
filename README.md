@@ -32,7 +32,7 @@ Make sure you have the following installed on your system:
 1. Clone the LANLY repository to your local machine:
 
     ```bash
-    git clone https://github.com/your_username/LANLY.git
+    git clone https://github.com/MrEloo/projet_soutenance_lanly.git
     ```
 
 2. Navigate to the LANLY directory and create a `.env` file by copying `.env.example`:
