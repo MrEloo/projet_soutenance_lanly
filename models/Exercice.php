@@ -3,222 +3,128 @@
 
 class Exercice
 {
-
     private ?int $id = null;
     private Response $response;
     private ?int $result;
 
-    public function __construct(private string $title, private string $difficulty, private string $question, private string $correction_Text, private string $correction, private GlobalCategory $globalCategory, private int $course_id)
-    {
-        $this->title = $title;
-        $this->difficulty = $difficulty;
-        $this->question = $question;
-        $this->correction_Text = $correction_Text;
-        $this->correction = $correction;
-        $this->globalCategory = $globalCategory;
-        $this->course_id = $course_id;
+    public function __construct(
+        private string $title,
+        private string $difficulty,
+        private string $question,
+        private string $correction_Text,
+        private string $correction,
+        private GlobalCategory $globalCategory,
+        private int $course_id
+    ) {
     }
 
-    /**
-     * Get the value of id
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */
-    public function setId($id)
+    public function setId(?int $id): self
     {
         $this->id = $id;
-
         return $this;
     }
 
-    /**
-     * Get the value of difficulty
-     */
-    public function getDifficulty()
+    public function getDifficulty(): string
     {
         return $this->difficulty;
     }
 
-    /**
-     * Set the value of difficulty
-     *
-     * @return  self
-     */
-    public function setDifficulty($difficulty)
+    public function setDifficulty(string $difficulty): self
     {
         $this->difficulty = $difficulty;
-
         return $this;
     }
 
-    /**
-     * Get the value of question
-     */
-    public function getQuestion()
+    public function getQuestion(): string
     {
         return $this->question;
     }
 
-    /**
-     * Set the value of question
-     *
-     * @return  self
-     */
-    public function setQuestion($question)
+    public function setQuestion(string $question): self
     {
         $this->question = $question;
-
         return $this;
     }
 
-    /**
-     * Get the value of correction
-     */
-    public function getCorrection()
+    public function getCorrection(): string
     {
         return $this->correction;
     }
 
-    /**
-     * Set the value of correction
-     *
-     * @return  self
-     */
-    public function setCorrection($correction)
+    public function setCorrection(string $correction): self
     {
         $this->correction = $correction;
-
         return $this;
     }
 
-    /**
-     * Get the value of globalCategory
-     */
-    public function getGlobalCategory()
+    public function getGlobalCategory(): GlobalCategory
     {
         return $this->globalCategory;
     }
 
-    /**
-     * Set the value of globalCategory
-     *
-     * @return  self
-     */
-    public function setGlobalCategory($globalCategory)
+    public function setGlobalCategory(GlobalCategory $globalCategory): self
     {
         $this->globalCategory = $globalCategory;
-
         return $this;
     }
 
-
-    /**
-     * Get the value of title
-     */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * Set the value of title
-     *
-     * @return  self
-     */
-    public function setTitle($title)
+    public function setTitle(string $title): self
     {
         $this->title = $title;
-
         return $this;
     }
 
-
-    /**
-     * Get the value of correction_Text
-     */
-    public function getCorrection_Text()
+    public function getCorrection_Text(): string
     {
         return $this->correction_Text;
     }
 
-    /**
-     * Set the value of correction_Text
-     *
-     * @return  self
-     */
-    public function setCorrection_Text($correction_Text)
+    public function setCorrection_Text(string $correction_Text): self
     {
         $this->correction_Text = $correction_Text;
-
         return $this;
     }
 
-
-    /**
-     * Get the value of course_id
-     */
-    public function getCourse_id()
+    public function getCourse_id(): int
     {
         return $this->course_id;
     }
 
-    /**
-     * Set the value of course_id
-     *
-     * @return  self
-     */
-    public function setCourse_id($course_id)
+    public function setCourse_id(int $course_id): self
     {
         $this->course_id = $course_id;
-
         return $this;
     }
 
-    /**
-     * Get the value of responses
-     */
-    public function getResponse()
+    public function getResponse(): Response
     {
         return $this->response;
     }
 
-    /**
-     * Set the value of responses
-     *
-     * @return  self
-     */
-    public function setResponse($response)
+    public function setResponse(Response $response): self
     {
         $this->response = $response;
-
         return $this;
     }
 
-    /**
-     * Get the value of result
-     */
-    public function getResult()
+    public function getResult(): ?int
     {
         return $this->result;
     }
 
-    /**
-     * Set the value of result
-     *
-     * @return  self
-     */
-    public function setResult($result)
+    public function setResult(?int $result): self
     {
         $this->result = $result;
-
         return $this;
     }
 }

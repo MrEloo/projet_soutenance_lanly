@@ -3,25 +3,29 @@
 
 class LanguageManager extends AbstractManager
 {
-    public function getAllLanguages(): array
+    public function getAllLanguages(): ?array
     {
         $selectAllLanguagesQuery = $this->db->prepare("SELECT * FROM languages_{$_SESSION['user_lang']}");
         $selectAllLanguagesQuery->execute();
         $languages_datas = $selectAllLanguagesQuery->fetchAll(PDO::FETCH_ASSOC);
 
-        $languages_array = [];
+        if ($languages_datas) {
+            $languages_array = [];
 
-        foreach ($languages_datas as $language_data) {
-            $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
-            $language->setId($language_data['id']);
-            $language->setCode($language_data['code']);
-            $languages_array[] = $language;
+            foreach ($languages_datas as $language_data) {
+                $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
+                $language->setId($language_data['id']);
+                $language->setCode($language_data['code']);
+                $languages_array[] = $language;
+            }
+
+            return $languages_array;
+        } else {
+            return null;
         }
-
-        return $languages_array;
     }
 
-    public function getOneLanguageByName(string $name): Language
+    public function getOneLanguageByName(string $name): ?Language
     {
         $selectLanguageByNameQuery = $this->db->prepare("SELECT * from languages_{$_SESSION['user_lang']} WHERE name = :name");
         $parameters = [
@@ -30,10 +34,14 @@ class LanguageManager extends AbstractManager
         $selectLanguageByNameQuery->execute($parameters);
         $language_data =  $selectLanguageByNameQuery->fetch(PDO::FETCH_ASSOC);
 
-        $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
-        $language->setId($language_data['id']);
-        $language->setCode($language_data['code']);
-        return $language;
+        if ($language_data) {
+            $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
+            $language->setId($language_data['id']);
+            $language->setCode($language_data['code']);
+            return $language;
+        } else {
+            return null;
+        }
     }
 
     public function getOneLanguageById(?int $id): ?Language

@@ -3,25 +3,29 @@
 
 class ExampleManager extends AbstractManager
 {
-    public function getExamplesFromCourse(int $course_id, int $language_id): array
+    public function getExamplesFromCourse(int $course_id, int $language_id): ?array
     {
         $selectExamplesFromCourse = $this->db->prepare("SELECT * FROM examples_{$_SESSION['user_lang']} WHERE course_id = :course_id AND language_id = :language_id");
         $parameters = ['course_id' => $course_id, 'language_id' => $language_id];
         $selectExamplesFromCourse->execute($parameters);
         $examples_data = $selectExamplesFromCourse->fetchAll(PDO::FETCH_ASSOC);
 
-        $examples_array = [];
+        if ($examples_data) {
+            $examples_array = [];
 
-        foreach ($examples_data as $key => $example_data) {
-            $example = new Example($example_data['description']);
-            $example->setId($example_data['id']);
-            $examples_array[] = $example;
+            foreach ($examples_data as $key => $example_data) {
+                $example = new Example($example_data['description']);
+                $example->setId($example_data['id']);
+                $examples_array[] = $example;
+            }
+
+            return $examples_array;
+        } else {
+            return null;
         }
-
-        return $examples_array;
     }
 
-    public function getAllExamples(): array
+    public function getAllExamples(): ?array
     {
         $selectExamplesFromCourse = $this->db->prepare("SELECT * FROM examples_{$_SESSION['user_lang']}");
         $selectExamplesFromCourse->execute();
@@ -29,14 +33,18 @@ class ExampleManager extends AbstractManager
 
         $examples_array = [];
 
-        foreach ($examples_data as $key => $example_data) {
-            $example = new Example($example_data['description']);
-            $example->setCourse_id($example_data['course_id']);
-            $example->setId($example_data['id']);
-            $examples_array[] = $example;
-        }
+        if ($examples_data) {
+            foreach ($examples_data as $key => $example_data) {
+                $example = new Example($example_data['description']);
+                $example->setCourse_id($example_data['course_id']);
+                $example->setId($example_data['id']);
+                $examples_array[] = $example;
+            }
 
-        return $examples_array;
+            return $examples_array;
+        } else {
+            return null;
+        }
     }
 
 

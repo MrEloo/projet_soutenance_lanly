@@ -6,90 +6,49 @@ class Response
 
     public function __construct(private string $content, private User $user, private Course $course)
     {
-        $this->content = $content;
-        $this->user = $user;
-        $this->course = $course;
     }
 
-
-
-    /**
-     * Get the value of id
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */
-    public function setId($id)
+    public function setId(?int $id): self
     {
         $this->id = $id;
-
         return $this;
     }
 
-    /**
-     * Get the value of content
-     */
-    public function getContent()
+    public function getContent(): string
     {
         return $this->content;
     }
 
-    /**
-     * Set the value of content
-     *
-     * @return  self
-     */
-    public function setContent($content)
+    public function setContent(string $content): self
     {
         $this->content = $content;
-
         return $this;
     }
 
-    /**
-     * Get the value of user
-     */
-    public function getUser()
+    public function getUser(): User
     {
         return $this->user;
     }
 
-    /**
-     * Set the value of user
-     *
-     * @return  self
-     */
-    public function setUser($user)
+    public function setUser(User $user): self
     {
         $this->user = $user;
-
         return $this;
     }
 
-    /**
-     * Get the value of course
-     */
-    public function getCourse()
+    public function getCourse(): Course
     {
         return $this->course;
     }
 
-    /**
-     * Set the value of course
-     *
-     * @return  self
-     */
-    public function setCourse($course)
+    public function setCourse(Course $course): self
     {
         $this->course = $course;
-
         return $this;
     }
 }

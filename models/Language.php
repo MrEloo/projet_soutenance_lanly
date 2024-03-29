@@ -9,109 +9,60 @@ class Language
 
     public function __construct(private string $name, private string $drapeau)
     {
-        $this->name = $name;
-        $this->drapeau = $drapeau;
     }
 
-    /**
-     * Get the value of id
-     */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */
-    public function setId($id)
+    public function setId(?int $id): self
     {
         $this->id = $id;
-
         return $this;
     }
 
-    /**
-     * Get the value of name
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
-    /**
-     * Get the value of drapeau
-     */
     public function getDrapeau(): string
     {
         return $this->drapeau;
     }
 
-    /**
-     * Set the value of drapeau
-     *
-     * @return  self
-     */
-    public function setDrapeau($drapeau)
+    public function setDrapeau(string $drapeau): self
     {
         $this->drapeau = $drapeau;
-
         return $this;
     }
 
-    /**
-     * Get the value of code
-     */ 
-    public function getCode()
+    public function getCode(): string
     {
         return $this->code;
     }
 
-    /**
-     * Set the value of code
-     *
-     * @return  self
-     */ 
-    public function setCode($code)
+    public function setCode(string $code): self
     {
         $this->code = $code;
-
         return $this;
     }
 
-
-
-    /**
-     * Get the value of hasCourse
-     */ 
-    public function getHasCourse()
+    public function getHasCourse(): bool
     {
         return $this->hasCourse;
     }
 
-    /**
-     * Set the value of hasCourse
-     *
-     * @return  self
-     */ 
-    public function setHasCourse($hasCourse)
+    public function setHasCourse(bool $hasCourse): self
     {
         $this->hasCourse = $hasCourse;
-
         return $this;
     }
 }

@@ -3,14 +3,12 @@
 
 class Course
 {
-
     private ?int $id = null;
-    private array $examples = [];
-    private array $exercices = [];
+    private ?array $examples = [];
+    private ?array $exercices = [];
     private int $locked;
     private bool $finished;
     private int $language_id;
-
 
     public function __construct(private string $title, private string $description, private GlobalCategory $globalCategory)
     {
@@ -19,183 +17,102 @@ class Course
         $this->globalCategory = $globalCategory;
     }
 
-    /**
-     * Get the value of id
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */
-    public function setId($id)
+    public function setId(?int $id): self
     {
         $this->id = $id;
-
         return $this;
     }
 
-    /**
-     * Get the value of title
-     */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * Set the value of title
-     *
-     * @return  self
-     */
-    public function setTitle($title)
+    public function setTitle(string $title): self
     {
         $this->title = $title;
-
         return $this;
     }
 
-    /**
-     * Get the value of description
-     */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * Set the value of description
-     *
-     * @return  self
-     */
-    public function setDescription($description)
+    public function setDescription(string $description): self
     {
         $this->description = $description;
-
         return $this;
     }
 
-    /**
-     * Get the value of examples
-     */
-    public function getExamples()
+    public function getExamples(): ?array
     {
         return $this->examples;
     }
 
-    /**
-     * Set the value of examples
-     *
-     * @return  self
-     */
-    public function setExamples($examples)
+    public function setExamples(?array $examples): self
     {
         $this->examples = $examples;
-
         return $this;
     }
 
-    /**
-     * Get the value of exercices
-     */
-    public function getExercices()
+    public function getExercices(): ?array
     {
         return $this->exercices;
     }
 
-    /**
-     * Set the value of exercices
-     *
-     * @return  self
-     */
-    public function setExercices($exercices)
+    public function setExercices(?array $exercices): self
     {
         $this->exercices = $exercices;
-
         return $this;
     }
 
-    /**
-     * Get the value of globalCategory
-     */
-    public function getGlobalCategory()
+    public function getGlobalCategory(): \GlobalCategory
     {
         return $this->globalCategory;
     }
 
-    /**
-     * Set the value of globalCategory
-     *
-     * @return  self
-     */
-    public function setGlobalCategory($globalCategory)
+    public function setGlobalCategory(\GlobalCategory $globalCategory): self
     {
         $this->globalCategory = $globalCategory;
-
         return $this;
     }
 
-    /**
-     * Get the value of locked
-     */
-    public function getLocked()
+    public function getLocked(): int
     {
         return $this->locked;
     }
 
-    /**
-     * Set the value of locked
-     *
-     * @return  self
-     */
-    public function setLocked($locked)
+    public function setLocked(int $locked): self
     {
         $this->locked = $locked;
-
         return $this;
     }
 
-    /**
-     * Get the value of finished
-     */
-    public function getFinished()
+    public function getFinished(): bool
     {
         return $this->finished;
     }
 
-    /**
-     * Set the value of finished
-     *
-     * @return  self
-     */
-    public function setFinished($finished)
+    public function setFinished(bool $finished): self
     {
         $this->finished = $finished;
-
         return $this;
     }
 
-    /**
-     * Get the value of language_id
-     */
-    public function getLanguage_id()
+    public function getLanguage_id(): int
     {
         return $this->language_id;
     }
 
-    /**
-     * Set the value of language_id
-     *
-     * @return  self
-     */
-    public function setLanguage_id($language_id)
+    public function setLanguage_id(int $language_id): self
     {
         $this->language_id = $language_id;
-
         return $this;
     }
 }

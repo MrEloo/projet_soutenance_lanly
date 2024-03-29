@@ -3,68 +3,80 @@
 
 class ExerciceManager extends AbstractManager
 {
-    public function getAllExercicesByCat($global_category_id, int $language_id): array
+    public function getAllExercicesByCat($global_category_id, int $language_id): ?array
     {
         $selectAllExByCatQuery = $this->db->prepare("SELECT * FROM exercices_{$_SESSION['user_lang']} WHERE exercices_{$_SESSION['user_lang']}.global_category_id = :global_category_id AND language_id = :language_id");
         $parameters = ['global_category_id' => $global_category_id, 'language_id' => $language_id];
         $selectAllExByCatQuery->execute($parameters);
         $exercices_data = $selectAllExByCatQuery->fetchAll(PDO::FETCH_ASSOC);
 
-        $exercices_array = [];
+        if ($exercices_data) {
+            $exercices_array = [];
 
 
-        $gcm = new GlobalCategoryManager();
+            $gcm = new GlobalCategoryManager();
 
 
-        foreach ($exercices_data as $exercice_data) {
-            $global_category = $gcm->getOneCatById($exercice_data['global_category_id']);
-            $exercice = new Exercice($exercice_data['title'], $exercice_data['difficulty'], $exercice_data['question'], $exercice_data['correction_text'], $exercice_data['correction'], $global_category, $exercice_data['course_id']);
-            $exercice->setId($exercice_data['id']);
-            $exercices_array[] = $exercice;
+            foreach ($exercices_data as $exercice_data) {
+                $global_category = $gcm->getOneCatById($exercice_data['global_category_id']);
+                $exercice = new Exercice($exercice_data['title'], $exercice_data['difficulty'], $exercice_data['question'], $exercice_data['correction_text'], $exercice_data['correction'], $global_category, $exercice_data['course_id']);
+                $exercice->setId($exercice_data['id']);
+                $exercices_array[] = $exercice;
+            }
+
+            return $exercices_array;
+        } else {
+            return null;
         }
-
-        return $exercices_array;
     }
 
-    public function getAllExercicesByCourse(int $course_id, int $language_id): array
+    public function getAllExercicesByCourse(int $course_id, int $language_id): ?array
     {
         $selectAllExByCourseQuery = $this->db->prepare("SELECT * FROM exercices_{$_SESSION['user_lang']} WHERE exercices_{$_SESSION['user_lang']}.course_id = :course_id  AND language_id = :language_id");
         $parameters = ['course_id' => $course_id, 'language_id' => $language_id];
         $selectAllExByCourseQuery->execute($parameters);
         $exercices_data = $selectAllExByCourseQuery->fetchAll(PDO::FETCH_ASSOC);
 
-        $exercices_array = [];
-        $gcm = new GlobalCategoryManager();
+        if ($exercices_data) {
+            $exercices_array = [];
+            $gcm = new GlobalCategoryManager();
 
 
-        foreach ($exercices_data as $exercice_data) {
-            $global_category = $gcm->getOneCatById($exercice_data['global_category_id']);
-            $exercice = new Exercice($exercice_data['title'], $exercice_data['difficulty'], $exercice_data['question'], $exercice_data['correction_text'], $exercice_data['correction'], $global_category, $exercice_data['course_id']);
-            $exercice->setId($exercice_data['id']);
-            $exercices_array[] = $exercice;
+            foreach ($exercices_data as $exercice_data) {
+                $global_category = $gcm->getOneCatById($exercice_data['global_category_id']);
+                $exercice = new Exercice($exercice_data['title'], $exercice_data['difficulty'], $exercice_data['question'], $exercice_data['correction_text'], $exercice_data['correction'], $global_category, $exercice_data['course_id']);
+                $exercice->setId($exercice_data['id']);
+                $exercices_array[] = $exercice;
+            }
+
+            return $exercices_array;
+        } else {
+            return null;
         }
-
-        return $exercices_array;
     }
 
-    public function getAllExercices(): array
+    public function getAllExercices(): ?array
     {
         $selectAllExByCourseQuery = $this->db->prepare("SELECT * FROM exercices_{$_SESSION['user_lang']}");
         $selectAllExByCourseQuery->execute();
         $exercices_data = $selectAllExByCourseQuery->fetchAll(PDO::FETCH_ASSOC);
 
-        $exercices_array = [];
-        $gcm = new GlobalCategoryManager();
+        if ($exercices_data) {
+            $exercices_array = [];
+            $gcm = new GlobalCategoryManager();
 
 
 
-        foreach ($exercices_data as $exercice_data) {
-            $global_category = $gcm->getOneCatById($exercice_data['global_category_id']);
-            $exercice = new Exercice($exercice_data['title'], $exercice_data['difficulty'], $exercice_data['question'], $exercice_data['correction_text'], $exercice_data['correction'], $global_category, $exercice_data['course_id']);
-            $exercice->setId($exercice_data['id']);
-            $exercices_array[] = $exercice;
+            foreach ($exercices_data as $exercice_data) {
+                $global_category = $gcm->getOneCatById($exercice_data['global_category_id']);
+                $exercice = new Exercice($exercice_data['title'], $exercice_data['difficulty'], $exercice_data['question'], $exercice_data['correction_text'], $exercice_data['correction'], $global_category, $exercice_data['course_id']);
+                $exercice->setId($exercice_data['id']);
+                $exercices_array[] = $exercice;
+            }
+            return $exercices_array;
+        } else {
+            return null;
         }
-        return $exercices_array;
     }
 
     public function deleteExercice(int $id): void

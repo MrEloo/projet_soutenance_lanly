@@ -11,14 +11,18 @@ class ReasonManager extends AbstractManager
 
         $reasons_datas = $selectUserReasonsQuery->fetchAll(PDO::FETCH_ASSOC);
 
-        $reasons_array = [];
+        if ($reasons_datas) {
+            $reasons_array = [];
 
-        foreach ($reasons_datas as $key => $reason_data) {
-            $reason = new Reason(strtolower($reason_data['name']));
-            $reason->setId($reason_data['id']);
-            $reasons_array[] = $reason;
+            foreach ($reasons_datas as $key => $reason_data) {
+                $reason = new Reason(strtolower($reason_data['name']));
+                $reason->setId($reason_data['id']);
+                $reasons_array[] = $reason;
+            }
+            return $reasons_array;
+        } else {
+            return null;
         }
-        return $reasons_array;
     }
 
     public function getReasonByName(string $name): ?Reason

@@ -29,15 +29,19 @@ class CourseController extends AbstractController
 
             $examples_array = [];
 
+            if ($courses) {
+                //Pour chacun de ses cours, récupération de ses exemples + ajout à l'attribut 
+                foreach ($courses as $course) {
 
-            //Pour chacun de ses cours, récupération de ses exemples + ajout à l'attribut 
-            foreach ($courses as $course) {
-
-                $exercices_array = $exm->getAllExercicesByCourse($course->getId(), $_SESSION['user_language']);
-                $examples_array = $em->getExamplesFromCourse($course->getId(), $_SESSION['user_language']);
-                $course->setExamples($examples_array);
-                $course->setExercices($exercices_array);
+                    $exercices_array = $exm->getAllExercicesByCourse($course->getId(), $_SESSION['user_language']);
+                    $examples_array = $em->getExamplesFromCourse($course->getId(), $_SESSION['user_language']);
+                    $course->setExamples($examples_array);
+                    $course->setExercices($exercices_array);
+                }
             }
+
+
+
             $this->render("courses/course.html.twig", ['courses' => $courses]);
         } else {
             $this->render('page/home.html.twig', []);

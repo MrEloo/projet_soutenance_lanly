@@ -132,16 +132,16 @@ class PageController extends AbstractController
 
             $courses = $cm->getAllCourse($_GET['cat_id'], $_SESSION['user_language']);
 
+            if ($courses) {
+                foreach ($courses as $course) {
 
+                    //On regarde pour cahque cours si l'utilisateur à une ligne dans la table users_courses
+                    $userFinishedCourses = $cm->getCourseByUser($_SESSION['user_id'], $course->getId(), $_SESSION['user_language']);
 
-            foreach ($courses as $course) {
-
-                //On regarde pour cahque cours si l'utilisateur à une ligne dans la table users_courses
-                $userFinishedCourses = $cm->getCourseByUser($_SESSION['user_id'], $course->getId(), $_SESSION['user_language']);
-
-                //Afin d'afficher les cours, on va récupérer dans cette même table, tous les cours d'un utilisateur que l'on stock dans un tableau
-                if (!$userFinishedCourses) {
-                    $cm->addCourseInUsersCourses($_SESSION['user_id'], $course->getId());
+                    //Afin d'afficher les cours, on va récupérer dans cette même table, tous les cours d'un utilisateur que l'on stock dans un tableau
+                    if (!$userFinishedCourses) {
+                        $cm->addCourseInUsersCourses($_SESSION['user_id'], $course->getId());
+                    }
                 }
             }
 

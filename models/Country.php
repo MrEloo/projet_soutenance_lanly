@@ -5,90 +5,54 @@ class Country
 {
     private ?int $id = null;
 
-    public function __construct(private string $name, private int $nb_people, private Language $language)
-    {
-        $this->name = $name;
-        $this->nb_people = $nb_people;
-        $this->language = $language;
+    public function __construct(
+        private string $name,
+        private int $nb_people,
+        private Language $language
+    ) {
     }
 
-    /**
-     * Get the value of id
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */
-    public function setId($id)
+    public function setId(?int $id): self
     {
         $this->id = $id;
-
         return $this;
     }
 
-    /**
-     * Get the value of name
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
-    /**
-     * Get the value of nb_people
-     */
-    public function getNb_people()
+    public function getNb_people(): int
     {
         return $this->nb_people;
     }
 
-    /**
-     * Set the value of nb_people
-     *
-     * @return  self
-     */
-    public function setNb_people($nb_people)
+    public function setNb_people(int $nb_people): self
     {
         $this->nb_people = $nb_people;
-
         return $this;
     }
 
-    /**
-     * Get the value of language
-     */
-    public function getLanguage()
+    public function getLanguage(): Language
     {
         return $this->language;
     }
 
-    /**
-     * Set the value of language
-     *
-     * @return  self
-     */
-    public function setLanguage($language)
+    public function setLanguage(Language $language): self
     {
         $this->language = $language;
-
         return $this;
     }
 }

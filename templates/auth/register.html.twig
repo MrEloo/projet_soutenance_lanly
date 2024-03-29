@@ -63,7 +63,7 @@
 					<div class="flex_form_label">
 						{% for reason in reasons %}
 							<fieldset>
-								<input type="checkbox" id="reason_{{ reason.name }}" name="reasons[]" value="{{ reason.name }}" required>
+								<input type="checkbox" id="reason_{{ reason.name }}" name="reasons[]" value="{{ reason.name }}">
 								<label for="reason_{{ reason.name }}">{{ reason.name }}</label>
 							</fieldset>
 						{% endfor %}

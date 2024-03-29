@@ -3,7 +3,6 @@
 
 class User
 {
-
     private ?int $id = null;
     private string $role = 'USER';
     private string $picture;
@@ -11,213 +10,115 @@ class User
 
     public function __construct(private string $username, private string $email, private string $password, private ?Country $country, private ?Language $language, private string $date)
     {
-
-        $this->username = $username;
-        $this->email = $email;
-        $this->password = $password;
-        $this->country = $country;
-        $this->language = $language;
-        $this->date = $date;
     }
 
-    /**
-     * Get the value of username
-     */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
 
-    /**
-     * Set the value of username
-     *
-     * @return  self
-     */
-    public function setUsername($username)
+    public function setUsername(string $username): self
     {
         $this->username = $username;
-
         return $this;
     }
 
-    /**
-     * Get the value of email
-     */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * Set the value of email
-     *
-     * @return  self
-     */
-    public function setEmail($email)
+    public function setEmail(string $email): self
     {
         $this->email = $email;
-
         return $this;
     }
 
-    /**
-     * Get the value of password
-     */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
 
-    /**
-     * Set the value of password
-     *
-     * @return  self
-     */
-    public function setPassword($password)
+    public function setPassword(string $password): self
     {
         $this->password = $password;
-
         return $this;
     }
 
-    /**
-     * Get the value of country
-     */
-    public function getCountry()
+    public function getCountry(): ?Country
     {
         return $this->country;
     }
 
-    /**
-     * Set the value of country
-     *
-     * @return  self
-     */
-    public function setCountry($country)
+    public function setCountry(?Country $country): self
     {
         $this->country = $country;
-
         return $this;
     }
 
-    /**
-     * Get the value of language
-     */
-    public function getLanguage()
+    public function getLanguage(): ?Language
     {
         return $this->language;
     }
 
-    /**
-     * Set the value of language
-     *
-     * @return  self
-     */
-    public function setLanguage($language)
+    public function setLanguage(?Language $language): self
     {
         $this->language = $language;
-
         return $this;
     }
 
-
-    /**
-     * Get the value of role
-     */
-    public function getRole()
+    public function getRole(): string
     {
         return $this->role;
     }
 
-    /**
-     * Set the value of role
-     *
-     * @return  self
-     */
-    public function setRole($role)
+    public function setRole(string $role): self
     {
         $this->role = $role;
-
         return $this;
     }
 
-    /**
-     * Get the value of date
-     */
-    public function getDate()
+    public function getDate(): string
     {
         return $this->date;
     }
 
-    /**
-     * Set the value of date
-     *
-     * @return  self
-     */
-    public function setDate($date)
+    public function setDate(string $date): self
     {
         $this->date = $date;
-
         return $this;
     }
 
-    /**
-     * Get the value of id
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */
-    public function setId($id)
+    public function setId(?int $id): self
     {
         $this->id = $id;
-
         return $this;
     }
 
-    /**
-     * Get the value of picture
-     */
-    public function getPicture()
+    public function getPicture(): string
     {
         return $this->picture;
     }
 
-    /**
-     * Set the value of picture
-     *
-     * @return  self
-     */
-    public function setPicture($picture)
+    public function setPicture(string $picture): self
     {
         $this->picture = $picture;
-
         return $this;
     }
 
-    /**
-     * Get the value of reasons
-     */
-    public function getReasons()
+    public function getReasons(): array
     {
         return $this->reasons;
     }
 
-    /**
-     * Set the value of reasons
-     *
-     * @return  self
-     */
-    public function setReasons($reasons)
+    public function setReasons(array $reasons): self
     {
         $this->reasons = $reasons;
-
         return $this;
     }
 

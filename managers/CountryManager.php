@@ -3,7 +3,7 @@
 
 class CountryManager extends AbstractManager
 {
-    public function getOneCountryByName(string $name): Country
+    public function getOneCountryByName(string $name): ?Country
     {
         $selectCountryByNameQuery = $this->db->prepare("SELECT * FROM contries_{$_SESSION['user_lang']} WHERE name = :name");
         $parameters = [
@@ -12,12 +12,16 @@ class CountryManager extends AbstractManager
         $selectCountryByNameQuery->execute($parameters);
         $country_data =  $selectCountryByNameQuery->fetch(PDO::FETCH_ASSOC);
 
-        $languageManager = new LanguageManager();
-        $language = $languageManager->getOneLanguageById($country_data['language_id']);
+        if ($country_data) {
+            $languageManager = new LanguageManager();
+            $language = $languageManager->getOneLanguageById($country_data['language_id']);
 
-        $country = new Country($country_data['name'], $country_data['nb_people'], $language);
-        $country->setId($country_data['id']);
-        return $country;
+            $country = new Country($country_data['name'], $country_data['nb_people'], $language);
+            $country->setId($country_data['id']);
+            return $country;
+        } else {
+            return null;
+        }
     }
 
     public function getOneCountryById(?int $id): ?Country

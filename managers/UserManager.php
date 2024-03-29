@@ -5,15 +5,14 @@ class UserManager extends AbstractManager
 {
     public function createUser(User $user): void
     {
-        $insertUserQuery = $this->db->prepare('INSERT INTO users (username, email, password, country_id, picture, language_id, role, date) 
-        VALUES (:username, :email, :password, :country_id, :picture, :language_id, :role, :date)');
+        $insertUserQuery = $this->db->prepare('INSERT INTO users (username, email, password, country_id, language_id, role, date) 
+        VALUES (:username, :email, :password, :country_id, :language_id, :role, :date)');
         $parameters = [
             'username' => $user->getUsername(),
             'email' => $user->getEmail(),
             'password' => $user->getPassword(),
             'country_id' => $user->getCountry()->getId(),
             'language_id' => $user->getLanguage()->getId(),
-            'picture' => 'none',
             'role' => $user->getRole(),
             'date' => $user->getDate(),
         ];
@@ -78,28 +77,32 @@ class UserManager extends AbstractManager
         }
     }
 
-    public function getAllUsers(): array
+    public function getAllUsers(): ?array
     {
         $selectAllUsersQuery = $this->db->prepare('SELECT * FROM users');
         $selectAllUsersQuery->execute();
         $users_data = $selectAllUsersQuery->fetchAll(PDO::FETCH_ASSOC);
 
-        $users_array = [];
+        if ($users_data) {
+            $users_array = [];
 
-        $countryManager = new CountryManager();
-        $languageManager = new LanguageManager();
+            $countryManager = new CountryManager();
+            $languageManager = new LanguageManager();
 
-        foreach ($users_data as $user_data) {
-            $country = $countryManager->getOneCountryById($user_data['country_id']);
-            $language = $languageManager->getOneLanguageById($user_data['language_id']);
-            $user = new User($user_data['username'], $user_data['email'], $user_data['password'], $country, $language, date('Y-m-d'));
-            $user->setPicture($user_data['picture']);
-            $user->setId($user_data['id']);
-            $user->setRole($user_data['role']);
-            $users_array[] = $user;
+            foreach ($users_data as $user_data) {
+                $country = $countryManager->getOneCountryById($user_data['country_id']);
+                $language = $languageManager->getOneLanguageById($user_data['language_id']);
+                $user = new User($user_data['username'], $user_data['email'], $user_data['password'], $country, $language, date('Y-m-d'));
+                $user->setPicture($user_data['picture']);
+                $user->setId($user_data['id']);
+                $user->setRole($user_data['role']);
+                $users_array[] = $user;
+            }
+
+            return $users_array;
+        } else {
+            return null;
         }
-
-        return $users_array;
     }
 
     public function deleteUser(int $id): void

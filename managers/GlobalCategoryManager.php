@@ -3,33 +3,41 @@
 
 class GlobalCategoryManager extends AbstractManager
 {
-    public function getAllGlobalCategory(): array
+    public function getAllGlobalCategory(): ?array
     {
         $selectAllGlobalCategoryQuery = $this->db->prepare("SELECT * FROM global_category_{$_SESSION['user_lang']} ");
         $selectAllGlobalCategoryQuery->execute();
         $global_categories_data = $selectAllGlobalCategoryQuery->fetchAll(PDO::FETCH_ASSOC);
 
-        $global_categories_array = [];
+        if ($global_categories_data) {
 
-        foreach ($global_categories_data as $global_category_data) {
-            $global_category = new GlobalCategory($global_category_data['name']);
-            $global_category->setId($global_category_data['id']);
-            $global_categories_array[] = $global_category;
+            $global_categories_array = [];
+
+            foreach ($global_categories_data as $global_category_data) {
+                $global_category = new GlobalCategory($global_category_data['name']);
+                $global_category->setId($global_category_data['id']);
+                $global_categories_array[] = $global_category;
+            }
+
+            return $global_categories_array;
+        } else {
+            return null;
         }
-
-        return $global_categories_array;
     }
 
-    public function getOneCatById(int $id): GlobalCategory
+    public function getOneCatById(int $id): ?GlobalCategory
     {
         $selectOneCatById = $this->db->prepare("SELECT * FROM global_category_{$_SESSION['user_lang']} WHERE id = :id");
         $parameters = ['id' => $id];
         $selectOneCatById->execute($parameters);
         $category_data = $selectOneCatById->fetch(PDO::FETCH_ASSOC);
 
-
-        $global_category = new GlobalCategory($category_data['name']);
-        $global_category->setId($category_data['id']);
-        return $global_category;
+        if ($category_data) {
+            $global_category = new GlobalCategory($category_data['name']);
+            $global_category->setId($category_data['id']);
+            return $global_category;
+        } else {
+            return null;
+        }
     }
 }

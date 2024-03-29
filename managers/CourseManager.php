@@ -3,7 +3,7 @@
 
 class CourseManager extends AbstractManager
 {
-    public function getCoursesByTheirCat(int $global_category_id, int $language_id): array
+    public function getCoursesByTheirCat(int $global_category_id, int $language_id): ?array
     {
         $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']} 
         WHERE courses_{$_SESSION['user_lang']}.global_category_id = :global_category_id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
@@ -15,19 +15,22 @@ class CourseManager extends AbstractManager
 
         $course_array = [];
 
-
-        foreach ($courses_data as $key => $course_data) {
-            $gc = new GlobalCategoryManager;
-            $global_category = $gc->getOneCatById($course_data['global_category_id']);
-            $course = new Course($course_data['title'], $course_data['description'], $global_category);
-            $course->setId($course_data['id']);
-            // $course->setLocked($course_data['users_courses_locked']);
-            $course_array[] = $course;
+        if ($courses_data) {
+            foreach ($courses_data as $key => $course_data) {
+                $gc = new GlobalCategoryManager;
+                $global_category = $gc->getOneCatById($course_data['global_category_id']);
+                $course = new Course($course_data['title'], $course_data['description'], $global_category);
+                $course->setId($course_data['id']);
+                // $course->setLocked($course_data['users_courses_locked']);
+                $course_array[] = $course;
+            }
+            return $course_array;
+        } else {
+            return null;
         }
-        return $course_array;
     }
 
-    public function getCoursesById(int $id, int $language_id): Course
+    public function getCoursesById(int $id, int $language_id): ?Course
     {
         $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']} WHERE courses_{$_SESSION['user_lang']}.id = :id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
         $parameters = ['id' => $id, 'language_id' => $language_id];
@@ -35,17 +38,20 @@ class CourseManager extends AbstractManager
 
         $course_data = $selectAllCoursesByCat->fetch(PDO::FETCH_ASSOC);
 
+        if ($course_data) {
+            $gc = new GlobalCategoryManager;
+            $global_category = $gc->getOneCatById($course_data['global_category_id']);
 
-        $gc = new GlobalCategoryManager;
-        $global_category = $gc->getOneCatById($course_data['global_category_id']);
+            $course = new Course($course_data['title'], $course_data['description'], $global_category);
+            $course->setId($course_data['id']);
 
-        $course = new Course($course_data['title'], $course_data['description'], $global_category);
-        $course->setId($course_data['id']);
-
-        return $course;
+            return $course;
+        } else {
+            return null;
+        }
     }
 
-    public function getCoursesByLanguageId(int $language_id): array
+    public function getCoursesByLanguageId(int $language_id): ?array
     {
         $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']} WHERE  courses_{$_SESSION['user_lang']}.language_id = :language_id");
         $parameters = ['language_id' => $language_id];
@@ -53,16 +59,20 @@ class CourseManager extends AbstractManager
 
         $courses_data = $selectAllCoursesByCat->fetchAll(PDO::FETCH_ASSOC);
 
-        $course_array = [];
+        if ($courses_data) {
+            $course_array = [];
 
-        foreach ($courses_data as $key => $course_data) {
-            $gc = new GlobalCategoryManager;
-            $global_category = $gc->getOneCatById($course_data['global_category_id']);
-            $course = new Course($course_data['title'], $course_data['description'], $global_category);
-            $course->setId($course_data['id']);
-            $course_array[] = $course;
+            foreach ($courses_data as $key => $course_data) {
+                $gc = new GlobalCategoryManager;
+                $global_category = $gc->getOneCatById($course_data['global_category_id']);
+                $course = new Course($course_data['title'], $course_data['description'], $global_category);
+                $course->setId($course_data['id']);
+                $course_array[] = $course;
+            }
+            return $course_array;
+        } else {
+            return null;
         }
-        return $course_array;
     }
 
 
@@ -132,47 +142,55 @@ class CourseManager extends AbstractManager
         $insertCourse_ru->execute($parameters);
     }
 
-    public function getAllCourse(): array
+    public function getAllCourse(): ?array
     {
         $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']} WHERE language_id = {$_SESSION['user_language']}");
         $selectAllCoursesByCat->execute();
 
         $courses_data = $selectAllCoursesByCat->fetchAll(PDO::FETCH_ASSOC);
 
-        $course_array = [];
+        if ($courses_data) {
+            $course_array = [];
 
 
-        foreach ($courses_data as $key => $course_data) {
-            $gc = new GlobalCategoryManager;
-            $global_category = $gc->getOneCatById($course_data['global_category_id']);
-            $course = new Course($course_data['title'], $course_data['description'], $global_category);
-            $course->setId($course_data['id']);
-            $course_array[] = $course;
+            foreach ($courses_data as $key => $course_data) {
+                $gc = new GlobalCategoryManager;
+                $global_category = $gc->getOneCatById($course_data['global_category_id']);
+                $course = new Course($course_data['title'], $course_data['description'], $global_category);
+                $course->setId($course_data['id']);
+                $course_array[] = $course;
+            }
+            return $course_array;
+        } else {
+            return null;
         }
-        return $course_array;
     }
 
-    public function getAllCourseWithoutLanguageId(): array
+    public function getAllCourseWithoutLanguageId(): ?array
     {
         $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']}");
         $selectAllCoursesByCat->execute();
 
         $courses_data = $selectAllCoursesByCat->fetchAll(PDO::FETCH_ASSOC);
 
-        $course_array = [];
+        if ($courses_data) {
+            $course_array = [];
 
 
-        foreach ($courses_data as $key => $course_data) {
-            $gc = new GlobalCategoryManager;
-            $global_category = $gc->getOneCatById($course_data['global_category_id']);
-            $course = new Course($course_data['title'], $course_data['description'], $global_category);
-            $course->setId($course_data['id']);
-            $course_array[] = $course;
+            foreach ($courses_data as $key => $course_data) {
+                $gc = new GlobalCategoryManager;
+                $global_category = $gc->getOneCatById($course_data['global_category_id']);
+                $course = new Course($course_data['title'], $course_data['description'], $global_category);
+                $course->setId($course_data['id']);
+                $course_array[] = $course;
+            }
+            return $course_array;
+        } else {
+            return null;
         }
-        return $course_array;
     }
 
-    public function getCourseByUser(int $user_id, int $course_id, int $language_id): array
+    public function getCourseByUser(int $user_id, int $course_id, int $language_id): ?array
     {
         $selectAllCoursesByUser = $this->db->prepare("SELECT users_courses.*, courses_{$_SESSION['user_lang']}.* FROM users_courses 
         JOIN courses_{$_SESSION['user_lang']} 
@@ -184,23 +202,26 @@ class CourseManager extends AbstractManager
 
         $courses_data = $selectAllCoursesByUser->fetchAll(PDO::FETCH_ASSOC);
 
+        if ($courses_data) {
+            $course_array = [];
 
-        $course_array = [];
 
-
-        foreach ($courses_data as $key => $course_data) {
-            $gc = new GlobalCategoryManager;
-            $global_category = $gc->getOneCatById($course_data['global_category_id']);
-            $course = new Course($course_data['title'], $course_data['description'], $global_category);
-            $course->setId($course_data['id']);
-            $course->setLocked($course_data['locked']);
-            $course->setFinished($course_data['finished']);
-            $course_array[] = $course;
+            foreach ($courses_data as $key => $course_data) {
+                $gc = new GlobalCategoryManager;
+                $global_category = $gc->getOneCatById($course_data['global_category_id']);
+                $course = new Course($course_data['title'], $course_data['description'], $global_category);
+                $course->setId($course_data['id']);
+                $course->setLocked($course_data['locked']);
+                $course->setFinished($course_data['finished']);
+                $course_array[] = $course;
+            }
+            return $course_array;
+        } else {
+            return null;
         }
-        return $course_array;
     }
 
-    public function getCourseFromUserById(int $user_id, int $course_id): Course
+    public function getCourseFromUserById(int $user_id, int $course_id): ?Course
     {
         $selectAllCoursesByCat = $this->db->prepare("SELECT courses_{$_SESSION['user_lang']}.*, courses_{$_SESSION['user_lang']}.id AS course_id, users_courses.finished AS users_courses_finished, users_courses.locked AS users_courses_locked FROM courses_{$_SESSION['user_lang']} JOIN users_courses ON users_courses.course_id = courses_{$_SESSION['user_lang']}.id WHERE users_courses.user_id = :user_id AND users_courses.course_id = :course_id");
         $parameters = ['user_id' => $user_id, 'course_id' => $course_id];
@@ -208,15 +229,17 @@ class CourseManager extends AbstractManager
 
         $courses_data = $selectAllCoursesByCat->fetch(PDO::FETCH_ASSOC);
 
-
-
-        $gc = new GlobalCategoryManager;
-        $global_category = $gc->getOneCatById($courses_data['global_category_id']);
-        $course = new Course($courses_data['title'], $courses_data['description'], $global_category);
-        $course->setId($courses_data['course_id']);
-        $course->setLocked($courses_data['users_courses_locked']);
-        $course->setFinished($courses_data['users_courses_finished']);
-        return $course;
+        if ($courses_data) {
+            $gc = new GlobalCategoryManager;
+            $global_category = $gc->getOneCatById($courses_data['global_category_id']);
+            $course = new Course($courses_data['title'], $courses_data['description'], $global_category);
+            $course->setId($courses_data['course_id']);
+            $course->setLocked($courses_data['users_courses_locked']);
+            $course->setFinished($courses_data['users_courses_finished']);
+            return $course;
+        } else {
+            return null;
+        }
     }
 
     public function getFinishedCourseByUser(int $user_id, int $course_id): ?array
@@ -227,16 +250,21 @@ class CourseManager extends AbstractManager
 
         $courses_data = $selectFinishedCourseByUser->fetchAll(PDO::FETCH_ASSOC);
 
-        $course_array = [];
+
+        if ($courses_data) {
+            $course_array = [];
 
 
-        foreach ($courses_data as $key => $course_data) {
-            $course_array[] = $course_data;
+            foreach ($courses_data as $key => $course_data) {
+                $course_array[] = $course_data;
+            }
+            return $course_array;
+        } else {
+            return null;
         }
-        return $course_array;
     }
 
-    public function getTotalCoursesByCatAndLang(int $category_id, int $language_id): int
+    public function getTotalCoursesByCatAndLang(int $category_id, int $language_id): ?int
     {
         $selectTotalCoursesByCatAndLangQuery = $this->db->prepare("SELECT COUNT(*) FROM courses_{$_SESSION['user_lang']} WHERE global_category_id = :global_category_id AND language_id = :language_id");
 
@@ -245,10 +273,14 @@ class CourseManager extends AbstractManager
 
         $totalCourses = $selectTotalCoursesByCatAndLangQuery->fetch(PDO::FETCH_COLUMN);
 
-        return $totalCourses;
+        if ($totalCourses) {
+            return $totalCourses;
+        } else {
+            return null;
+        }
     }
 
-    public function getTotalFinishedCoursesByUser(int $category_id, int $user_id, int $language_id): int
+    public function getTotalFinishedCoursesByUser(int $category_id, int $user_id, int $language_id): ?int
     {
         $selectTotalFinishedCoursesByUserQuery = $this->db->prepare("SELECT COUNT(*) FROM users_courses JOIN courses_{$_SESSION['user_lang']} ON courses_{$_SESSION['user_lang']}.id = users_courses.course_id WHERE courses_{$_SESSION['user_lang']}.global_category_id = :global_category_id AND language_id = :language_id AND users_courses.user_id = :user_id AND finished = 1");
 
@@ -257,6 +289,10 @@ class CourseManager extends AbstractManager
 
         $totalCourses = $selectTotalFinishedCoursesByUserQuery->fetch(PDO::FETCH_COLUMN);
 
-        return $totalCourses;
+        if ($totalCourses) {
+            return $totalCourses;
+        } else {
+            return null;
+        }
     }
 }

@@ -31,21 +31,24 @@ class ExerciceController extends AbstractController
 
 
 
-            foreach ($courses as $course) {
+            if ($courses) {
+                foreach ($courses as $course) {
 
-                //Afin d'individualisé chaque utilisateur, on va devoir récupérer les informations de la table users_courses
+                    //Afin d'individualisé chaque utilisateur, on va devoir récupérer les informations de la table users_courses
 
-                $userCourses = $cm->getCourseFromUserById($_SESSION['user_id'], $course->getId());
+                    $userCourses = $cm->getCourseFromUserById($_SESSION['user_id'], $course->getId());
 
-                $userCourse_array[] = $userCourses;
+                    $userCourse_array[] = $userCourses;
+                }
+
+
+                //Pour chacun des cours de la catégorie, on va chercher ses exercices, que l'on ajoute à l'attribut dans le modele course
+                foreach ($userCourse_array as $key => $userCourse) {
+                    $exercices = $em->getAllExercicesByCourse($userCourse->getId(), $_SESSION['user_language']);
+                    $userCourse->setExercices($exercices);
+                }
             }
 
-
-            //Pour chacun des cours de la catégorie, on va chercher ses exercices, que l'on ajoute à l'attribut dans le modele course
-            foreach ($userCourse_array as $key => $userCourse) {
-                $exercices = $em->getAllExercicesByCourse($userCourse->getId(), $_SESSION['user_language']);
-                $userCourse->setExercices($exercices);
-            }
 
 
 
