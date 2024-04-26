@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const input = document.querySelector("#response")
 
 
+    //On sauvegarde toutes les questions dans un tableau
     if (questions_data) {
         questions_data.forEach((question_data, index) => {
             questions.push(question_data);
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
+    //Si la question n'est pas 0, elle sera invisible
     if (questions) {
         questions.forEach((question, index) => {
             if (index !== 0) {
@@ -34,63 +35,73 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const result = [];
 
+    //On ajoute un écouteur d'évènement sur le boutton de soumission du formulaire
     if (sendButton) {
         sendButton.addEventListener('click', (e) => {
 
+            //On empêche le rechargement de la page
             e.preventDefault();
 
+            //A chaque soumission de formulaire, on stock la réponse dans un tableau
             result.push(createResponse())
 
+            //On vide l'input
             input.value = '';
 
+            //On cherche la question qui contient la classe "active"
             const currentQuestion = questions.find(question => question.classList.contains('active'));
 
+            //si oui on trouve une question, on lui enleve la classe "active" et lui ajoute la classe "not active"
             if (currentQuestion) {
 
-
+                //On cherche la position dans le tableau de la "currrent question"
                 const currentIndex = questions.indexOf(currentQuestion);
                 const current = questions[currentIndex];
 
                 current.classList.remove('active');
                 current.classList.add('not_active');
 
+                //On cherche la question suivante
                 const nextQuestion = questions[currentIndex + 1];
                 const nextIndex = questions.indexOf(nextQuestion)
 
-
+                //si on la trouve
                 if (nextQuestion) {
 
+                    //On lui ajoute et supprime les bonnes classes
                     nextQuestion.classList.add('active');
                     nextQuestion.classList.remove('not_active');
 
+                    //Si c'est la derniere question du tableau, on ajoute la classe "last button"
                     if (nextIndex === questions.length - 1) {
                         sendButton.classList.add('lastButton')
                         sendButton.innerHTML = 'finish'
                     }
-                } else {
+                } //sinon 
+                else {
+                    //Si on trouve un élément ayant la classe last button, on va pouvoir préparer le fetch
                     if (sendButton.classList.contains('lastButton')) {
 
+                        //On créer une classe formData
                         const newFormData = new FormData();
 
-
+                        //On lui ajoute toutes les réponses convertit en JSON
                         newFormData.append('response', 'ok');
                         newFormData.append('answers', JSON.stringify(result));
 
 
-
+                        //On prépare les options
                         const options = {
                             method: "POST",
                             body: newFormData,
                         };
 
-
+                        //On fetch les réponses à la bonne url
                         fetch(`index.php?route=checkResponse&course_id=${courseId}`, options)
                             .then(response => response.json())
                             .then(data => {
                                 console.log(data);
                                 window.location.href = `index.php?route=ex_res&course_id=${courseId}&cat_id=${catId}`
-
-
                             })
 
 
@@ -114,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (newSize <= maxFontSize) {
             htmlElement.style.fontSize = newSize / baseFontSize * 100 + "%";
             localStorage.setItem('fontSize', newSize); // Enregistrer la nouvelle taille dans le stockage local
+            console.log(localStorage)
         }
     }
 

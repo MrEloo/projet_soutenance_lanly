@@ -92,7 +92,6 @@ class CourseController extends AbstractController
         }
     }
 
-
     public function updateCourse(): void
     {
         if ($this->checkAdmin()) {

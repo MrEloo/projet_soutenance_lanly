@@ -43,7 +43,7 @@ class ResponseController extends AbstractController
                         //Création de la réponse dans la table
                         $rm->createResponse($responses[$key]->response, $_SESSION['user_id'], $responses[$key]->course_id, $exercice->getId());
                         //Déblocage du cours suivant
-                        $cm->unlockCourse($_SESSION['user_id'], $responses[$key]->course_id + 1);
+                        // $cm->unlockCourse($_SESSION['user_id'], $responses[$key]->course_id + 1);
                         //Signalement que l'exercice est terminé
                         $cm->isFinished($_SESSION['user_id'], $responses[$key]->course_id);
                     }

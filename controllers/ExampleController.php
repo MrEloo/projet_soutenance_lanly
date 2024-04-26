@@ -54,7 +54,6 @@ class ExampleController extends AbstractController
         }
     }
 
-
     //redirection vers le formulaire d'ajout d'un cours
     public function exampleFormAdd(): void
     {

@@ -35,12 +35,9 @@
 					<label for="country" class="form-label">{{ translator.translate("country_label") }}</label>
 					<select id="country" name="country" required>
 						<option value="">{{ translator.translate("select_country_option") }}</option>
-						<option value="france">France</option>
-						<option value="allemagne">Allemagne</option>
-						<option value="italie">Italie</option>
-						<option value="espagne">Espagne</option>
-						<option value="russie">Russie</option>
-						<option value="angleterre">Angleterre</option>
+						{% for countrie in countries %}
+							<option value="{{ countrie.name }}">{{ countrie.name }}</option>
+						{% endfor %}
 					</select>
 				</fieldset>
 				<fieldset>

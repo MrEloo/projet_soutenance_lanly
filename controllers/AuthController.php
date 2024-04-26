@@ -34,10 +34,13 @@ class AuthController extends AbstractController
         //Récupération de tous les langages pour les affichés dans le formulaire d'inscription
         $lm = new LanguageManager();
         $rm = new ReasonManager();
+        $cm = new CountryManager();
 
 
         $reasons = $rm->getAllReasons();
         $languages = $lm->getAllLanguages();
+        $countries = $cm->getAllCountries();
+
 
 
 
@@ -50,7 +53,7 @@ class AuthController extends AbstractController
         $_SESSION['erreur_remplissage'] = '';
 
 
-        $this->render("auth/register.html.twig", ['languages' => $languages, 'reasons' => $reasons]);
+        $this->render("auth/register.html.twig", ['languages' => $languages, 'reasons' => $reasons, 'countries' => $countries]);
     }
 
 
@@ -81,8 +84,10 @@ class AuthController extends AbstractController
                         $_SESSION['role'] = $user->getRole();
                         $_SESSION['user_email'] = $user->getEmail();
                         $_SESSION['user_id'] = $user->getId();
-                        $_SESSION['user_language'] = $user->getLanguage()->getId();
 
+                        //Langue que l'utilisateur souhaite apprendre
+                        $_SESSION['user_language'] = $user->getLanguage()->getId();
+                        //Langue que l'utilisateur parle nativement
                         $_SESSION['user_lang'] = $user->getCountry()->getLanguage()->getCode();
 
 
@@ -218,9 +223,4 @@ class AuthController extends AbstractController
         session_destroy();
         $this->redirect("index.php?route=login");
     }
-
-    // public function switchLang(): void
-    // {
-    //     $_SESSION['user_lang'] = $_SESSION["lang"];
-    // }
 }
