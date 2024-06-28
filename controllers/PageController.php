@@ -75,9 +75,14 @@ class PageController extends AbstractController
             //initialisation des managers
             $gcm = new GlobalCategoryManager();
             $cm = new CourseManager();
+            $languageManager = new LanguageManager();
 
             //recuperation de toutes les catégories
             $global_categories = $gcm->getAllGlobalCategory();
+
+            //recuperation de toutes les langues
+            $languages = $languageManager->getAllLanguages();
+
 
             //Pour chacune de ces catégories, on va chercher le nombre total de cours qu'il a, et le nombre de cours terminé par l'utilisateur sachant que pour finir un cours, il faut avoir répondu à toutes les QUESTIONS de ce cours
             // Ce procesuss permet d'afficher la progression de chaque utilisateur
@@ -93,9 +98,8 @@ class PageController extends AbstractController
             }
 
 
-
             // $int = $cm->getCountOffinishedCourseByUser();
-            $this->render("page/login_home.html.twig", ['categories' => $global_categories]);
+            $this->render("page/login_home.html.twig", ['categories' => $global_categories, 'languages' => $languages]);
         } else {
             $this->render("page/home.html.twig", []);
         }

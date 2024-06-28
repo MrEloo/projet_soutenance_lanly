@@ -4,9 +4,25 @@
 class ReasonManager extends AbstractManager
 {
 
+
+    public function verifyLanguage()
+    {
+        $allowed_languages = ['en', 'fr', 'es', 'ru', 'it', 'de'];
+        $user_lang = $_SESSION['user_lang'];
+
+        if (!in_array($user_lang, $allowed_languages, true)) {
+            throw new InvalidArgumentException('Langue non autorisée');
+        } else {
+            return "reasons_{$user_lang}";
+        }
+    }
+
     public function getAllReasons(): array
     {
-        $selectUserReasonsQuery = $this->db->prepare("SELECT * FROM reasons_{$_SESSION['user_lang']}");
+
+        $table = $this->verifyLanguage();
+
+        $selectUserReasonsQuery = $this->db->prepare("SELECT * FROM $table");
         $selectUserReasonsQuery->execute();
 
         $reasons_datas = $selectUserReasonsQuery->fetchAll(PDO::FETCH_ASSOC);
@@ -27,7 +43,10 @@ class ReasonManager extends AbstractManager
 
     public function getReasonByName(string $name): ?Reason
     {
-        $selectReasonQuery = $this->db->prepare("SELECT * FROM reasons_{$_SESSION['user_lang']} WHERE name =:name");
+
+        $table = $this->verifyLanguage();
+
+        $selectReasonQuery = $this->db->prepare("SELECT * FROM $table WHERE name =:name");
         $parameters = ['name' => $name];
         $selectReasonQuery->execute($parameters);
 

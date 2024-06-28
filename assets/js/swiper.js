@@ -7,10 +7,4 @@ const swiper = new Swiper('.swiper', {
         delay: 2500,
         disableOnInteraction: false,
     },
-
-
-
-
-
-
 });

@@ -3,9 +3,25 @@
 
 class ExerciceManager extends AbstractManager
 {
+
+    public function verifyLanguage()
+    {
+        $allowed_languages = ['en', 'fr', 'es', 'ru', 'it', 'de'];
+        $user_lang = $_SESSION['user_lang'];
+
+        if (!in_array($user_lang, $allowed_languages, true)) {
+            throw new InvalidArgumentException('Langue non autorisée');
+        } else {
+            return "exercices_{$user_lang}";
+        }
+    }
+
     public function getAllExercicesByCat($global_category_id, int $language_id): ?array
     {
-        $selectAllExByCatQuery = $this->db->prepare("SELECT * FROM exercices_{$_SESSION['user_lang']} WHERE exercices_{$_SESSION['user_lang']}.global_category_id = :global_category_id AND language_id = :language_id");
+
+        $table = $this->verifyLanguage();
+
+        $selectAllExByCatQuery = $this->db->prepare("SELECT * FROM $table WHERE $table.global_category_id = :global_category_id AND language_id = :language_id");
         $parameters = ['global_category_id' => $global_category_id, 'language_id' => $language_id];
         $selectAllExByCatQuery->execute($parameters);
         $exercices_data = $selectAllExByCatQuery->fetchAll(PDO::FETCH_ASSOC);
@@ -32,7 +48,10 @@ class ExerciceManager extends AbstractManager
 
     public function getAllExercicesByCourse(int $course_id, int $language_id): ?array
     {
-        $selectAllExByCourseQuery = $this->db->prepare("SELECT * FROM exercices_{$_SESSION['user_lang']} WHERE exercices_{$_SESSION['user_lang']}.course_id = :course_id  AND language_id = :language_id");
+
+        $table = $this->verifyLanguage();
+
+        $selectAllExByCourseQuery = $this->db->prepare("SELECT * FROM $table WHERE $table.course_id = :course_id  AND language_id = :language_id");
         $parameters = ['course_id' => $course_id, 'language_id' => $language_id];
         $selectAllExByCourseQuery->execute($parameters);
         $exercices_data = $selectAllExByCourseQuery->fetchAll(PDO::FETCH_ASSOC);
@@ -57,7 +76,10 @@ class ExerciceManager extends AbstractManager
 
     public function getAllExercices(): ?array
     {
-        $selectAllExByCourseQuery = $this->db->prepare("SELECT * FROM exercices_{$_SESSION['user_lang']}");
+
+        $table = $this->verifyLanguage();
+
+        $selectAllExByCourseQuery = $this->db->prepare("SELECT * FROM $table");
         $selectAllExByCourseQuery->execute();
         $exercices_data = $selectAllExByCourseQuery->fetchAll(PDO::FETCH_ASSOC);
 
@@ -100,9 +122,13 @@ class ExerciceManager extends AbstractManager
 
     public function updateExercice(int $id, string $title, string $difficulty, string $question, string $correction_text, string $correction, int $global_category_id, int $course_id): void
     {
-        $updateExercicQuery = $this->db->prepare("UPDATE exercices_{$_SESSION['user_lang']} SET title = :title, difficulty = :difficulty, question = :question, correction_text = :correction_text, correction = :correction, global_category_id = :global_category_id, course_id = :course_id WHERE id = :id");
+
+        $table = $this->verifyLanguage();
+
+        $updateExercicQuery = $this->db->prepare("UPDATE $table SET title = :title, difficulty = :difficulty, question = :question, correction_text = :correction_text, correction = :correction, global_category_id = :global_category_id, course_id = :course_id WHERE id = :id");
 
         $parameters = [
+            'table' => $_SESSION['user_lang'],
             'id' => $id,
             'title' => $title,
             'difficulty' => $difficulty,

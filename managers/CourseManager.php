@@ -3,10 +3,38 @@
 
 class CourseManager extends AbstractManager
 {
+
+    public function verifyLanguage()
+    {
+        $allowed_languages = ['en', 'fr', 'es', 'ru', 'it', 'de'];
+        $user_lang = $_SESSION['user_lang'];
+
+        if (!in_array($user_lang, $allowed_languages, true)) {
+            throw new InvalidArgumentException('Langue non autorisée');
+        } else {
+            return "courses_{$user_lang}";
+        }
+    }
+
+    public function verifyLanguageId()
+    {
+        $languageId = $_SESSION['user_language'];
+
+        if (!is_numeric($languageId)) {
+            throw new InvalidArgumentException('id non correspondant');
+        } else {
+            return $languageId;
+        }
+    }
+
+
     public function getCoursesByTheirCat(int $global_category_id, int $language_id): ?array
     {
-        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']} 
-        WHERE courses_{$_SESSION['user_lang']}.global_category_id = :global_category_id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
+
+        $table = $this->verifyLanguage();
+
+        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM $table 
+        WHERE $table.global_category_id = :global_category_id AND $table.language_id = :language_id");
         $parameters = ['global_category_id' => $global_category_id, 'language_id' => $language_id];
         $selectAllCoursesByCat->execute($parameters);
 
@@ -32,7 +60,10 @@ class CourseManager extends AbstractManager
 
     public function getCoursesById(int $id, int $language_id): ?Course
     {
-        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']} WHERE courses_{$_SESSION['user_lang']}.id = :id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
+
+        $table = $this->verifyLanguage();
+
+        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM $table WHERE $table.id = :id AND $table.language_id = :language_id");
         $parameters = ['id' => $id, 'language_id' => $language_id];
         $selectAllCoursesByCat->execute($parameters);
 
@@ -53,7 +84,10 @@ class CourseManager extends AbstractManager
 
     public function getCoursesByLanguageId(int $language_id): ?array
     {
-        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']} WHERE  courses_{$_SESSION['user_lang']}.language_id = :language_id");
+
+        $table = $this->verifyLanguage();
+
+        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM $table WHERE  $table.language_id = :language_id");
         $parameters = ['language_id' => $language_id];
         $selectAllCoursesByCat->execute($parameters);
 
@@ -111,7 +145,10 @@ class CourseManager extends AbstractManager
 
     public function updateCourse(int $id, string $title, string $description, int $category, int $language_id): void
     {
-        $updateCourseQuery = $this->db->prepare("UPDATE courses_{$_SESSION['user_lang']} SET title = :title, description = :description, global_category_id = :global_category_id, language_id = :language_id WHERE id = :id");
+
+        $table = $this->verifyLanguage();
+
+        $updateCourseQuery = $this->db->prepare("UPDATE $table SET title = :title, description = :description, global_category_id = :global_category_id, language_id = :language_id WHERE id = :id");
         $parameters = ['id' => $id, 'description' => $description, 'title' => $title, 'global_category_id' => $category, 'language_id' => $language_id];
         $updateCourseQuery->execute($parameters);
     }
@@ -144,7 +181,11 @@ class CourseManager extends AbstractManager
 
     public function getAllCourse(): ?array
     {
-        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']} WHERE language_id = {$_SESSION['user_language']}");
+
+        $table = $this->verifyLanguage();
+        $languageId = $this->verifyLanguageId();
+
+        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM $table WHERE language_id = $languageId");
         $selectAllCoursesByCat->execute();
 
         $courses_data = $selectAllCoursesByCat->fetchAll(PDO::FETCH_ASSOC);
@@ -168,7 +209,10 @@ class CourseManager extends AbstractManager
 
     public function getAllCourseWithoutLanguageId(): ?array
     {
-        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM courses_{$_SESSION['user_lang']}");
+
+        $table = $this->verifyLanguage();
+
+        $selectAllCoursesByCat = $this->db->prepare("SELECT * FROM $table");
         $selectAllCoursesByCat->execute();
 
         $courses_data = $selectAllCoursesByCat->fetchAll(PDO::FETCH_ASSOC);
@@ -192,10 +236,13 @@ class CourseManager extends AbstractManager
 
     public function getCourseByUser(int $user_id, int $course_id, int $language_id): ?array
     {
-        $selectAllCoursesByUser = $this->db->prepare("SELECT users_courses.*, courses_{$_SESSION['user_lang']}.* FROM users_courses 
-        JOIN courses_{$_SESSION['user_lang']} 
-        ON courses_{$_SESSION['user_lang']}.id = users_courses.course_id  
-        WHERE users_courses.user_id = :user_id AND users_courses.course_id = :course_id AND courses_{$_SESSION['user_lang']}.language_id = :language_id");
+
+        $table = $this->verifyLanguage();
+
+        $selectAllCoursesByUser = $this->db->prepare("SELECT users_courses.*, $table.* FROM users_courses 
+        JOIN $table 
+        ON $table.id = users_courses.course_id  
+        WHERE users_courses.user_id = :user_id AND users_courses.course_id = :course_id AND $table.language_id = :language_id");
         $parameters = ['user_id' => $user_id, 'course_id' => $course_id, 'language_id' => $language_id];
         $selectAllCoursesByUser->execute($parameters);
 
@@ -223,7 +270,10 @@ class CourseManager extends AbstractManager
 
     public function getCourseFromUserById(int $user_id, int $course_id): ?Course
     {
-        $selectAllCoursesByCat = $this->db->prepare("SELECT courses_{$_SESSION['user_lang']}.*, courses_{$_SESSION['user_lang']}.id AS course_id, users_courses.finished AS users_courses_finished, users_courses.locked AS users_courses_locked FROM courses_{$_SESSION['user_lang']} JOIN users_courses ON users_courses.course_id = courses_{$_SESSION['user_lang']}.id WHERE users_courses.user_id = :user_id AND users_courses.course_id = :course_id");
+
+        $table = $this->verifyLanguage();
+
+        $selectAllCoursesByCat = $this->db->prepare("SELECT $table.*, $table.id AS course_id, users_courses.finished AS users_courses_finished, users_courses.locked AS users_courses_locked FROM $table JOIN users_courses ON users_courses.course_id = $table.id WHERE users_courses.user_id = :user_id AND users_courses.course_id = :course_id");
         $parameters = ['user_id' => $user_id, 'course_id' => $course_id];
         $selectAllCoursesByCat->execute($parameters);
 
@@ -266,7 +316,10 @@ class CourseManager extends AbstractManager
 
     public function getTotalCoursesByCatAndLang(int $category_id, int $language_id): ?int
     {
-        $selectTotalCoursesByCatAndLangQuery = $this->db->prepare("SELECT COUNT(*) FROM courses_{$_SESSION['user_lang']} WHERE global_category_id = :global_category_id AND language_id = :language_id");
+
+        $table = $this->verifyLanguage();
+
+        $selectTotalCoursesByCatAndLangQuery = $this->db->prepare("SELECT COUNT(*) FROM $table WHERE global_category_id = :global_category_id AND language_id = :language_id");
 
         $parameters = ['global_category_id' => $category_id, 'language_id' => $language_id];
         $selectTotalCoursesByCatAndLangQuery->execute($parameters);
@@ -282,7 +335,10 @@ class CourseManager extends AbstractManager
 
     public function getTotalFinishedCoursesByUser(int $category_id, int $user_id, int $language_id): ?int
     {
-        $selectTotalFinishedCoursesByUserQuery = $this->db->prepare("SELECT COUNT(*) FROM users_courses JOIN courses_{$_SESSION['user_lang']} ON courses_{$_SESSION['user_lang']}.id = users_courses.course_id WHERE courses_{$_SESSION['user_lang']}.global_category_id = :global_category_id AND language_id = :language_id AND users_courses.user_id = :user_id AND finished = 1");
+
+        $table = $this->verifyLanguage();
+
+        $selectTotalFinishedCoursesByUserQuery = $this->db->prepare("SELECT COUNT(*) FROM users_courses JOIN $table ON $table.id = users_courses.course_id WHERE $table.global_category_id = :global_category_id AND language_id = :language_id AND users_courses.user_id = :user_id AND finished = 1");
 
         $parameters = ['global_category_id' => $category_id, 'language_id' => $language_id, 'user_id' => $user_id];
         $selectTotalFinishedCoursesByUserQuery->execute($parameters);

@@ -152,19 +152,27 @@
 						<p id="decrease">-</p>
 						<button id="reset">{{translator.translate("reset_button")}}</button>
 					</article>
+					{% if session.connexion_layout == 'autorise' %}
+						<article class="change_language_mobile">
+							{% for language in languages %}
+								<a href="index.php?route=change_language&lan_id={{ language.id }}"><img src="{{ language.drapeau }}" alt="{{ language.name }}"></a>
+							{% endfor %}
+						</article>
+					{% endif %}
 				</section>
 			</footer>
-		{% endblock %}
 
+
+		{% endblock %}
 		{% block slider %}
 			<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		{% endblock %}
-
 		<script type="module" src="assets/js/index.js"></script>
 		<script type="module" src="assets/js/swiper.js"></script>
 		<script type="module" src="assets/js/main.js"></script>
 		<script type="module" src="assets/js/image_uploader.js"></script>
 		<script type="module" src="assets/js/create_image.js"></script>
 		<script type="module" src="assets/js/reveal.js"></script>
+
 	</body>
 </html>

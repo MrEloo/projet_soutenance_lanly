@@ -152,7 +152,7 @@
     .text_container {
         display: flex;
         flex-direction: column;
-        max-width: 80%;
+        max-width: 100%;
         justify-content: flex-start;
         align-items: center;
         margin: 0 auto;
@@ -277,7 +277,7 @@
         display: flex;
         flex-direction: column;
         text-align: right;
-        max-width: 80%;
+        max-width: 100%;
         margin: 0 auto;
         padding: 2em;
     }
@@ -312,7 +312,6 @@
 
     .last_text_main_mobile {
         background-color: #131F31;
-        padding: 4em;
     }
 
 
@@ -361,7 +360,7 @@
     }
 
     .text_footer_mobile {
-        font-size: 3rem;
+        font-size: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -428,6 +427,18 @@
         text-align: center;
     }
 
+    .change_language_mobile {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .change_language_mobile img {
+        max-width: 50%;
+        border-radius: 10%;
+    }
+
 
     /*****************************
     //REGISTER MOBILE
@@ -481,7 +492,7 @@
 
     .register_mobile form fieldset input {
         font-size: 2.5rem;
-        padding: 1.5em;
+        /*padding: 1.5em;*/
         border: none;
         border-radius: 0.4em;
         background-color: #696E76;
@@ -496,7 +507,7 @@
 
     .register_mobile form fieldset select {
         width: 90%;
-        padding: 1em;
+        padding: 0.5em;
         margin: 1rem;
         text-align: left;
         font-size: 3rem;
@@ -610,7 +621,7 @@
 
     .login_mobile form fieldset input {
         font-size: 3rem;
-        padding: 1em;
+        /*padding: 1em;*/
         border: none;
         border-radius: 0.4em;
         background-color: #696E76;
@@ -899,6 +910,30 @@
         padding: 1em;
         margin: 0;
     }
+
+
+    .course_mobile_link_to_exercice {
+        display: block;
+        padding: 1em;
+        font-size: 2rem;
+        background-color: black;
+        border-radius: 3em;
+        color: #FA8F21 !important;
+        border: none;
+        margin: 1rem auto !important;
+        transition: all 0.71s ease;
+        width: 30%;
+        text-align: center;
+    }
+
+    .course_mobile_link_to_exercice:hover {
+        transform: scale(1.05);
+        background-color: #FA8F21;
+        color: #080E16;
+        transition: all 0.71s ease;
+    }
+
+
 
     /*****************************
     //EXERCICE MOBILE
@@ -2205,6 +2240,10 @@
         font-size: 0.8em;
         background-color: #131F31;
         color: #FA8F21;
+    }
+
+    .change_language_mobile {
+        display: none;
     }
 
     /*****************************

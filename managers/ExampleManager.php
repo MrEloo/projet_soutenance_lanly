@@ -3,9 +3,25 @@
 
 class ExampleManager extends AbstractManager
 {
+
+    public function verifyLanguage()
+    {
+        $allowed_languages = ['en', 'fr', 'es', 'ru', 'it', 'de'];
+        $user_lang = $_SESSION['user_lang'];
+
+        if (!in_array($user_lang, $allowed_languages, true)) {
+            throw new InvalidArgumentException('Langue non autorisée');
+        } else {
+            return "examples_{$user_lang}";
+        }
+    }
+
     public function getExamplesFromCourse(int $course_id, int $language_id): ?array
     {
-        $selectExamplesFromCourse = $this->db->prepare("SELECT * FROM examples_{$_SESSION['user_lang']} WHERE course_id = :course_id AND language_id = :language_id");
+
+        $table = $this->verifyLanguage();
+
+        $selectExamplesFromCourse = $this->db->prepare("SELECT * FROM $table WHERE course_id = :course_id AND language_id = :language_id");
         $parameters = ['course_id' => $course_id, 'language_id' => $language_id];
         $selectExamplesFromCourse->execute($parameters);
         $examples_data = $selectExamplesFromCourse->fetchAll(PDO::FETCH_ASSOC);
@@ -27,7 +43,10 @@ class ExampleManager extends AbstractManager
 
     public function getAllExamples(): ?array
     {
-        $selectExamplesFromCourse = $this->db->prepare("SELECT * FROM examples_{$_SESSION['user_lang']}");
+
+        $table = $this->verifyLanguage();
+
+        $selectExamplesFromCourse = $this->db->prepare("SELECT * FROM $table");
         $selectExamplesFromCourse->execute();
         $examples_data = $selectExamplesFromCourse->fetchAll(PDO::FETCH_ASSOC);
 
@@ -47,10 +66,12 @@ class ExampleManager extends AbstractManager
         }
     }
 
-
     public function updateExample(int $example_id, string $description, int $course_id, int $language_id): void
     {
-        $updateExampleQuery = $this->db->prepare("UPDATE examples_{$_SESSION['user_lang']} SET description = :description, course_id = :course_id, language_id = :language_id WHERE id = :example_id");
+
+        $table = $this->verifyLanguage();
+
+        $updateExampleQuery = $this->db->prepare("UPDATE $table SET description = :description, course_id = :course_id, language_id = :language_id WHERE id = :example_id");
 
         $parameters = [
             'example_id' => $example_id,
@@ -84,6 +105,7 @@ class ExampleManager extends AbstractManager
         $insertExemple_itQuery->execute($parameters);
         $insertExemple_ruQuery->execute($parameters);
     }
+
     public function deleteExample(int $example_id): void
     {
         $deleteExample_deQuery = $this->db->prepare('DELETE FROM examples_de WHERE id = :example_id');

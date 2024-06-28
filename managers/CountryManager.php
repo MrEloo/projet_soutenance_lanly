@@ -3,9 +3,26 @@
 
 class CountryManager extends AbstractManager
 {
+
+    public function verifyLanguage()
+    {
+        $allowed_languages = ['en', 'fr', 'es', 'ru', 'it', 'de'];
+        $user_lang = $_SESSION['user_lang'];
+
+        if (!in_array($user_lang, $allowed_languages, true)) {
+            throw new InvalidArgumentException('Langue non autorisée');
+        } else {
+            return "contries_{$user_lang}";
+        }
+    }
+
     public function getOneCountryByName(string $name): ?Country
     {
-        $selectCountryByNameQuery = $this->db->prepare("SELECT * FROM contries_{$_SESSION['user_lang']} WHERE name = :name");
+
+        $table = $this->verifyLanguage();
+
+
+        $selectCountryByNameQuery = $this->db->prepare("SELECT * FROM $table WHERE name = :name");
         $parameters = [
             'name' => $name
         ];
@@ -26,7 +43,11 @@ class CountryManager extends AbstractManager
 
     public function getOneCountryById(?int $id): ?Country
     {
-        $selectCountryByIdQuery = $this->db->prepare("SELECT * from contries_{$_SESSION['user_lang']} WHERE id = :id");
+
+        $table = $this->verifyLanguage();
+
+
+        $selectCountryByIdQuery = $this->db->prepare("SELECT * from $table WHERE id = :id");
         $parameters = [
             'id' => $id
         ];
@@ -47,7 +68,10 @@ class CountryManager extends AbstractManager
 
     public function getAllCountries(): array
     {
-        $selectAllCountryQuery = $this->db->prepare("SELECT * FROM contries_{$_SESSION['user_lang']}");
+
+        $table = $this->verifyLanguage();
+
+        $selectAllCountryQuery = $this->db->prepare("SELECT * FROM $table");
         $selectAllCountryQuery->execute();
         $country_datas =  $selectAllCountryQuery->fetchAll(PDO::FETCH_ASSOC);
 

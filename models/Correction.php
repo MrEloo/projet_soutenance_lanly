@@ -1,12 +1,13 @@
 <?php
 
-
 class Correction
 {
-
     private ?int $id = null;
+    private string $title;
+    private string $description;
+    private GlobalCategory $globalCategory;
 
-    public function __construct(private string $title, private string $description, private GlobalCategory $globalCategory)
+    public function __construct(string $title, string $description, GlobalCategory $globalCategory)
     {
         $this->title = $title;
         $this->description = $description;
@@ -16,7 +17,7 @@ class Correction
     /**
      * Get the value of id
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -24,19 +25,18 @@ class Correction
     /**
      * Set the value of id
      *
-     * @return  self
+     * @return self
      */
-    public function setId($id)
+    public function setId(?int $id): self
     {
         $this->id = $id;
-
         return $this;
     }
 
     /**
      * Get the value of title
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -44,19 +44,18 @@ class Correction
     /**
      * Set the value of title
      *
-     * @return  self
+     * @return self
      */
-    public function setTitle($title)
+    public function setTitle(string $title): self
     {
         $this->title = $title;
-
         return $this;
     }
 
     /**
      * Get the value of description
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -64,19 +63,18 @@ class Correction
     /**
      * Set the value of description
      *
-     * @return  self
+     * @return self
      */
-    public function setDescription($description)
+    public function setDescription(string $description): self
     {
         $this->description = $description;
-
         return $this;
     }
 
     /**
      * Get the value of globalCategory
      */
-    public function getGlobalCategory()
+    public function getGlobalCategory(): GlobalCategory
     {
         return $this->globalCategory;
     }
@@ -84,12 +82,11 @@ class Correction
     /**
      * Set the value of globalCategory
      *
-     * @return  self
+     * @return self
      */
-    public function setGlobalCategory($globalCategory)
+    public function setGlobalCategory(GlobalCategory $globalCategory): self
     {
         $this->globalCategory = $globalCategory;
-
         return $this;
     }
 }

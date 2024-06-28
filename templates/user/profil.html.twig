@@ -10,10 +10,10 @@
 			<h1 class="reveal-1">{{ translator.translate("my_profile") }}</h1>
 		</section>
 		<section class='profil_mobile'>
-			<h2 class="visually-hidden">form image uploader</h2>
+			{#<h2 class="visually-hidden">form image uploader</h2>
 			<div
 				class="image_uploader">
-				{# Affichage de l'image si elle est présente en base de données #}
+				 Affichage de l'image si elle est présente en base de données 
 				{% if user.picture is not empty %}
 					<img class='profil_image_user' src="{{ user.picture }}" alt="{{ user.username }}">
 					{% if session.picture_size is not empty  %}
@@ -23,13 +23,13 @@
 					{% endif %}
 
 				{% endif %}
-				{# Formulaire d'ajout de photo de profil grâce à la super globale $_FILES['name] #}
+				 Formulaire d'ajout de photo de profil grâce à la super globale $_FILES['name]
 				<form action="index.php?route=addImage" method="POST" enctype="multipart/form-data">
 					<label class="label_image" for="input_file">{{ translator.translate("update_image") }}</label>
 					<input type="file" accept="image/jpeg, image/png, image/jpg" name="input_file" id="input_file">
 					<button id="button_send_image" class="button_send_image" type="submit">{{ translator.translate("save") }}</button>
 				</form>
-			</div>
+			</div>#}
 
 			<p class='profil_global'>{{ translator.translate("name") }}
 				:</p>

@@ -3,9 +3,25 @@
 
 class LanguageManager extends AbstractManager
 {
+
+    public function verifyLanguage()
+    {
+        $allowed_languages = ['en', 'fr', 'es', 'ru', 'it', 'de'];
+        $user_lang = $_SESSION['user_lang'];
+
+        if (!in_array($user_lang, $allowed_languages, true)) {
+            throw new InvalidArgumentException('Langue non autorisée');
+        } else {
+            return "languages_{$user_lang}";
+        }
+    }
+
     public function getAllLanguages(): ?array
     {
-        $selectAllLanguagesQuery = $this->db->prepare("SELECT * FROM languages_{$_SESSION['user_lang']}");
+
+        $table = $this->verifyLanguage();
+
+        $selectAllLanguagesQuery = $this->db->prepare("SELECT * FROM $table");
         $selectAllLanguagesQuery->execute();
         $languages_datas = $selectAllLanguagesQuery->fetchAll(PDO::FETCH_ASSOC);
 
@@ -27,7 +43,10 @@ class LanguageManager extends AbstractManager
 
     public function getOneLanguageByName(string $name): ?Language
     {
-        $selectLanguageByNameQuery = $this->db->prepare("SELECT * from languages_{$_SESSION['user_lang']} WHERE name = :name");
+
+        $table = $this->verifyLanguage();
+
+        $selectLanguageByNameQuery = $this->db->prepare("SELECT * from $table WHERE name = :name");
         $parameters = [
             'name' => $name
         ];
@@ -46,7 +65,10 @@ class LanguageManager extends AbstractManager
 
     public function getOneLanguageById(?int $id): ?Language
     {
-        $selectLanguageByNameQuery = $this->db->prepare("SELECT * from languages_{$_SESSION['user_lang']} WHERE id = :id");
+
+        $table = $this->verifyLanguage();
+
+        $selectLanguageByNameQuery = $this->db->prepare("SELECT * from $table WHERE id = :id");
         $parameters = [
             'id' => $id
         ];

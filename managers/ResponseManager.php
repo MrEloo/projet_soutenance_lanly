@@ -2,6 +2,7 @@
 
 class ResponseManager extends AbstractManager
 {
+
     public function createResponse(string $content, ?int $user_id, int $course_id, int $exercice_id): void
     {
         $createResponseQuery = $this->db->prepare('INSERT INTO responses (content, user_id, course_id, exercice_id) VALUES (:content, :user_id, :course_id, :exercice_id)');

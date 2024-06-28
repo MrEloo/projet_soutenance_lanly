@@ -75,8 +75,6 @@ class AuthController extends AbstractController
                 //Récuperation de l'utilisateur par son EMAIL
                 $user = $userManager->getUserByEmail($email);
 
-
-
                 //Si l'utilisateur est présent et que son mot de passe est le bon, il se verra connecté
                 if ($user) {
 
@@ -90,18 +88,12 @@ class AuthController extends AbstractController
                         //Langue que l'utilisateur parle nativement
                         $_SESSION['user_lang'] = $user->getCountry()->getLanguage()->getCode();
 
-
-
                         $rm = new ReasonManager();
-
-
-
 
                         //Ajout de l'url du drapeau dans la session afin de l'afficher dans le header pour savoir quelle langue l'utilisateur est en train d'apprendre
                         $lm = new LanguageManager();
                         $language = $lm->getOneLanguageById($_SESSION['user_language']);
                         $_SESSION['selected_language'] = $language->getDrapeau();
-
 
                         //Création d'un objet composé du nom de la langue et de son id qui permettrons, dans un menu dropdown, de changer de langue d'apprentissage
                         $languages = $lm->getAllLanguages();
