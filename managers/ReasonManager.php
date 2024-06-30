@@ -5,37 +5,28 @@ class ReasonManager extends AbstractManager
 {
 
 
-    public function verifyLanguage()
+    public function getAllReasons(): ?array
     {
-        $allowed_languages = ['en', 'fr', 'es', 'ru', 'it', 'de'];
-        $user_lang = $_SESSION['user_lang'];
+        if ($this->verifyLanguage('reasons')) {
+            $table = $this->verifyLanguage('reasons');
 
-        if (!in_array($user_lang, $allowed_languages, true)) {
-            throw new InvalidArgumentException('Langue non autorisée');
-        } else {
-            return "reasons_{$user_lang}";
-        }
-    }
+            $selectUserReasonsQuery = $this->db->prepare("SELECT * FROM $table");
+            $selectUserReasonsQuery->execute();
 
-    public function getAllReasons(): array
-    {
+            $reasons_datas = $selectUserReasonsQuery->fetchAll(PDO::FETCH_ASSOC);
 
-        $table = $this->verifyLanguage();
+            if ($reasons_datas) {
+                $reasons_array = [];
 
-        $selectUserReasonsQuery = $this->db->prepare("SELECT * FROM $table");
-        $selectUserReasonsQuery->execute();
-
-        $reasons_datas = $selectUserReasonsQuery->fetchAll(PDO::FETCH_ASSOC);
-
-        if ($reasons_datas) {
-            $reasons_array = [];
-
-            foreach ($reasons_datas as $key => $reason_data) {
-                $reason = new Reason(strtolower($reason_data['name']));
-                $reason->setId($reason_data['id']);
-                $reasons_array[] = $reason;
+                foreach ($reasons_datas as $key => $reason_data) {
+                    $reason = new Reason(strtolower($reason_data['name']));
+                    $reason->setId($reason_data['id']);
+                    $reasons_array[] = $reason;
+                }
+                return $reasons_array;
+            } else {
+                return null;
             }
-            return $reasons_array;
         } else {
             return null;
         }
@@ -44,19 +35,23 @@ class ReasonManager extends AbstractManager
     public function getReasonByName(string $name): ?Reason
     {
 
-        $table = $this->verifyLanguage();
+        if ($this->verifyLanguage('reasons')) {
+            $table = $this->verifyLanguage('reasons');
 
-        $selectReasonQuery = $this->db->prepare("SELECT * FROM $table WHERE name =:name");
-        $parameters = ['name' => $name];
-        $selectReasonQuery->execute($parameters);
+            $selectReasonQuery = $this->db->prepare("SELECT * FROM $table WHERE name =:name");
+            $parameters = ['name' => $name];
+            $selectReasonQuery->execute($parameters);
 
-        $reason_data = $selectReasonQuery->fetch(PDO::FETCH_ASSOC);
+            $reason_data = $selectReasonQuery->fetch(PDO::FETCH_ASSOC);
 
-        if ($reason_data) {
-            $reason = new Reason(strtolower($reason_data['name']));
-            $reason->setId($reason_data['id']);
+            if ($reason_data) {
+                $reason = new Reason(strtolower($reason_data['name']));
+                $reason->setId($reason_data['id']);
 
-            return $reason;
+                return $reason;
+            } else {
+                return null;
+            }
         } else {
             return null;
         }

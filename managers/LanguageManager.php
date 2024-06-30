@@ -4,38 +4,31 @@
 class LanguageManager extends AbstractManager
 {
 
-    public function verifyLanguage()
-    {
-        $allowed_languages = ['en', 'fr', 'es', 'ru', 'it', 'de'];
-        $user_lang = $_SESSION['user_lang'];
-
-        if (!in_array($user_lang, $allowed_languages, true)) {
-            throw new InvalidArgumentException('Langue non autorisée');
-        } else {
-            return "languages_{$user_lang}";
-        }
-    }
 
     public function getAllLanguages(): ?array
     {
 
-        $table = $this->verifyLanguage();
+        if ($this->verifyLanguage('languages')) {
+            $table = $this->verifyLanguage('languages');
 
-        $selectAllLanguagesQuery = $this->db->prepare("SELECT * FROM $table");
-        $selectAllLanguagesQuery->execute();
-        $languages_datas = $selectAllLanguagesQuery->fetchAll(PDO::FETCH_ASSOC);
+            $selectAllLanguagesQuery = $this->db->prepare("SELECT * FROM $table");
+            $selectAllLanguagesQuery->execute();
+            $languages_datas = $selectAllLanguagesQuery->fetchAll(PDO::FETCH_ASSOC);
 
-        if ($languages_datas) {
-            $languages_array = [];
+            if ($languages_datas) {
+                $languages_array = [];
 
-            foreach ($languages_datas as $language_data) {
-                $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
-                $language->setId($language_data['id']);
-                $language->setCode($language_data['code']);
-                $languages_array[] = $language;
+                foreach ($languages_datas as $language_data) {
+                    $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
+                    $language->setId($language_data['id']);
+                    $language->setCode($language_data['code']);
+                    $languages_array[] = $language;
+                }
+
+                return $languages_array;
+            } else {
+                return null;
             }
-
-            return $languages_array;
         } else {
             return null;
         }
@@ -44,20 +37,24 @@ class LanguageManager extends AbstractManager
     public function getOneLanguageByName(string $name): ?Language
     {
 
-        $table = $this->verifyLanguage();
+        if ($this->verifyLanguage('languages')) {
+            $table = $this->verifyLanguage('languages');
 
-        $selectLanguageByNameQuery = $this->db->prepare("SELECT * from $table WHERE name = :name");
-        $parameters = [
-            'name' => $name
-        ];
-        $selectLanguageByNameQuery->execute($parameters);
-        $language_data =  $selectLanguageByNameQuery->fetch(PDO::FETCH_ASSOC);
+            $selectLanguageByNameQuery = $this->db->prepare("SELECT * from $table WHERE name = :name");
+            $parameters = [
+                'name' => $name
+            ];
+            $selectLanguageByNameQuery->execute($parameters);
+            $language_data =  $selectLanguageByNameQuery->fetch(PDO::FETCH_ASSOC);
 
-        if ($language_data) {
-            $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
-            $language->setId($language_data['id']);
-            $language->setCode($language_data['code']);
-            return $language;
+            if ($language_data) {
+                $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
+                $language->setId($language_data['id']);
+                $language->setCode($language_data['code']);
+                return $language;
+            } else {
+                return null;
+            }
         } else {
             return null;
         }
@@ -66,20 +63,24 @@ class LanguageManager extends AbstractManager
     public function getOneLanguageById(?int $id): ?Language
     {
 
-        $table = $this->verifyLanguage();
+        if ($this->verifyLanguage('languages')) {
+            $table = $this->verifyLanguage('languages');
 
-        $selectLanguageByNameQuery = $this->db->prepare("SELECT * from $table WHERE id = :id");
-        $parameters = [
-            'id' => $id
-        ];
-        $selectLanguageByNameQuery->execute($parameters);
-        $language_data =  $selectLanguageByNameQuery->fetch(PDO::FETCH_ASSOC);
+            $selectLanguageByNameQuery = $this->db->prepare("SELECT * from $table WHERE id = :id");
+            $parameters = [
+                'id' => $id
+            ];
+            $selectLanguageByNameQuery->execute($parameters);
+            $language_data =  $selectLanguageByNameQuery->fetch(PDO::FETCH_ASSOC);
 
-        if ($language_data) {
-            $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
-            $language->setId($language_data['id']);
-            $language->setCode($language_data['code']);
-            return $language;
+            if ($language_data) {
+                $language = new Language(strtolower($language_data['name']), $language_data['drapeau']);
+                $language->setId($language_data['id']);
+                $language->setCode($language_data['code']);
+                return $language;
+            } else {
+                return null;
+            }
         } else {
             return null;
         }
